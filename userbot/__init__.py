@@ -151,7 +151,7 @@ COUNTRY = str(os.environ.get("COUNTRY", ""))
 TZ_NUMBER = int(os.environ.get("TZ_NUMBER", 1))
 
 # Sevgili :)
-SEVGILI = int(os.environ.get("SEVGILI", 1687646994)) #K
+SEVGILI = os.environ.get("SEVGILI",None)
 
 # Temiz Karşılama
 CLEAN_WELCOME = sb(os.environ.get("CLEAN_WELCOME", "True"))
