@@ -1,0 +1,697 @@
+{
+    "__SIRIJSON__": true,
+    "LANGUAGE": "English",
+    "LANGCODE": "en",
+    "AUTHOR": "Erdem Bey/ @erdembey1",
+    "STRINGS": {
+        "__plugin": {
+            "REPLY_FOR_PORT": "`Please reply to a file for Plugin-Port.`",
+            "ALREADY_INSTALLED": "`You have already downloaded this plugin! I'm canceling the download!`",
+            "DOWNLOADING": "`Downloading file ...`",
+            "UNIBORG": "`1. Type UniBorg detected ...`",
+            "TOO_MANY_PLUGIN": "`There is more than one plugin in this file, I cannot port it!`",
+            "UPLOADING": "`Port successful file upload...`",
+            "UNIBORG2": "`Type 2 UniBorg detected.`",
+            "UNIBORG3": "`Type 3 UniBorg detected.`",
+            "UNIBORG_NOT_FOUND": "`UniBorg plugin not detected.`",
+            "PLIST_CHECKING": "`Plugins are fetching ...`",
+            "PLIST": "**Here are Plugins Installed:**",
+            "TEMP_PLUGIN": "`Your plugins are not loaded permanently, so I can't bring a list.`",
+            "REPLY_TO_FILE": "`Respond to the module file to be loaded.`",
+            "NOT_FOUND_PLUGIN_CHANNEL": "`You haven't set an Id for the plugins to be permanent. Your plugins can be deleted upon restart!`",
+            "PLUGIN_BUGGED": "`✖️Upload failed! Plugin is wrong..\n\nError: `",
+            "PLUGIN_DESC": "This plugin has been installed externally for your bot. Use:",
+            "PLUGIN_DOWNLOADED": "`✔️ The module has been loaded successfully! You can start using it with %s.`",
+            "PLUGIN_WITHOUT_DESC": "This plugin has been installed externally. Usage: #COMMAND NOT FOUND#",
+            "PLUGIN_DESCLESS": "`✔️ The module has been loaded successfully! But I couldn't find the command, sorry.`",
+            "PLUG_DESC": "This plugin has been installed externally. Use: .",
+            "PLUG_MESSAGE": "`The module has been loaded successfully! You can start using it with. %s.`",
+            "PREMOVE_GIVE_NAME": "`Please specify a plugin next to the command.`",
+            "PREMOVE_DELETING": "`Deleting Plugin...`",
+            "ALREADY_DELETED": "`Plugin file has already been deleted.`",
+            "NOT_FOUND_PLUGIN": "`Maybe such a plugin existed, maybe not. But it sure isn't right now.`",
+            "PLUG_DELETED": "`Plugin successfully deleted! Siri rebooting.`",
+            "SIRI_PLUGIN_CAPTION": "This is a [Siri](https://t.me/SiriUserBot) plugin."
+        },
+        
+        "__siri": {
+            "NEED_PLUGIN": "Please provide a Siri module name.",
+            "NEED_MODULE": "Please specify which Siri module you want help for !!\nUsage: .siri <module name>"
+        },
+
+        "__helpme": {
+            "NO_BOT": "`Bot does not work! Please set the Bot Token and Username correctly. The module has been stopped.`"
+        },
+
+        "admin": {
+            "PP_TOO_SMOL": "```This picture is too small, use a larger picture.```",
+            "PP_ERROR": "```An error occurred while processing the image.```",
+            "NO_ADMIN": "`I am not a manager!`",
+            "NO_PERM": "`I don't have enough permissions!`",
+            "NO_SQL": "`Running in non-SQL mode`",
+            "CHAT_PP_CHANGED": "`The group image has been changed`",
+            "CHAT_PP_ERROR": "`There were some problems updating the picture. \n Maybe I am not an administrator or do not have sufficient rights.`",
+            "INVALID_MEDIA": "```The media is not valid.```",
+            "PRIVATE": "`This command cannot be used in private message!`",
+            "EKLE": "`Successfully added`",
+            "BRAIN": "`Error! I cannot do this to Siri Authority.`",
+            "BANNING": "`User banned...`",
+            "ALREADY_GBANNED": "`Error! User is already banned globally.`",
+            "GBANNED_REASON": "`The user has been banned globally!`\n**Reason:**",
+            "GBANNED": "`The user has been banned globally!`",
+            "GBAN_TEXT": "```You are a bad person! I will not keep you here any longer. You are banned!```",
+            "UNGBANNING": "```Global ban lifted...```",
+            "NO_BANNED": "`Error! Probably no user ban.`",
+            "UNGBANNED": "```Global ban on user removed```",
+            "PROMOTING": "`Authorizing...`",
+            "SUCCESS_PROMOTE": "`Successfully authorized!`",
+            "UNPROMOTING": "`Denied authority...`",
+            "UNPROMOTE": "`Authorization successfully dropped!`",
+            "NO_PERM_BUT_BANNED": "`I am not authorized to delete messages! But still the user is banned!`",
+            "REASON": "Reason",
+            "UNBANNING": "`The ban is lifted...`",
+            "UNBANNED": "📣 {username} ```Ban for successfully lifted```",
+            "EXCUSE_ME_WTF": "`I guess this person doesn't fit with my ban logic`",
+            "NO_MUTE_ME": "`I'm sorry but I can't mute myself...\n(ヘ･_･)ヘ┳━┳`",
+            "MUTING": "`Being muted...`",
+            "ALREADY_MUTED": "`Error! The user has already been muted.`",
+            "WTF_MUTE": "`I guess this person doesn't fit with my mute logic`",
+            "UNMUTING": "```Unmute...```",
+            "ALREADY_UNMUTED": "`Error! User has already been muted.`",
+            "UNMUTED": "📣 {username} `can talk again!`",
+            "GUNMUTING": "```Global muting removed...```",
+            "NO_GMUTE": "`Error! Probably no user restrictions.`",
+            "GMUTING": "`Globally silenced...`",
+            "ALREADY_GMUTED": "`Error! The user has already been muted globally.`",
+            "GMUTED": "📣 `User muted globally!`",
+            "GGMUTED": "📣 {mention} `globally silenced!`",
+            "NO_ZOMBIE": "`Deleted account not found, group is clean!`",
+            "ZOMBIE": "`Searching for ghost/deleted/zombie accounts...`",
+            "ZOMBIES": "`Found `**{}**' ghost/deleted/zombie accounts in this group, use the command `**.zombies clean**' to clean.`",
+            "CLEANING": "`Deleted accounts are removed...`",
+            "NO_BAN_YT": "`I have no ban in this group!`",
+            "DELETED": "one deleted account has been removed from the group",
+            "ADMINS": "group of directors",
+            "NEED_MSG": "`Reply to any message to fix it!`",
+            "PINNED": "`Fixed successfully!`",
+            "NOT_FOUND": "`User not found.`",
+            "KICKING": "`Removing...`",
+            "KICKED": "kicked out of the group!",
+            "UNWARNING": "`Warning being removed...`",
+            "UNWARNED": "`This person has never been warned anyway!`",
+            "UNWARN": "Your warning has been removed, but still be careful! New situation:",
+            "WARNING": "`Warning is thrown...`",Your warning has been removed, but still be careful! New situation",
+            "WARN": "times have been warned, be careful please!"
+        },
+
+        "afk": {
+            "REASON": "Reason",
+            "AFK": "I have now AFK.",
+            "IM_AFK": "I'm AFK now.",
+            "IM_NOT_AFK": "I'm no longer AFK."
+        },
+
+        "auto": {
+            "INVALID_TYPE": "Unknown species. Existing species: `isim`, `bio`",
+            "ALREADY": "`It looks like %s is already changing automatically.`",
+            "SETTING": "`%s adjusting...`",
+            "BIO": "📆 History: {tarih} | ⏰ Hour: {saat} | ",
+            "NICK": "@SiriUserBot",
+            "SETTED": "`%s has been set :)`",
+            "NAME": "⌚%s"
+        },
+
+        "autopp": {
+            "VIDEO_ALREADY_CHANGING": "`It looks like your profile video is already changing automatically.`",
+            "NEED_VIDEO": "`Please reply to a video!`",
+            "SETTING_VIDEO": "`Setting up your profile video...`",
+            "INVALID_VIDEO": "`I cannot upload your given video as a profile video!`\n\n**Hint: **`Make a profile video from your Telegram app, then download it and give it to me, the autovideo plug-in will work fine.!`",
+            "STARTED_VIDEO": "`Profile video started to change :)!`",
+            "PHOTO_ALREADY_CHANGING": "`It looks like your profile photo is already changing automatically.`",
+            "SETTING": "`Your profile picture is set...`",
+            "SETTED": "`Your profile picture is set :)`"
+        },
+
+
+        "botfather": {
+            "ERROR": "`⛔ Please Provide Missing Information for Sirin to Create a Bot!`"
+        },
+
+        "combot": {
+            "ERR": "`👨🏻‍🔧 Actual Error:`",
+            "ANALIZ": "`🔄 The group is being analyzed...`",
+            "INVALID": "`⛔ Invalid Channel/Group!`",
+            "ERROR_BAN": "`⛔ This is a secret group or I got banned from here!`",
+            "NOT_FOUND": "`⛔ There is no such super group or channel!`",
+            "IST": "`📊 Group Statistics:`",
+            "GOR": "`📈 Display messages`",
+            "GOND": "`📉 Messages sent`"
+        },
+
+
+        "blacklist": {
+            "FORBIDDEN_KUFUR": "**I am not authorized to delete messages in this group. Profanity filter disabled.**",
+            "HAVENT_PERMISSION": "I do not have permission to delete messages!",
+            "USAGE_KUFUR": "`Usage: .küfür on / off`",
+            "OPENED_KUFUR": "`Profanity filter turned on for this group!`",
+            "CLOSED_KUFUR": "`Profanity filter turned off for this group!`",
+            "ALREADY_CLOSED_KUFUR": "`The profanity filter is already turned off for this group!`",
+            "ADDED": "Each word has been blacklisted for this conversation.",
+            "BLACKLIST": "The blacklist set for this group:",
+            "NOT_FOUND": "**No words were found in the blacklist....** `.addblacklist` **You can add with the command.**",
+            "BLACKLIST_FILE": "The blacklist set for this group:",
+            "REMOVED": "**The word black has been removed from the list.**"
+        },
+
+        "cevir": {
+            "INVALID_COMMAND": "**Unknown command!** `Usage: .çevir foto/ses/gif`",
+            "NEED_REPLY": "Please respond to a Sticker.",
+            "CONVERTING_TO_PHOTO": "Converting to photo...",
+            "NEED_EFECT": "`Please specify an effect. Effects you can use: ``çocuk/robot/earrape/hızlı/parazit/yankı`",
+            "NEED_SOUND": "Lütfen bir Ses'e yanıt verin`.`",
+            "EFECTING": "`The effect is applied...`",
+            "NOT_FOUND_EFECT": "**The effect you specified was not found! **`Effects you can use: ``çocuk/robot/earrape/hızlı/parazit/yankı`",
+            "NEED_VIDEO": "`Please reply to a video!`",
+            "WITH_SIRI":"`Effect applied with` @SiriUserBot .",
+            "WITH_SIRI_GIF": "@SiriUserBot `converted to Gif.`",
+            "CONVERTING_TO_GIF": "Converting to Gif...",
+            "UPLOADING_GIF": "`Gif yükleniyor...`",
+            "ERROR": "Couldn't convert to gif :/"
+        },
+
+        "chat": {
+            "USERNAME": "User name:",
+            "ID": "User ID:",
+            "GROUP": "Group ID:",
+            "NEED_LOG": "`Logging must be turned on for this feature to be enabled!`",
+            "UNMUTED": "`Chat unmuted`",
+            "MUTED": "`Chat is muted!`"
+        },
+
+        "degistir": {
+            "SETTED_MEDIA": "Your Chinese media is set.",
+            "SETTED_REPLY": "Your message has been set for.",
+            "SUCCESS_DELETED": "`Plugin message has been deleted successfully.`",
+            "ERROR_DELETED": "Plugin mesajı silinemedi.** Error",
+            "NOT_FOUND": "**Unknown plugin.** Plugins you can delete your message",
+            "USAGE": "** Değiştir, Replace allows you to change plugin-messages in the bot.**\nExample Usage: `.değiştir afk \"I'm not here right now... Maybe I'll never come\"`\nPlugin-delete message: `.değiştir afk`\nPlugin-messages you can change (currently): `afk/alive/pm/kickme/dızcı/ban/mute/approve/disapprove/block`",
+            "CANNOT_EMPTY": "Plugin message cannot be blank.",
+            "SETTED": "Plugin(`{plu}`) your message for(`{msj}`) has been set."
+        },
+
+        "covid19": {
+            "SOME_ERRORS": "`Something went wrong.`",
+            "DATA": "Coronavirus Data",
+            "EARTH":"World wide",
+            "CASE": "🌎 Case:",
+            "DEATH": "🌎 Death:",
+            "HEAL": "🌎 Healing:",
+            "TR": "Türkiye",
+            "TR_ALL_CASES": "Case (total):",
+            "TR_CASES": "Case (today):",
+            "TR_CASE": "Case (active):",
+            "TR_ALL_DEATHS": "Death (total):",
+            "TR_DEATHS": "Death (today):",
+            "TR_HEAL": "Healing:"
+        },
+
+        "deepfry":{
+            "CANT_DEEPFRY":"`I can't deepfry this!`",
+            "REPLY_PHOTO":"`Answer a picture or sticker for me to deepfry!`",
+            "MEDIA_DOWNLOADING":"`Media downloading...`",
+	    "APPLYING_DEEPFRY":"`Deepfry is applied to the media...`"
+        },
+
+        "dogbin": {
+            "ELON_SAYS": "`Elon Musk said I can't glue the blank.`",
+            "PASTING": "Text pasting...",
+            "PASTED": "Successfully affixed!",
+            "URL": "Abbreviated URL:",
+            "ORG_URL": "Original (not abbreviated) URL",
+            "DOGBIN_URL": "Dogbin URL",
+            "URL_BUT_ENG": "Pasted successfully!",
+            "DOGBIN_NOT_RESPOND": "Dogbine could not be reached",
+            "BOTLOG_SENDING": "Dogbine text paste has been executed successfully",
+            "DATA_CHECKING": "`Getting Dogbin content...`",
+            "UNSUPPORTED_URL": "`Is this a dog's address?`",
+            "HTTP_ERROR": "The request returned a failed status code.",
+            "TIMEOUT": "The request timed out.",
+            "TOO_MANY_REDIRECTS": "Request exceeded the maximum configured redirects.",
+            "DOGBIN_DATA": "`Dogbin URL content fetched successfully!`\n\n`İçerik:`",
+            "DOGBIN_ENDED": "Dogbin content import executed successfully."
+        },
+
+        "durum": {
+            "VERSION": "Version",
+            "PLUGIN_COUNT": "Number of Plugins",
+            "PERMAMENT": "Permanent",
+            "PLUGINS": "Plugins",
+            "OK": "Everything is normal"
+        },
+
+        "evaluators": {
+            "FORBIDDEN_IN_CHANNEL": "`This command is not allowed on channels`",
+            "NEED_CODE": "`Give a statement to evaluate.`",
+            "WARNING": "`This is a dangerous operation! Not approved!`",
+            "BIG_FILE": "`The output is too large, sending as a file`",
+            "QUERY": "Query",
+            "RESULT": "Result",
+            "EMPTY_RESULT": "Sonuç döndürülemedi / Yanlış",
+            "ERROR": "İstisna"
+        },
+
+        "ezanvakti": {
+            "NEED_CITY": "Please specify a city next to the command.",
+            "NOT_FOUND": "No information found for.",
+            "DIYANET": "Religious Prayer Times",
+            "LOCATION": "Location",
+            "IMSAK": "Imsak",
+            "GUNES": "Sun",
+            "OGLE": "Noon",
+            "IKINDI": "Late afternoon",
+            "AKSAM": "Evening",
+            "YATSI": "Night"
+        },
+
+        "filter": {
+            "GENEL_USAGE": "`Kullanım: ``.genelfilter \"selamın aleyküm\" as` ya da `.genelfilter sa as`",
+            "GENEL_FILTER": "filter",
+            "ADDED": "added",
+            "UPDATED": "updated",
+            "FILTER_USAGE": "`Kullanım: ``.filter \"selamın aleyküm\" as` ya da `.filter sa as`",
+            "NOT_FOUND": "filter is not available.",
+            "DELETED": "filter was deleted successfully",
+            "GENELFILTERS": "`There are no general filters.`",
+            "GENEL_FILTERS": "General filters:",
+            "FILTERS": "`There are no filters in this chat.`",
+            "_FILTERS": "Filters in chat:",
+            "NEED_BOTLOG": "`The BOTLOG_CHATID value must be set before a media can be saved in response to the filter..`"
+        },
+
+        "galeri": {
+            "ADDED_LIST": "`The photo has been queued.`",
+            "INVALID_URL": "`You entered an invalid image URL. If you have no idea how to use it, ` `.siri galeri` `write.`",
+            "EXAMPLE": "`Please enter an image address. For example: ` `.galeri ekle https://i.resimyukle.xyz/7Qbbc9.jpeg`",
+            "LIST": "Photos You Have Queued",
+            "REMOVED": "**The next photo has been successfully removed**",
+            "REMOVE_ERROR": "**Next photo could not be removed** Error",
+            "NEED_NUMBER": "Please indicate the order of the picture. Sample:",
+            "WORKING": "`The gallery is currently running.`",
+            "STARTED": "`The gallery has started.`",
+            "NEED_PHOTO": "You need to add photos for gallery work. If you don't know how to add, you can learn about usage with .siri galeri.",
+            "STOPPED": "`Gallery stopped!`",
+            "ALREADY_STOP": "`Gallery is not working already.`",
+            "INVALID": "**Unknown command** Use:\n\nGaleri'ye fotoğraf ekleme: `.galeri ekle https://i.resimyukle.xyz/7Qbbc9.jpeg`\nGaleri listesini görme: `.galeri liste`\nSıradan bir fotoğrafı silme: `.galeri sil <sıra sayısı>`"
+        },
+
+         "github": {
+            "INFO": "'s github info",
+            "NAME": "Name",
+            "COMPANY": "Company",
+            "CREATED": "Account Creation Date",
+            "REPOS": "Repos:",
+            "NOT_FOUND": " not found`"
+        },
+
+        "kyolla": {
+            "REPLY_MESSAGE": "`Please respond to a message.`",
+            "SUCCESSFUL": "`Siri Sent Message to Recorded Messages Section!`"
+        },
+
+        "lastfm": {
+           "BIO_ENABLED": "```last.fm'de oynatılan müziği biyografiye ekleme aktif.```",
+           "BIO_DISABLED": "```last.fm'de oynatılan müziği biyografiye ekleme devre dışı. Biyografi varsayılana çevrildi.```",
+           "BIO_RUNNING": "```last.fm'de oynatılan müziği biyografiye ekleme halihazırda aktif.```",
+           "BIO_ERR": "```Bir seçenek belirtilmedi.```",
+           "LOG_ENABLED": "```last.fm bot logları şu an aktif.```",
+           "LOG_DISABLED": "```last.fm bot logları devre dışı bırakıldı.```",
+           "LOG_ERR": "```Bir seçenek belirtilmedi.```",
+           "ERROR_MSG": "```last.fm modulü beklenmedik bir hatadan dolayı durduruldu.```"
+        },
+
+        "liste": {
+            "WRONG_INPUT": "**Bilinmeyen komut!** `Kullanım: .liste gmute/gban`",
+            "NEED_SQL_MODE": "`Sql dışı mod'ta bu özellik çalışmaz!`",
+            "GBANNED_USERS": "`Küresel olarak yasaklanan kullanıcılar getiriliyor...`",
+            "TOO_MANY_GBANNED": "`Wow! Baya bir kişi yasaklamışsınız. Dosya olarak gönderiyorum...`",
+            "GBAN_TXT": "**Küresel olarak yasakladığınız kullanıcılar**\n\n**İpucu:** Yasakladığınız kullanıcılar hakkında daha fazla bilgi almak için `.whois id` kullanabilirsiniz.",
+            "GBAN_LIST": "**Küresel olarak yasakladığınız kullanıcılar:**\n%s\n\n**İpucu:** Yasakladığınız kullanıcılar hakkında daha fazla bilgi almak için `.whois id` kullanabilirsiniz.",
+            "GMUTE_DATA": "`Küresel olarak susturulan kullanıcılar getiriliyor...`",
+            "GMUTE_LIST_MESSAGE": "**ID: **`%s`\n",
+            "TOO_MANY_GMUTED": "`Wow! Baya bir kişi susturmuşsunuz. Dosya olarak gönderiyorum...`",
+            "GMUTE_LIST": "**Küresel olarak susturduğunuz kullanıcılar:**\n%s\n\n**İpucu:** Susturduğunuz kullanıcılar hakkında daha fazla bilgi almak için `.whois id` kullanabilirsiniz.",
+            "GMUTE_TXT": "**Küresel olarak susturduğunuz kullanıcılar**\n\n**İpucu:** Susturduğunuz kullanıcılar hakkında daha fazla bilgi almak için `.whois id` kullanabilirsiniz."
+        },
+
+        "lyrics": {
+            "WRONG_TYPE": "`Hata: lütfen <sanatçı> ve <şarkı> için bölücü olarak '-' kullanın`\nÖrnek: `Duman - Haberin Yok Ölüyorum`",
+            "GENIUS_NOT_FOUND": "`Lütfen Genius tokeni ayarlayınız`",
+            "GIVE_INFO": "`Lütfen sanatçı ve şarkı ismini veriniz`",
+            "SEARCHING": "`{} - {} için şarkı sözleri aranıyor...`",
+            "NOT_FOUND": "Şarkı **{} - {}** bulunamadı!",
+            "TOO_LONG": "`Şarkı sözleri çok uzun, görmek için dosyayı görüntüleyin.`",
+            "LYRICS": "**Arama sorgusu**:",
+            "SINGER_ERROR": "`Hata: lütfen <sanatçı> ve <şarkı> için bölücü olarak '-' kullanın`\nÖrnek: `Duman - Haberin Yok Ölüyorum`",
+            "SINGER_LYRICS": "🎙 Kulaklarınız pasını sileceğim! {}'dan {} geliyor!",
+            "SINGER_ENDED": "🎙Çok güzel söyledim, değil mi?"
+        },
+
+        "locks":{
+		    "EVERYTHING_LOCK": "`I can't lock the nothing my friend!`",
+			"INVALID_MEDIA_TYPE": "`Invalid media type:: %s`",
+			"LOCK": "`%s locked for this chat `",
+			"INVALID_AUTHORITY": "`Are you sure you have the rights to do this?`\n**Error:**",
+			"EVERYTHING_UNLOCK": "`I can't unlock the void!`",
+			"UNLOCK": "`%s unlocked for this chat`"
+        },
+
+        "misc": {
+            "REPLY_TO_FILE": "`Respond to a file.`",
+            "QUERY": "Query",
+            "RESULT": "Output",
+            "NEED_MUCH_DATA_FOR_RANDOM": "`2 or more items required. Enter the command .siri random for more information.`",
+            "SLEEP_DESC": "Usage: `.sleep [second]`",
+            "SLEEPING": "`I'm sleeping with snoring...`",
+            "GOODMORNIN_YALL": "`Good Morning!`",
+            "GOODBYE_MFRS": "`See you... *Windows XP closing sound *`",
+            "RESTARTING": "`Bot restarting...`",
+            "SUPPORT_GROUP": "[From here](http://t.me/SiriSupport) You can reach our support group.",
+            "CREATOR": "developed by \n @erdembey1 , @ixelizm and @bberc. \n",
+            "README": "[Siri README.md](https://github.com/ErdemBey1/SiriUserBot/blob/master/README.md)",
+            "REPO": "[Siri Repo](https://github.com/ErdemBey1/siriuserbot)",
+            "CHECK_LOGS": "`Check userbot logs for message solved!`"
+        },
+
+        "notes": {
+            "NOT_FOUND": "`No notes found in this chat`",
+            "NOTES": "Notes recorded in this chat",
+            "CLEAR_NOT_FOUND": "note not found",
+            "CLEAR": "note successfully deleted",
+            "SUCCESS": "Note successfully",
+            "UPDATED": "updated",
+            "ADDED": "added",
+            "CALL": "You can call the note with the command"
+        },
+
+        "ocr": {
+            "READING": "`Reading...`",
+            "CANT_READ": "`I couldn't read this.`\n`I think I need new glasses.`",
+            "READ": "Here is what I can read:"
+        },
+
+        "playstore": {
+            "SEARCH": "`🔎Siri Looking For Your Program...`",
+            "EKS": "`⛔ Please write program name... Example`",
+            "NOT_FOUND": "`⛔ I Could Not Find Your Program...`",
+            "PUAN": "Point :",
+            "SAHP": "Owner :",
+            "OZLLK": "Especially :"
+        },
+
+
+        "pmpermit": {
+            "BLOCKED": "`You spam my owner's PM, that I don't like..`\n`You are currently BLOCKED and reported as SPAM, unless there is a change in the future`",
+            "ERROR": "As the PM counter went nuts, please restart the bot.",
+            "BOTLOG_BLOCKED": " his person was just a disappointment. Blocked for keeping his PM busy.",
+            "NOTIFOFF": "`Notifications of users without PM permission are muted!`",
+            "NOTIFON": "`Users without PM permission allowed to send notifications!`",
+            "ALREADY": "`The user must already be able to send a PM.`",
+            "DISAPPROVE": "PM permission removed from.",
+            "UNBLOCKED": "Your barrier removed."
+        },
+
+        "profile": {
+            "INVALID_MEDIA": "```The media is not valid.```",
+            "PP_CHANGED": "```Profile picture has been changed successfully.```",
+            "PP_TOO_SMOL": "```This image is too small, use a larger image.```",
+            "PP_ERROR": "```An error occurred while processing the image.```",
+            "BIO_SUCCESS": "```Biography has been successfully changed.```",
+            "NAME_OK": "```Adın başarıyla değiştirildi.```",
+            "USERNAME_SUCCESS": "```Your username has been successfully changed.```",
+            "USERNAME_TAKEN": "```Username not available.```",
+            "USERS": "Users",
+            "GROUPS": "Groups",
+            "SUPERGROUPS": "Supergroups",
+            "CHANNELS": "Channels",
+            "BOTS": "Bots",
+            "DELPFP": "%s profile pictures deleted."
+        },
+
+        "purge": {
+            "NEED_MSG": "`I need a message to start cleaning.`",
+            "PURGED": "`Fast cleaning is complete!\n{} many messages have been deleted.`",
+            "PURGED_ME": "`Cleaning is complete {} many messages have been deleted.`"
+        },
+
+        "qrcode": {
+            "ERROR": "`Decode failed.`",
+            "TRYING": "**Processing...**",
+            "USAGE": "**Use: **",
+            "TEXT": "long text to add"
+        },
+
+        "remove_bg": {
+            "NEED_API_KEY": "`Error: Remove.BG API key is missing! Please wait.`",
+            "TRYING": "`Processing...`",
+            "RBG": "`Background is removed from this image...`",
+            "CANT_RBG": "`How can I remove the background of this ?`",
+            "ONLINE_RBG": "Remove background from online image",
+            "NEED": "`I need something to remove the background.`",
+            "CAPTION": "Remove.bg background removed using",
+            "ERROR": "Error (I'm guessing it's an invalid API key...)"
+        },
+
+        "reverse": {
+            "NEED_REPLY": "`Please respond to a photo or sticker.`",
+            "TRYING": "Processing...",
+            "INVALID_TYPE": "Unsupported type",
+            "UPLOADED_TO_GOOGLE": "`Image successfully uploaded to Google.\nNow the resource is parsed.`",
+            "FUCKOFF": "Google told me to fuck off.",
+            "SEARCHING_PHOTO": "I'm looking for a picture",
+            "NOT_FOUND": "`I couldn't find anything for your ugly ass..`",
+            "SIMILAR": "Similar images"
+        },
+
+        "rgb": {
+            "NEED_TEXT": "`Please write some text next to the command`",
+            "CONVERTING": "`Converting to picture...`"
+        },
+        
+        "scrapers_bot": {
+            "REPLY_TO_MSG": "`Respond to any user message.`",
+            "REPLY_MSG": "`Reply to the message.`",
+            "REPLY_BOT_ERROR": "`You cannot reply to bots.`",
+            "WORKING_ON": "`Processing...`",
+            "BLOCKED_ERROR": "Please unblock @SangMataInfo_bot and try again",
+            "NOT_RESPONSE": "`I couldn't get an answer from the bot!`",
+            "USER_PRIVACY": "`Privacy settings could not quote floating.`",
+            "REPLY_TO_MEME": "`Usage: Please write in response to a message. Example:. .meme alt;üst`",
+            "REPLY_TO_PHOTO": "`Reply to a Photo/sticker/gif.`",
+            "REPLY_TO_BOT": "`Respond to someone's message.`",
+            "MEMING": "`Meming! (」ﾟﾛﾟ)｣`",
+            "MEMEBOT_BLOCKED": "`Please unblock @MemeAutobot and try again.`",
+            "NOT_A_PHOTO": "`This is not a photo! Wait, I'll turn it into a little photo.`",
+            "FILE_NOT_FOUND": "Files not found",
+            "MEMIFY_CAPTION": "Memified using @MemeAutoBot",
+            "NOT_VALID_FORMAT": "`Unknown message type!`",
+            "REPLY_TO_MESSAGE": "`Please respond to a message.`",
+            "REPLY_TO_FILE": "`Please reply to a file.`",
+            "REPLY_USER_ERR": "`Please really respond to a user's message.`",
+            "MIZAH_EXE": "`I am looking if there is musallet.exe or not...`",
+            "BLOCKED_CHAT": "`Mmmh I guess you blocked @DrWebBot. Please open the barrier.`",
+            "PRIVACY_ERROR": "Privacy settings could not quote floating.",
+            "WAIT_EDIT": "`Please wait...`",
+            "SCAN_RESULT": "Virus scan finished. Here are the results",
+            "SCANNING": "`Scanning file...`",
+            "CLEAN": "**Virus scan finished. This file is clean. Late!**",
+            "VIRUS_DETECTED": "Virus scan finished. Whopsie! This file is dangerous. Don't install!",
+            "CALCULATING_TIME": "Calculating date...",
+            "PRIVACY_ERR": "`Couldn't draw conclusions from privacy settings floating.`",
+            "CREATION_REPORT": "Report is ready",
+            "READING": "`Reading... A B C...`",
+            "OCR_ERROR": "`Certainly something happened. I could not read.`",
+            "SEE_SOMETHING": "I read something",
+            "VOICY_WAITING": "The voice is resting... Erkan enegtars...",
+            "VOICY_LANG_ERR": "`You need to start the bot and do it in Turkish..`",
+            "VOICY_ERR": "`Sound is distorted, sound. I did not understand what you said.`",
+            "HEAR_SOMETHING": "I heard something",
+            "CANT_REPLY_BOTS": "You cannot reply to bots.",
+            "QUOTING": "`Quoting...`",
+            "UNBLOCK_QUOTLY": "`Please unblock @QuotLyBot and try again`",
+            "QUOTLY_VALUE_ERR": "`You can only enter numbers! Sample: ``.q 2`"
+        },
+
+        "screencapture": {
+            "TRYING": "`Processing...`",
+            "TAKING": "`Creating a screenshot of the page...`",
+            "INVALID_URL": "`You must provide a valid link before I can take a screenshot.`",
+            "PIXEL": "pixel",
+            "HEIGHT": "Page height",
+            "WIDTH": "The width of the page",
+            "WAIT": "\n`Waited %s seconds for the page to load.`",
+            "UPLOADING": "`Uploading screenshot...`"
+        },
+
+        "snips": {
+            "NO_SQL": "`Running in non-SQL mode!`",
+            "NEED_BOTLOG": "`BOTLOG_CHATID must be set to save snips with media.`",
+            "USAGE": "Use",
+            "UPDATED": "updated",
+            "SAVED": "was recorded",
+            "NO_SNIP": "`No snips are currently available.`",
+            "SNIPS": "Available snips",
+            "DELETED": "Successfully deleted",
+            "NOT_FOUND": "Not found"
+        },
+
+        "song": {
+            "GIVE_ME_SONG": "**Give me a song!** `Usage: .deez song title / youtube / spotify / soundcloud`",
+            "SEARCHING": "`Searching for song...`",
+            "BLOCKED_DEEZER": "`Mmmh I think you blocked '@DeezerMusicBot'. Please open the barrier.",
+            "NOT_FOUND": "`The song you are looking for was not found! Sorry.`",
+            "UPLOADED_WITH": "Loaded with @SiriUserBot.",
+            "USAGE": "`Usage: `` .song song name / youtube url / spotify url`",
+            "SEARCHING_SPOT": "`Searching and downloading songs please wait!",
+            "DOWNLOADED": "`Download is successful please wait.`",
+            "UPLOADING": "Loading song!",
+            "USAGE_PL": "`Usage: .songpl spotify playlist url`",
+            "SEARCHING_PL": "`Searching and downloading playlist please wait!`",
+            "SENDING_SONGS": "The song is being sent! Song:",
+            "NOT_FOUND_PL": "`The playlist you are looking for was not found! Sorry.`"
+        },
+
+        "spotify": {
+            "BIO_ENABLED": "`Spotify plug-in is active. The songs you listen to on Spotify will be written in your biography.`",
+            "BIO_DISABLED": "`Spotify plug-in is disabled. Biography returned to its original form.`",
+            "BIO_RUNNING": "`Spotify plugin is already running.`",
+            "ERROR": "`Spotify plugin has stopped. An error has been received.`",
+            "ERROR_NP": "`Oops! The song playing on Spotify could not be fetched!`",
+            "ERROR_TOKEN": "`Bot Spotify settings not set!`",
+            "NP_NONE": "`I'm not currently listening to anything on Spotify!`",
+            "NP_GET": "`The song I'm listening to on Spotify is being fetched...`"
+        },
+
+        "stickers": {
+            "GIVE_STICKER": "`You need to give me a sticker or a photo so I can edit!`",
+            "FAIL_DOWNLOAD": "`Sticker could not be downloaded! Be sure to send a photo or sticker.`",
+            "NEW_PACK": "`The sticker package has not been created! Creating a new package...`",
+            "TOO_STICKERS": "`Switching to package numbered {} due to insufficient package space....`"
+        },
+
+        "system_stats": {
+            "NO_NEOFETCH": "`First install the neofetch module!`",
+            "VERSION": "UserBot Version",
+            "REVOUT": "Total change",
+            "SEARCHING": "Searching",
+            "BIG": "`The list of changes is too large, you should view it as a file.`",
+            "QUERY": "Query",
+            "RESULT": "Result",
+            "NOT_FOUND": "Nothing found",
+            "EXAMPLE": "`Use the .siri pip command to see an example.`"
+
+        },
+
+        "time": {
+            "CLOCK": "Here the clock.",
+            "INVALID_COUNTRY": "`Invalid country.`",
+            "TOO_TIMEZONE": "country has more than one time zone",
+            "CHOICE_TIMEZONE": "Choose one by specifying the number",
+            "EXAMPLE": "Sample",
+            "IS_CLOCK": "clock in country",
+            "IS_TZ": "in time zone",
+            "DATE": "History here",
+            "IS_DATE": "history in the country"
+        },
+
+        "updater": {
+            "DETECTING": "`Checking for updates...`",
+            "FAILED": "Update failed! We ran into some problems.",
+            "NOT_FOUND": "folder not found."
+            "GIT_ERROR": "Git error!",
+            "NOT_GIT": "folder doesn't look like a git repository. \nHowever, you can solve this problem by forcibly updating the bot with the .update now command..",
+            "INVALID_BRANCH": "**[UPDATER]:**` I guess you modified your Siri bot and you're using your own branch.\nThis situation confuses the updater,\nWhere will the update be pulled from?\nPlease use Siri bot from official repo.`",
+            "UPDATE": "\n`Your bot` **completely up to date!** `Branch:` **{}**\n",
+            "WAS_UPDATE": "**{} new update available for!\n\nChanges:**\n`{}`",
+            "BIG": "`The list of changes is too large, you should view it as a file.`",
+            "DO_UPDATE": "`To do the update \".update now\" use command.`",
+            "FORCE_UPDATE": "`Current stable userbot code is forcibly synchronized...`",
+            "UPDATING": "`Updating the bot...`",
+            "INVALID_APPNAME": "✨ 𝚂𝚒𝚛𝚒 𝚄𝚜𝚎𝚛𝚋𝚘𝚝 𝚄𝚙𝚍𝚊𝚝𝚎✨\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n\n🛠️**Error:** __To use the updater, you must define the HEROKU_APPNAME variable..__",
+            "INVALID_HEROKU": "{}\n`Heroku variables are incorrect or under defined.`",
+            "HEROKU_UPDATING": "✨ 𝚂𝚒𝚛𝚒 𝚄𝚜𝚎𝚛𝚋𝚘𝚝 𝚄𝚙𝚍𝚊𝚝𝚎✨\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n\n❤️**Status**: __Updating..\n\n💌 You can be sure that your UserBot will be better :) This process takes a maximum of 10 minutes..__",
+            "ERRORS": "Errors encountered here",
+            "SUCCESSFULLY": "✨ 𝚂𝚒𝚛𝚒 𝚄𝚜𝚎𝚛𝚋𝚘𝚝 𝚄𝚙𝚍𝚊𝚝𝚎✨\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n\n❤️**Status:** __Update completed successfully!\n\n🔄 Restarting...__"
+        },
+
+        "upload_download": {
+            "FILENAME": "File name",
+            "DAY": "Day",
+            "URL": "Connection",
+            "ETA": "Estimated finish",
+            "SUCCESSFULLY": "`{}` Download successful.",
+            "INVALID_URL": "Invalid link\n{}",
+            "DOWNLOADING": "`Downloading...`",
+            "NEED_REPLY": "`Reply to a message to download to my server.`",
+            "TRYING": "`Processing...`",
+            "FOUND_FILES": "**{} file found.** `The upload will start shortly. Please wait :)`",
+            "UPLOADING": "`Loading...`",
+            "SUCCESSFULLY_MULTI_UPLOADED": "`{} file uploaded successfully.`",
+            "WARNING": "`This is a dangerous operation! Not approved!`",
+            "SUCESSFULLY_UPLOADED": "**Upload successful!**",
+            "NOT_FOUND": "File not found",
+            "DOWNLOADED": "`{}, {} downloaded in seconds.`",
+            "UNZIPPING": "`Download successful! File Unzipped!`",
+            "REPLY_TO_ZIP": "`Please reply to a Zip!`",
+            "NOT_FOUND_HOST": "The specified host was not found! Hosts found: anonfiles|transfer|filebin|tmpninja|anonymousfiles|megaupload|bayfiles|letsupload|vshare`",
+            "WUPLOADING": "`File download successful. Loading...`",
+            "GETTING_LINK": "`Installed successfully. Getting a link...`"
+        },
+
+        "weather": {
+            "NEED_API_KEY": "`Before` https://openweathermap.org/ `You should get an API key from.`",
+            "NO_CITY": "`Specify a city as default with the WEATHER_DEFCITY variable, or specify which city you want the weather when typing the command!`",
+            "INVALID_COUNTRY": "`Invalid country.`",
+            "TEMP": "Temperature",
+            "MIN_TEMP": "The lowest temperature",
+            "MAX_TEMP": "Highest Temperature",
+            "HUMIDITY": "Moisture",
+            "WIND_SPEED": "Wind speed",
+            "SUNRISE": "Sunrise",
+            "SUNSET": "Sunset"
+        },
+
+        "klon": {
+            "WLKLON": "`Siri managers don't like to be cloned.`"
+        },
+
+        "whois": {
+            "GETTING_DATA": "`I'm stealing data... Please wait...`",
+            "FAILED_GETTING_DATA": "`I could not retrieve this user's information.`",
+            "NO_PROFILE_PHOTO": "The person needs help uploading a profile picture.",
+            "NO_DC_ID": "The DC ID could not be fetched",
+            "NO_FIRST_NAME": "This user has no name",
+            "NO_LAST_NAME": "This user does not have a last name",
+            "NO_USERNAME": "This user does not have a username",
+            "NO_BIO": "This user's bio is blank",
+            "USER_INFO": "USER INFORMATION",
+            "NAME": "Name",
+            "LASTNAME": "Last name",
+            "NICKNAME": "User name",
+            "DC_ID": "Data center ID",
+            "PROFILE_PHOTO_COUNT": "Number of profile pictures",
+            "IS_BOT": "Is it a bot",
+            "IS_RESTRICTED": "Is it restricted",
+            "IS_VERIFIED": "Is it verified by Telegram",
+            "BIO": "Biography",
+            "COMMON_CHAT": "Common chats with this user",
+            "LINK": "Permanent link for profile"
+        },
+        "www": {
+            "SPEED": "`Running speed test...`",
+            "STARTED_TIME": "Starting date: ",
+            "DOWNLOAD_SPEED": "Download Speed: ",
+            "UPLOAD_SPEED": "Loading Speed: ",
+            "ISP": "Internet Service Provider: "
+        }
+    }
+}
