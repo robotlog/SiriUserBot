@@ -221,7 +221,7 @@ PM_AUTO_BAN_LIMIT = int(os.environ.get("PM_AUTO_BAN_LIMIT", 4))
 SPOTIFY_DC = os.environ.get("SPOTIFY_DC", None)
 SPOTIFY_KEY = os.environ.get("SPOTIFY_KEY", None)
 
-PAKET_ISMI = os.environ.get("PAKET_ISMI", "🌃 @SiriUserBot Paketi")
+PAKET_ISMI = os.environ.get("PAKET_ISMI", "| 🌃 @SiriUserBot Paketi |")
 
 # Userbotu kapatmak için gruplar
 BLACKLIST_CHAT = os.environ.get("BLACKLIST_CHAT", None)
@@ -344,18 +344,13 @@ def butonlastir(sayfa, moduller):
     return [max_pages, butonlar]
 
 with bot:
-    if OTOMATIK_KATILMA:
-        try:
-            bot(JoinChannelRequest("@SiriUserBot"))
-            bot(JoinChannelRequest("@SiriOffical"))
-        except:
-            pass
-    else: # Bot güncellemelerini kaçırmamak için artık sadece support grubu isteğe bağlıdır.
-        try:
-            bot(JoinChannelRequest("@SiriUserBot"))
-            bot(JoinChannelRequest("@SiriSupport"))
-        except:
-            pass
+    try:
+        bot(JoinChannelRequest("@SiriUserBot"))
+        bot(JoinChannelRequest("@SiriSupport"))
+        if OTOMATIK_KATILMA:
+            bot(JoinChannelRequest("@Siribots"))
+    except:
+        pass
 
     moduller = CMD_HELP
     me = bot.get_me()
