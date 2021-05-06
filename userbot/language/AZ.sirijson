@@ -34,12 +34,12 @@
         },
         
         "__siri": {
-            "NEED_PLUGIN": "Zəhmət olmasa bir Siri modulu adı yazın.",
-            "NEED_MODULE": "Zəhmət olmasa hansı Siri modulu üçün kömək istədiyinizi qeyd edin !!\nİstifadəsi: .siri <modul adı>"
+            "NEED_PLUGIN": "✨ Zəhmət olmasa bir Siri modulu adı yazın.",
+            "NEED_MODULE": "✨ 𝚂𝚒𝚛𝚒 𝚄𝚜𝚎𝚛𝚋𝚘𝚝 𝙷𝚎𝚕𝚙𝚎𝚛✨\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n\n⚡Zəhmət olmasa hansı Siri modulu üçün kömək istədiyinizi qeyd edin !!\nİstifadəsi: .siri <modul adı>"
         },
 
         "__helpme": {
-            "NO_BOT": "`Bot işləmir! Zəhmət olmasa Bot Tokeni və İstifadəçi adını düzgün yazın. Modul dayandırıldı.`"
+            "NO_BOT": "`⛔ Bot işləmir! Zəhmət olmasa Bot Tokeni və İstifadəçi adını düzgün yazın. Modul dayandırıldı.`"
         },
 
         "admin": {
@@ -61,10 +61,10 @@
             "GBAN_TEXT": "```Sən pis birisən! Artıq sənin burada olmağıvı istəmirəm. Qadağan edildin!```",
             "UNGBANNING": "```Dünya miqyasında qadağa ləğv edilir...```",
             "NO_BANNED": "`Xəta! Yəqin ki, istifadəçinin qadağası yoxdur.`",
-            "UNGBANNED": "```İstifadəçinin dünya miqyasında qadağası ləğv edildi```",
+            "UNGBANNED": "```🥰 İstifadəçinin dünya miqyasında qadağası ləğv edildi```",
             "PROMOTING": "`İcazə verilir...`",
             "SUCCESS_PROMOTE": "`Uğurla icazə verildi!`",
-            "UNPROMOTING": "`İcazə alınır...`",
+            "UNPROMOTING": "`🔄 İcazə alınır...`",
             "UNPROMOTE": "`İcazə uğurla alındı!`",
             "NO_PERM_BUT_BANNED": "`Mesaj yazmağa icazəm yoxdur! Ancaq yenədə istifadəçi qadağan edildi!`",
             "REASON": "Səbəbi",
@@ -77,24 +77,24 @@
             "WTF_MUTE": "`Bu adam mənim səssiz rejim məntiqimə uyğun gəlmir`",
             "UNMUTING": "```Səssiz rejimdən çıxardılır...```",
             "ALREADY_UNMUTED": "`Xəta! İstifadəçi onsuzda səssiz rejimdən çıxarılıb.`",
-            "UNMUTED": "`İstifadəçi yenidən danışa bilər!`",
+            "UNMUTED": "`💞 İstifadəçi yenidən danışa bilər!`",
             "GUNMUTING": "```Dünya miqyasında susdurulma ləğv edilir...```",
             "NO_GMUTE": "`Xəta! Yəqin ki İstifadəçinin hər hansısa bir məhdudiyyəti yoxdur.`",
             "GMUTING": "`Dünya miqyasında susdurulur...`",
             "ALREADY_GMUTED": "`Xəta! İstifadəçi onsuzda dünya miqyasında susduruldu.`",
             "GMUTED": "`İstifadəçi dünya miqyasında susduruldu!`",
-            "GGMUTED": "📣 {mention} dünya miqyasında susduruldu!`",
+            "GGMUTED": "💞 {mention} dünya miqyasında susduruldu!`",
             "NO_ZOMBIE": "`Silinmiş hesab tapılmadı, qrup təmizdir!`",
             "ZOMBIE": "`Var olmayan/silinmiş/zombi hesaplar  axtarılır...`",
             "ZOMBIES": "**`Bu qrupda` **{}** `ədəd Var olmayan/ silinmiş / zombi hesab tapıldı,\ntəmizləmək üçün` **.zombies clean** `komandasını icra edin`",
-            "CLEANING": "`Silinmiş hesablar çıxarılır...`",
+            "CLEANING": "`🔄 Silinmiş hesablar çıxarılır...`",
             "NO_BAN_YT": "`Bu qrupda ban icazəm yoxdur!`",
             "DELETED": "ədəd silinmiş hesab qrupdan çıxarıldı",
             "ADMINS": "qrupunun idarəçiləri",
             "NEED_MSG": "`Sabitləmək üçün hər hansı bir mesaja cavab yazın!`",
             "PINNED": "`Uğurla sabitləndi!`",
             "NOT_FOUND": "`İstifadəçi tapılmadı.`",
-            "KICKING": "`Çıxarılır...`",
+            "KICKING": "`🔄 Çıxarılır...`",
             "KICKED": "qrupdan qovuldu!",
             "UNWARNING": "`Xəbərdarlıq silinir...`",
             "UNWARNED": "`Bu şəxsə onsuzda heç vaxt xəbərdarlıq edilməyib!`",
@@ -106,8 +106,8 @@
         "afk": {
             "REASON": "Səbəb",
             "AFK": "Sahibim hazırda Xətdə deyil.",
-            "IM_AFK": "Hazırda AFK-yam.",
-            "IM_NOT_AFK": "Artıq AFK deyiləm."
+            "IM_AFK": "`Hazırda AFK-yam.💤 `",
+            "IM_NOT_AFK": "`🙋🏻‍♂️ Artıq AFK deyiləm.`"
         },
 
         "auto": {
