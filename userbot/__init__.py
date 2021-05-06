@@ -38,7 +38,6 @@ if CONSOLE_LOGGER_VERBOSE:
         level=DEBUG,
         format="[%(asctime)s - %(levelname)s] - @SiriUserBot : %(message)s",
         datefmt='%d-%b-%y %H:%M:%S')
-    )
 else:
     basicConfig(
         level=INFO,
