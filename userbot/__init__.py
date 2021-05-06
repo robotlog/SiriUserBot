@@ -115,8 +115,8 @@ UPSTREAM_REPO_URL = os.environ.get(
     "UPSTREAM_REPO_URL",
     "https://github.com/SiriUserBot/SiriUserBot.git")
 
-# Ayrıntılı konsol günlügü
-CONSOLE_LOGGER_VERBOSE = sb(os.environ.get("CONSOLE_LOGGER_VERBOSE", "False"))
+# Afk mesajların iletilmesi
+AFKILETME = sb(os.environ.get("AFKILETME", "True"))
 
 # SQL Veritabanı
 DB_URI = os.environ.get("DATABASE_URL", "sqlite:///siri.db")
