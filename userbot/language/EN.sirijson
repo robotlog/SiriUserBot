@@ -35,12 +35,12 @@
         },
         
         "__siri": {
-            "NEED_PLUGIN": "Please provide a Siri module name.",
-            "NEED_MODULE": "Please specify which Siri module you want help for !!\nUsage: .siri <module name>"
+            "NEED_PLUGIN": "✨Please provide a Siri module name.",
+            "NEED_MODULE": "✨ 𝚂𝚒𝚛𝚒 𝚄𝚜𝚎𝚛𝚋𝚘𝚝 𝙷𝚎𝚕𝚙𝚎𝚛✨\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n\n⚡Please specify which Siri module you want help for !!\nUsage: .siri <module name>"
         },
 
         "__helpme": {
-            "NO_BOT": "`Bot does not work! Please set the Bot Token and Username correctly. The module has been stopped.`"
+            "NO_BOT": "`⛔Bot does not work! Please set the Bot Token and Username correctly. The module has been stopped.`"
         },
 
         "admin": {
@@ -70,7 +70,7 @@
             "NO_PERM_BUT_BANNED": "`I am not authorized to delete messages! But still the user is banned!`",
             "REASON": "Reason",
             "UNBANNING": "`The ban is lifted...`",
-            "UNBANNED": "📣 {username} ```Ban for successfully lifted```",
+            "UNBANNED": "💞 {username} ```Ban for successfully lifted```",
             "EXCUSE_ME_WTF": "`I guess this person doesn't fit with my ban logic`",
             "NO_MUTE_ME": "`I'm sorry but I can't mute myself...\n(ヘ･_･)ヘ┳━┳`",
             "MUTING": "`Being muted...`",
@@ -78,13 +78,13 @@
             "WTF_MUTE": "`I guess this person doesn't fit with my mute logic`",
             "UNMUTING": "```Unmute...```",
             "ALREADY_UNMUTED": "`Error! User has already been muted.`",
-            "UNMUTED": "📣 {username} `can talk again!`",
+            "UNMUTED": "💦 {username} `can talk again!`",
             "GUNMUTING": "```Global muting removed...```",
             "NO_GMUTE": "`Error! Probably no user restrictions.`",
             "GMUTING": "`Globally silenced...`",
             "ALREADY_GMUTED": "`Error! The user has already been muted globally.`",
-            "GMUTED": "📣 `User muted globally!`",
-            "GGMUTED": "📣 {mention} `globally silenced!`",
+            "GMUTED": "💞 `User muted globally!`",
+            "GGMUTED": "💞 {mention} `globally silenced!`",
             "NO_ZOMBIE": "`Deleted account not found, group is clean!`",
             "ZOMBIE": "`Searching for ghost/deleted/zombie accounts...`",
             "ZOMBIES": "`Found `**{}**' ghost/deleted/zombie accounts in this group, use the command `**.zombies clean**' to clean.`",
@@ -107,8 +107,8 @@
         "afk": {
             "REASON": "Reason",
             "AFK": "I have now AFK.",
-            "IM_AFK": "I'm AFK now.",
-            "IM_NOT_AFK": "I'm no longer AFK."
+            "IM_AFK": "`I'm AFK now.💤`",
+            "IM_NOT_AFK": "`🙋🏻‍♂️ I'm no longer AFK.`"
         },
 
         "auto": {
