@@ -1,4 +1,5 @@
 # ÜÇ YAZILIMCI BİNDİK BİR GEMİYE GİDİYORUZ İLERİYE
+
 FROM siriuserbot/siriuserbot:latest
 RUN git clone https://github.com/SiriUserBot/SiriUserBot /root/SiriUserBot
 WORKDIR /root/SiriUserBot/
