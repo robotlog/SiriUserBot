@@ -35,12 +35,15 @@ ASYNC_POOL = []
 
 if CONSOLE_LOGGER_VERBOSE:
     basicConfig(
-        format="%(asctime)s - @SiriUserBot - %(levelname)s - %(message)s",
         level=DEBUG,
+        format="[%(asctime)s - %(levelname)s] - @SiriUserBot : %(message)s",
+        datefmt='%d-%b-%y %H:%M:%S')
     )
 else:
-    basicConfig(format="%(asctime)s - @SiriUserBot - %(levelname)s - %(message)s",
-                level=INFO)
+    basicConfig(
+        level=INFO,
+        format="[%(asctime)s - %(levelname)s] - @SiriUserBot : %(message)s",
+        datefmt='%d-%b-%y %H:%M:%S')
 LOGS = getLogger(__name__)
 
 if version_info[0] < 3 or version_info[1] < 6:
