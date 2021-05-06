@@ -35,12 +35,12 @@
         },
         
         "__siri": {
-            "NEED_PLUGIN": "Lütfen bir Siri modülü adı belirtin.",
-            "NEED_MODULE": "Lütfen hangi Siri modülü için yardım istediğinizi belirtin !!\nKullanım: .siri <modül adı>"
+            "NEED_PLUGIN": "✨ Lütfen bir Siri modülü adı belirtin.",
+            "NEED_MODULE": "✨ 𝚂𝚒𝚛𝚒 𝚄𝚜𝚎𝚛𝚋𝚘𝚝 𝙷𝚎𝚕𝚙𝚎𝚛✨\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n\n⚡ Lütfen hangi Siri modülü için yardım istediğinizi belirtin !!\nKullanım: .siri <modül adı>"
         },
 
         "__helpme": {
-            "NO_BOT": "`Bot çalışmıyor! Lütfen Bot Tokeni ve Kullanıcı adını doğru ayarlayın. Modül durduruldu.`"
+            "NO_BOT": "`⛔ Bot çalışmıyor! Lütfen Bot Tokeni ve Kullanıcı adını doğru ayarlayın. Modül durduruldu.`"
         },
 
         "admin": {
@@ -70,7 +70,7 @@
             "NO_PERM_BUT_BANNED": "`Mesaj silme yetkim yok! Ama yine de kullanıcı yasaklandı!`",
             "REASON": "Nedeni",
             "UNBANNING": "`Yasak kaldırılıyor...`",
-            "UNBANNED": "📣 {username} ```için yasaklama başarıyla kaldırıldı```",
+            "UNBANNED": "🥰 {username} ```için yasaklama başarıyla kaldırıldı```",
             "EXCUSE_ME_WTF": "`Sanırım bu kişi yasaklama mantığım ile uyuşmuyor`",
             "NO_MUTE_ME": "`Üzgünüm ama kendime sessize alamam...\n(ヘ･_･)ヘ┳━┳`",
             "MUTING": "`Sessize alınıyor...`",
@@ -78,17 +78,17 @@
             "WTF_MUTE": "`Sanırım bu kişi sessize alma mantığım ile uyuşmuyor`",
             "UNMUTING": "```Sessizden çıkarılıyor...```",
             "ALREADY_UNMUTED": "`Hata! Kullanıcı zaten sessize çıkarıldı.`",
-            "UNMUTED": "📣 {username} `tekrardan konuşabilir!`",
+            "UNMUTED": "💦 {username} `tekrardan konuşabilir!`",
             "GUNMUTING": "```Küresel susturma kaldırılıyor...```",
             "NO_GMUTE": "`Hata! Muhtemelen kullanıcının kısıtlanması yok.`",
             "GMUTING": "`Küresel olarak susturuluyor...`",
             "ALREADY_GMUTED": "`Hata! Kullanıcı zaten küresel olarak susturuldu.`",
-            "GMUTED": "📣 `Kullanıcı küresel olarak susturuldu!`",
-            "GGMUTED": "📣 {mention} `küresel olarak susturuldu!`",
+            "GMUTED": "💞 `Kullanıcı küresel olarak susturuldu!`",
+            "GGMUTED": "💞 {mention} `küresel olarak susturuldu!`",
             "NO_ZOMBIE": "`Silinmiş hesap bulunamadı, grup temiz!`",
             "ZOMBIE": "`Hayalet/silinmiş/zombi hesaplar aranıyor...`",
             "ZOMBIES": "**`Bu grupta` **{}** `tane hayalet / silinmiş / zombi hesap bulundu,\ntemizlemek için` **.zombies clean** `komutunu kullanın`",
-            "CLEANING": "`Silinmiş hesaplar çıkarılıyor...`",
+            "CLEANING": "`🔄 Silinmiş hesaplar çıkarılıyor...`",
             "NO_BAN_YT": "`Bu grupta ban yetkim bulunmamakta!`",
             "DELETED": "tane silinmiş hesap gruptan çıkarıldı",
             "ADMINS": "grubunun yöneticileri",
@@ -107,8 +107,8 @@
         "afk": {
             "REASON": "Sebep",
             "AFK": "Sahibim şu an AFK.",
-            "IM_AFK": "Artık AFK'yım.",
-            "IM_NOT_AFK": "Artık AFK değilim."
+            "IM_AFK": "`Artık AFK'yım. 💤`",
+            "IM_NOT_AFK": "`🙋🏻‍♂️ Artık AFK değilim.`"
         },
 
         "auto": {
@@ -147,14 +147,6 @@
             "GOR": "`📈 Görünen mesajlar`",
             "GOND": "`📉 Gönderilen mesajlar`"
         },
-
-
-
-        "spaminfo": {
-            "BIRD": "`✅ Bir kuş kadar özgürsün!`"
-        },
-
-
 
 
         "blacklist": {
@@ -567,6 +559,11 @@
             "SENDING_SONGS": "Şarkı gönderiliyor! Şarkı:",
             "NOT_FOUND_PL": "`Aradığınız playlist bulunamadı! Üzgünüm.`"
         },
+
+        "spaminfo": {
+            "BIRD": "`✅ Bir kuş kadar özgürsün!`"
+        },
+
 
         "spotify": {
             "BIO_ENABLED": "`Spotify plugini aktif. Spotify'da dinlediğiniz şarkılar biyografinize yazılacak.`",
