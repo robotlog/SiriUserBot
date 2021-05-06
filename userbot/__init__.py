@@ -91,8 +91,26 @@ HEROKU_MEMEZ = sb(os.environ.get("HEROKU_MEMEZ", "False"))
 HEROKU_APPNAME = os.environ.get("HEROKU_APPNAME", None)
 HEROKU_APIKEY = os.environ.get("HEROKU_APIKEY", None)
 
+EZZEC = False
+Heroku = None
+app = None
+
+if HEROKU_APPNAME is not None and HEROKU_APIKEY is not None:
+    if EZZEC == True:
+        pass
+    else:
+        EZZEC = True
+        Heroku = heroku3.from_key(HEROKU_APIKEY)
+        app = Heroku.app(HEROKU_APPNAME)
+        heroku_var = app.config()
+        heroku_var["UPSTREAM_REPO_URL"] = "https://github.com/SiriUserBot/SiriUserBot.git"
+else:
+    app = None
+
 # Güncelleyici için özel (fork) repo linki.
-UPSTREAM_REPO_URL = "https://github.com/SiriUserBot/SiriUserBot.git"
+UPSTREAM_REPO_URL = os.environ.get(
+    "UPSTREAM_REPO_URL",
+    "https://github.com/SiriUserBot/SiriUserBot.git")
 
 # Ayrıntılı konsol günlügü
 CONSOLE_LOGGER_VERBOSE = sb(os.environ.get("CONSOLE_LOGGER_VERBOSE", "False"))
