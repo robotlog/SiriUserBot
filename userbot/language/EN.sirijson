@@ -494,6 +494,7 @@
             "UNBLOCK_QUOTLY": "`Please unblock @QuotLyBot and try again`",
             "QUOTLY_VALUE_ERR": "`You can only enter a number! Example: `` .q 2 `"
         },
+
         "screencapture": {
             "TRYING": "`Processing...`",
             "TAKING": "`Creating a screenshot of the page...`",
@@ -504,6 +505,7 @@
             "WAIT": "\n`Waiting %s seconds for the page to load.`",
             "UPLOADING": "`Uploading screenshot...`"
         },
+
         "snips": {
             "NO_SQL": "`Working Non-SQL mode!`",
             "NEED_BOTLOG": "`BOTLOG_CHATID must be set to save snips with media.`",
@@ -530,6 +532,12 @@
             "SENDING_SONGS": "Song sending! Song:",
             "NOT_FOUND_PL": "`The playlist you were looking for was not found! Sorry.`"
         },
+
+        "spaminfo": {
+            "BIRD": "`✅ You are as free as a bird!`"
+        },
+
+
         "spotify": {
             "BIO_ENABLED": "`Spotify plug-in is active. The songs you listen to on Spotify will be written in your biography.`",
             "BIO_DISABLED": "`Spotify plug-in is disabled. Biography returned to its original form.`",
