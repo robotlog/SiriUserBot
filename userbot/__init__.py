@@ -236,10 +236,8 @@ AUTO_UPDATE =  sb(os.environ.get("AUTO_UPDATE", "True"))
 
 # Özel Pattern'ler
 PATTERNS = os.environ.get("PATTERNS", ".;!,")
-#WHITELIST = get('http://gitlab.com/ErdemBey1/siri/-/raw/master/whitelist.json').json()
+WHITELIST = get('https://raw.githubusercontent.com/SiriUserBot/datas/master/whitelist.json').json()
 
-WHITELIST = [1758581185] # Bot yardımcısı
-'''
 # Bot versiyon kontrolü
 forceVer = []
 if os.path.exists("force-surum.check"):
@@ -247,7 +245,7 @@ if os.path.exists("force-surum.check"):
 else:
     LOGS.info("Force Sürüm Kontrol dosyası yok, getiriliyor...")
 
-URL = 'https://gitlab.com/must4f/VaveylaData/-/raw/main/force-surum.check' 
+URL = 'https://raw.githubusercontent.com/SiriUserBot/datas/master/force-surum.check' 
 with open('force-surum.check', 'wb') as load:
     load.write(get(URL).content)
 
@@ -259,7 +257,6 @@ ALL_ROWS = CURSOR.fetchall()
 for i in ALL_ROWS:
     forceVer.append(i[0])
 connect("force-surum.check").close() 
-'''
 
 # CloudMail.ru ve MEGA.nz ayarlama
 if not os.path.exists('bin'):
@@ -287,16 +284,14 @@ else:
 
 ASISTAN = 1758581185 # Bot yardımcısı
 
-'''
 if os.path.exists("learning-data-root.check"):
     os.remove("learning-data-root.check")
 else:
     LOGS.info("Braincheck dosyası yok, getiriliyor...")
 
-URL = 'https://gitlab.com/must4f/VaveylaData/-/raw/main/learning-data-root.check'
+URL = 'https://raw.githubusercontent.com/SiriUserBot/datas/master/learning-data-root.check'
 with open('learning-data-root.check', 'wb') as load:
     load.write(get(URL).content)
-'''
 
 async def check_botlog_chatid():
     if not BOTLOG_CHATID and LOGSPAMMER:
@@ -501,10 +496,8 @@ SON_GORULME = 0
 COUNT_MSG = 0
 USERS = {}
 MYID = uid
-#ForceVer = int(forceVer[0])
-ForceVer = 9
-#BRAIN_CHECKER = []
-BRAIN_CHECKER = 0
+ForceVer = int(forceVer[0])
+BRAIN_CHECKER = []
 COUNT_PM = {}
 LASTMSG = {}
 FUP = True
