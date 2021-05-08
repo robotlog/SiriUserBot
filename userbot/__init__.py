@@ -106,7 +106,7 @@ if HEROKU_APPNAME is not None and HEROKU_APIKEY is not None:
         Heroku = heroku3.from_key(HEROKU_APIKEY)
         app = Heroku.app(HEROKU_APPNAME)
         heroku_var = app.config()
-        heroku_var["UPSTREAM_REPO_URL"] = "https://github.com/SiriUserBot/SiriUserBot.git"
+        heroku_var["UPSTREAM_REPO_URL"] = "https://github.com/ErdemBey1/SiriUserBot.git"
 else:
     app = None
 
