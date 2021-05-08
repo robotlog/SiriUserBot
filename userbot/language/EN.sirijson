@@ -6,6 +6,7 @@
     "STRINGS": {
         "__plugin": {
             "REPLY_FOR_PORT": "`Please give a file for Plugin-Port`",
+            "ALREADY_INSTALLED": "`You have already downloaded this plugin! I'm canceling the download!`",
             "DOWNLOADING": "`File is downloading...`",
             "UNIBORG": "`1. Type UniBorg found...`",
             "TOO_MANY_PLUGIN": "`There is more than one plugin in this file, I cannot port it!`",
