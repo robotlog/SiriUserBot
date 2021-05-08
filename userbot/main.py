@@ -97,18 +97,23 @@ UNAPPROVED_MSG = ("`Hey olduğun yerde kal,!👨‍💻 Ben Siri. Endişelenme!\
                   "`Lütfen sahibimin aktif olmasını bekleyin, o genellikle PM'leri onaylar.\n\n`"
                   "`Bildiğim kadarıyla o kafayı yemiş insanlara PM izni vermiyor.`")
 
+'''
 DB = connect("learning-data-root.check")
 CURSOR = DB.cursor()
 CURSOR.execute("""SELECT * FROM BRAIN1""")
 ALL_ROWS = CURSOR.fetchall()
+'''
+
 INVALID_PH = '\nHATA: Girilen telefon numarası geçersiz' \
              '\n  Ipucu: Ülke kodunu kullanarak numaranı gir' \
              '\n   Telefon numaranızı tekrar kontrol edin'
 
+'''
 for i in ALL_ROWS:
     BRAIN_CHECKER.append(i[0])
 connect("learning-data-root.check").close()
 BRAIN_CHECKER = BRAIN_CHECKER[0]
+'''
 
 def extractCommands(file):
     FileRead = open(file, 'r').read()
@@ -171,12 +176,12 @@ def extractCommands(file):
 
 try:
     bot.start()
-    idim = bot.get_me().id
-    siribl = requests.get('https://gitlab.com/must4f/VaveylaData/-/raw/main/blacklist.json').json()
-    if idim in siribl:
-        bot.send_message("me", f"`❌ Siri yöneticileri sizi bottan yasakladı! Bot kapatılıyor...`")
-        LOGS.error("Siri yöneticileri sizi bottan yasakladı! Bot kapatılıyor...")
-        bot.disconnect()
+#    idim = bot.get_me().id
+#    siribl = requests.get('https://gitlab.com/must4f/VaveylaData/-/raw/main/blacklist.json').json()
+#    if idim in siribl:
+#        bot.send_message("me", f"`❌ Siri yöneticileri sizi bottan yasakladı! Bot kapatılıyor...`")
+#        LOGS.error("Siri yöneticileri sizi bottan yasakladı! Bot kapatılıyor...")
+#        bot.disconnect()
     # ChromeDriver'ı Ayarlayalım #
     try:
         chromedriver_autoinstaller.install()
