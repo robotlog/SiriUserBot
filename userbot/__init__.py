@@ -106,14 +106,12 @@ if HEROKU_APPNAME is not None and HEROKU_APIKEY is not None:
         Heroku = heroku3.from_key(HEROKU_APIKEY)
         app = Heroku.app(HEROKU_APPNAME)
         heroku_var = app.config()
-        heroku_var["UPSTREAM_REPO_URL"] = "https://github.com/ErdemBey1/SiriUserBot.git"
+        heroku_var["UPSTREAM_REPO_URL"] = "https://github.com/SiriUserBot/SiriUserBot.git"
 else:
     app = None
 
 # Güncelleyici için özel (fork) repo linki.
-UPSTREAM_REPO_URL = os.environ.get(
-    "UPSTREAM_REPO_URL",
-    "https://github.com/SiriUserBot/SiriUserBot.git")
+UPSTREAM_REPO_URL = "https://github.com/SiriUserBot/SiriUserBot.git"
 
 # Afk mesajların iletilmesi
 AFKILETME = sb(os.environ.get("AFKILETME", "True"))
