@@ -9,17 +9,17 @@ from userbot.events import register
 from userbot.cmdhelp import CmdHelp
 
 telegraph = Telegraph()
-r = telegraph.create_account(short_name="siriuserbot")
+r = telegraph.create_account(short_name="telegraph")
 auth_url = r["auth_url"]
 
 # """.telegraph modülü ile medyanızı / metinlerinizi telgrapha yükleyin"""
 
 @register(outgoing=True, pattern="^.tg (m|t)$")
 async def telegraphs(graph):
-    await graph.edit("`Hazırlanıyor...`")
+    if graph.fwd_from:
+        return
+    await graph.edit("`🔄 Hazırlanıyor...`")
     if not graph.text[0].isalpha() and graph.text[0] not in ("/", "#", "@", "!"):
-        if graph.fwd_from:
-            return
         if not os.path.isdir(TEMP_DOWNLOAD_DIRECTORY):
             os.makedirs(TEMP_DOWNLOAD_DIRECTORY)
         if graph.reply_to_msg_id:
