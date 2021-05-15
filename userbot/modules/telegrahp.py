@@ -9,12 +9,12 @@ from userbot.events import register
 from userbot.cmdhelp import CmdHelp
 
 telegraph = Telegraph()
-r = telegraph.create_account(short_name="telegraph")
+r = telegraph.create_account(short_name="siriuserbot")
 auth_url = r["auth_url"]
 
 # """.telegraph modülü ile medyanızı / metinlerinizi telgrapha yükleyin"""
 
-@register(outgoing=True, pattern="^.tg (media|text)$")
+@register(outgoing=True, pattern="^.tg (m|t)$")
 async def telegraphs(graph):
     await graph.edit("`Hazırlanıyor...`")
     if not graph.text[0].isalpha() and graph.text[0] not in ("/", "#", "@", "!"):
@@ -33,13 +33,13 @@ async def telegraphs(graph):
                 end = datetime.now()
                 ms = (end - start).seconds
                 await graph.edit(
-                    " {} Saniye içinde {} noktasına yüklendi.".format(downloaded_file_name, ms)
+                    "✨ ```{}``` __saniye içinde__ ```{}``` __noktasına yüklendi.__".format(ms,downloaded_file_name)
                 )
                 try:
                     if downloaded_file_name.endswith((".webp")):
                         resize_image(downloaded_file_name)
                 except AttributeError:
-                    return await graph.edit("`Medya sağlanamadı`")
+                    return await graph.edit("`🥺 Medya sağlanamadı`")
                 try:
                     media_urls = upload_file(downloaded_file_name)
                 except exceptions.TelegraphException as exc:
@@ -75,13 +75,13 @@ async def telegraphs(graph):
                     title_of_page, html_content=page_content
                 )
                 await graph.edit(
-                    "[telegra.ph](https://telegra.ph/{}) 'a  yüklendi.".format(
+                    "✨```Dosya Linki: https://telegra.ph/{}```".format(
                         response["path"]
                     ),
                     link_preview=True,
                 )
         else:
-            await graph.edit("`Kalıcı bir telegra.ph bağlantısı elde etmek için mesajı yanıtlayın.`")
+            await graph.edit("`❎ Kalıcı bir telegra.ph bağlantısı elde etmek için mesajı yanıtlayın.`")
 
 
 def resize_image(image):
@@ -89,5 +89,5 @@ def resize_image(image):
     im.save(image, "PNG")
     
 CmdHelp('telegraph').add_command(
-    'telegraph', None, 'Mesaja yanıt vererek .tg text (yazı) veya .tg media (medya) yazarak Telegrapha yükleyin Bölelikle Tek Bir link İle Medya/Yazınıza Ulaşabilirsiniz.'
+    'tg', '<m/t>', 'Mesaja yanıt vererek .tg t (yazı) veya .tg m (medya) yazarak Telegrapha yükleyin Bölelikle Tek Bir link İle Medya/Yazınıza Ulaşabilirsiniz.'
 ).add()
