@@ -194,7 +194,7 @@ async def mention_afk(mention):
                     COUNT_MSG = COUNT_MSG + 1
 
 
-@register(incoming=True, disable_errors=True)
+@register(incoming=True, disable_errors=True,disable_edited=True)
 async def afk_on_pm(sender):
     """ Siz afk iken PM atanları afk olduğunuza dair bildirmeye yarayan fonksiyondur. """
     global ISAFK
