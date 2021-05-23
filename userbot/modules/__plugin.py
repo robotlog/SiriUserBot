@@ -15,6 +15,7 @@ import time
 import traceback
 
 from userbot import CMD_HELP, bot, tgbot, PLUGIN_CHANNEL_ID, PATTERNS, BOTLOG, BOTLOG_CHATID, ASISTAN, MYID
+from telethon.tl.types import InputMessagesFilterDocument
 from userbot.events import register
 from userbot.main import extractCommands
 import userbot.cmdhelp
@@ -173,6 +174,13 @@ async def pins(event):
 
     if os.path.exists(edizin):
         await event.edit(LANG["ALREADY_INSTALLED"])
+        return
+
+    dosyaAdi = reply_message.file.name
+    plugins = await event.client.get_messages('@siriplugin', limit=None, search=dosyaAdi, filter=InputMessagesFilterDocument)
+
+    if len(plugins) == 0:
+        await event.edit('🍕 `Pizzamı yemeye devam edeceğim. Bu bir Siri Plugini değil!`')
         return
 
     dosya = await event.client.download_media(reply_message, "./userbot/modules/")
