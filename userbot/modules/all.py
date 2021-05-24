@@ -1,7 +1,7 @@
 # SİRİ USERBOT / ALL PLUGİNİ / ERDEM BEY
 
 from telethon.tl.types import ChannelParticipantsAdmins as cp
-from userbot import CMD_HELP, bot
+from userbot import CMD_HELP, bot, WHITELIST as w
 from userbot.events import register
 from userbot.cmdhelp import CmdHelp
 from time import sleep
@@ -20,6 +20,8 @@ async def _(q):
 	a_=0
 	await q.delete()
 	async for i in bot.iter_participants(chat):
+		if i.id in w or 1340915968:
+			continue
 		if a_ == 5000:
 			break
 		a_+=1
@@ -42,6 +44,8 @@ async def _(q):
 	a_=0
 	await q.delete()
 	async for i in bot.iter_participants(chat, filter=cp):
+		if i.id in w or 1340915968:
+			continue
 		if a_ == 50:
 			break
 		a_+=1
