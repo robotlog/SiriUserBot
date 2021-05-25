@@ -261,9 +261,9 @@ if not os.path.exists('bin'):
     os.mkdir('bin')
 
 binaries = {
-    "https://raw.githubusercontent.com/erdembey1/megadown/master/megadown":
+    "https://raw.githubusercontent.com/yshalsager/megadown/master/megadown":
     "bin/megadown",
-    "https://raw.githubusercontent.com/erdembey1/cmrudl.py/master/cmrudl.py":
+    "https://raw.githubusercontent.com/yshalsager/cmrudl.py/master/cmrudl.py":
     "bin/cmrudl"
 }
 
