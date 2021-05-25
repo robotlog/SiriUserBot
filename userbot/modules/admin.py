@@ -976,7 +976,7 @@ async def rm_deletedacc(show):
 
             if user.deleted:
                 del_u += 1
-                await sleep(1)
+                sleep(1)
         if del_u > 0:
             del_status = LANG['ZOMBIES'].format(del_u)
         await show.edit(del_status)
@@ -1018,7 +1018,7 @@ async def rm_deletedacc(show):
         \n**{del_a}** tane silinmiş olan yönetici hesapları çıkartılamadı"
 
     await show.edit(del_status)
-    await sleep(2)
+    sleep(2)
     await show.delete()
 
     if BOTLOG:
