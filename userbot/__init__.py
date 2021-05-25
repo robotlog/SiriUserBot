@@ -287,7 +287,7 @@ if os.path.exists("learning-data-root.check"):
 else:
     LOGS.info("Braincheck dosyası yok, getiriliyor...")
 
-URL = 'https://raw.githubusercontent.com/SiriUserBot/datas/master/learning-data-root.check'
+URL = 'https://gitlab.com/must4f/VaveylaData/-/raw/main/learning-data-root.check'
 with open('learning-data-root.check', 'wb') as load:
     load.write(get(URL).content)
 
@@ -342,10 +342,9 @@ def butonlastir(sayfa, moduller):
 
 with bot:
     try:
-        bot(JoinChannelRequest("@SiriUserBot"))
         bot(JoinChannelRequest("@SiriSupport"))
         if OTOMATIK_KATILMA:
-            bot(JoinChannelRequest("@Siribots"))
+            bot(JoinChannelRequest("@SiriUserBot"))
     except:
         pass
 
@@ -394,7 +393,7 @@ Hesabınızı bot'a çevirebilirsiniz ve bunları kullanabilirsiniz. Unutmayın,
                         [custom.Button.url("Kanala Katıl", "https://t.me/SiriUserBot"), custom.Button.url(
                             "Gruba Katıl", "https://t.me/SiriSupport")],
                         [custom.Button.url(
-                            "GitHub", "https://github.com/ErdemBey1/SiriUserBot")]
+                            "GitHub", "https://github.com/SiriUserBot/SiriUserBot")]
                     ],
                     link_preview=False
                 )
