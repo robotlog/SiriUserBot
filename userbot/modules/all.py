@@ -4,7 +4,7 @@ from telethon.tl.types import ChannelParticipantsAdmins as cp
 from userbot import CMD_HELP, bot
 from userbot.events import register
 from userbot.cmdhelp import CmdHelp
-from time import sleep
+from asyncio import sleep
 
 @register(outgoing=True, pattern="^.all(?: |$)(.*)",groups_only=True)
 async def _(q):
@@ -24,7 +24,7 @@ async def _(q):
 			break
 		a_+=1
 		await q.client.send_message(q.chat_id, "**{}**\n[{}](tg://user?id={})".format(seasons, i.first_name, i.id))
-		sleep(2.5)
+		await sleep(2.5)
 
 
 @register(outgoing=True, pattern="^.alladmin(?: |$)(.*)", groups_only=True)
@@ -46,7 +46,7 @@ async def _(q):
 			break
 		a_+=1
 		await q.client.send_message(q.chat_id, "**{}**\n[{}](tg://user?id={})".format(seasons, i.first_name, i.id))
-		sleep(1.74)
+		await sleep(1.74)
 
 
 CmdHelp("all").add_command(
