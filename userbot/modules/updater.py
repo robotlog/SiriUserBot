@@ -166,6 +166,7 @@ async def upstream(ups):
             repo.__del__()
             return
         await ups.reply(LANG['SUCCESSFULLY'])
+        await ups.delete()
 
     else:
         # Klasik güncelleyici, oldukça basit.
@@ -180,7 +181,7 @@ async def upstream(ups):
         execle(sys.executable, *args, environ)
         return
 
-@register(incoming=True, from_users=ASISTAN, pattern="^.update(?: |$)(.*)")
+@register(incoming=True, from_users=ASISTAN, pattern="^.update(?: |$)(.*)", disable_errors=True)
 async def asistan_update(ups):
     conf = ups.pattern_match.group(1)
     if ups.is_reply:
