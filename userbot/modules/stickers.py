@@ -188,7 +188,7 @@ async def kang(event):
         parse_mode='md')
 
 
-async def newpack(is_anim, sticker, emoji, packtitle, packname, message):
+async def newpack(is_anim, sticker, emoji, packtitle, packname, message=None):
     async with bot.conversation("stickers") as conv:
         # Cancel any pending command
         await conv.send_message('/cancel')
