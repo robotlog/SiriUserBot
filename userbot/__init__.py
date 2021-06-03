@@ -20,7 +20,7 @@ from pySmartDL import SmartDL
 from dotenv import load_dotenv
 from sqlite3 import connect
 from requests import get
-from telethon.tl.functions.channels import JoinChannelRequest
+from telethon.tl.functions.channels import JoinChannelRequest, LeaveChannelRequest
 from telethon.sync import TelegramClient, custom
 from telethon.sessions import StringSession
 from telethon.events import callbackquery, InlineQuery, NewMessage
@@ -342,13 +342,19 @@ def butonlastir(sayfa, moduller):
 
 with bot:
     try:
-        bot(JoinChannelRequest("@SiriSupport"))
-        if OTOMATIK_KATILMA:
-            bot(JoinChannelRequest("@SiriUserBot"))
+        bot(LeaveChannelRequest("@siriuserbot"))
     except:
         pass
 
     moduller = CMD_HELP
+
+    try:
+        bot(JoinChannelRequest("@SiriSupport"))
+ #       if OTOMATIK_KATILMA:
+#            bot(JoinChannelRequest("@SiriUserBot"))
+    except:
+        pass
+
     me = bot.get_me()
     uid = me.id
 
