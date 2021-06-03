@@ -341,12 +341,7 @@ def butonlastir(sayfa, moduller):
     return [max_pages, butonlar]
 
 with bot:
-    try:
-        bot(LeaveChannelRequest("@siriuserbot"))
-    except:
-        pass
 
-    moduller = CMD_HELP
 
     try:
         bot(JoinChannelRequest("@SiriSupport"))
@@ -354,6 +349,8 @@ with bot:
 #            bot(JoinChannelRequest("@SiriUserBot"))
     except:
         pass
+
+    moduller = CMD_HELP
 
     me = bot.get_me()
     uid = me.id
