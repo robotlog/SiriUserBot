@@ -177,11 +177,12 @@ async def pins(event):
         return
 
     dosyaAdi = reply_message.file.name
-    plugins = await event.client.get_messages('@siriplugin', limit=None, search=dosyaAdi, filter=InputMessagesFilterDocument)
+#    plugins = await event.client.get_messages('@siriplugin', limit=None, search=dosyaAdi, filter=InputMessagesFilterDocument)
 
-    if len(plugins) == 0:
-        await event.edit('🍕 `Pizzamı yemeye devam edeceğim. Bu bir Siri Plugini değil!`')
-        return
+#    if len(plugins) == 0:
+#        await event.edit('🍕 `Pizzamı yemeye devam edeceğim. Bu bir Siri Plugini değil!`')
+#        return
+
 
     dosya = await event.client.download_media(reply_message, "./userbot/modules/")
 
