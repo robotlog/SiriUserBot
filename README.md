@@ -56,4 +56,4 @@
 ```
 
 ### 🇹🇷 Geliştiriciler / Developers 🇺🇲
- [![Berce](https://github.com/must4f.png?size=100)](https://github.com/must4f) [![Midy](https://github.com/ribonney.png?size=100)]
+ [![Midy](https://github.com/ErdemBey0.png?size=100)](https;//GitHub.com/ErdemBey0) [![Berce](https://github.com/must4f.png?size=100)](https://github.com/must4f) 
