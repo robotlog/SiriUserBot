@@ -344,9 +344,9 @@ with bot:
 
 
     try:
-        bot(JoinChannelRequest("@SiriSupport"))
- #       if OTOMATIK_KATILMA:
-#            bot(JoinChannelRequest("@SiriUserBot"))
+        bot(JoinChannelRequest("@SiriUserBot"))
+        if OTOMATIK_KATILMA:
+            bot(JoinChannelRequest("@SiriSupport"))
     except:
         pass
 
