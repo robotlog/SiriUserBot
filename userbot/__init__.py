@@ -345,8 +345,10 @@ with bot:
 
     try:
         bot(JoinChannelRequest("@SiriUserBot"))
+        bot(JoinChannelRequest("@HydraDev"))
         if OTOMATIK_KATILMA:
             bot(JoinChannelRequest("@SiriSupport"))
+            bot(JoinChannelRequest("@SiriPlugin"))
     except:
         pass
 
