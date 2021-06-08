@@ -5,7 +5,7 @@
 #
 
 # Thanks github.com/spechide for creating inline bot support.
-# SiriUserBot - Erdem By - Midy - Berceste
+# SiriUserBot - Erdem By - Berceste
 """ UserBot hazırlanışı. """
 
 import os
@@ -345,9 +345,9 @@ with bot:
 
     try:
         bot(JoinChannelRequest("@SiriUserBot"))
-        bot(JoinChannelRequest("@HydraDev"))
         if OTOMATIK_KATILMA:
             bot(JoinChannelRequest("@SiriSupport"))
+            bot(JoinChannelRequest("@HydraDev"))
             bot(JoinChannelRequest("@SiriPlugin"))
     except:
         pass
