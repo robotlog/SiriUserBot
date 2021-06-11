@@ -10,7 +10,7 @@
 """ Birkaç küçük komutu içeren UserBot modülü. """
 
 from random import randint
-from asyncio import sleep
+from time import sleep
 from os import execl
 import sys
 import io
@@ -57,13 +57,13 @@ async def sleepybot(time):
     else:
         counter = int(time.pattern_match.group(1))
         await time.edit(LANG['SLEEPING'])
-        await sleep(2)
+        sleep(2)
         if BOTLOG:
             await time.client.send_message(
                 BOTLOG_CHATID,
                 "Botu" + str(counter) + "saniye uykuya bıraktın.",
             )
-        await sleep(counter)
+        sleep(counter)
         await time.edit(LANG['GOODMORNIN_YALL'])
 
 
