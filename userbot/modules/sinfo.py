@@ -22,7 +22,7 @@ aylar = {
   "Mar": "Mart",
   "Apr": "Nisan",
   "May": "Mayıs",
-  "June": "Haziran",
+  "Jun": "Haziran",
   "July": "Temmuz",
   "Aug": "Ağustos",
   "Sep": "Eylül",
