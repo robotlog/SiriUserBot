@@ -24,6 +24,7 @@ from telethon.tl.functions.channels import JoinChannelRequest, LeaveChannelReque
 from telethon.sync import TelegramClient, custom
 from telethon.sessions import StringSession
 from telethon.events import callbackquery, InlineQuery, NewMessage
+from .utils.pip_install import install_pip
 from math import ceil
 
 load_dotenv("config.env")
@@ -109,6 +110,25 @@ if HEROKU_APPNAME is not None and HEROKU_APIKEY is not None:
         heroku_var["UPSTREAM_REPO_URL"] = "https://github.com/SiriUserBot/SiriUserBot.git"
 else:
     app = None
+
+
+try:
+    import randomstuff
+except ModuleNotFoundError:
+    install_pip("randomstuff.py")
+    import randomstuff
+
+#Chatbot için Client -- thx to sandy1709
+RANDOM_STUFF_API_KEY = os.environ.get("RANDOM_STUFF_API_KEY", None)
+if RANDOM_STUFF_API_KEY:
+    try:
+        rs_client = randomstuff.AsyncClient(api_key=RANDOM_STUFF_API_KEY, version="4")
+    except:
+        print('Invalid RANDOM_STUFF_API_KEY')
+        rs_client = None
+else:
+    rs_client = None
+
 
 # Güncelleyici için özel (fork) repo linki.
 UPSTREAM_REPO_URL = "https://github.com/SiriUserBot/SiriUserBot.git"
