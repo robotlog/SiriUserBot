@@ -1,74 +1,106 @@
-from sqlalchemy import Column, UnicodeText, LargeBinary, Numeric
-from userbot.modules.sql_helper import SESSION, BASE
+# SiriUserbot - ChatBot Sql
+
+#Credit: sandy1709
+
+from sqlalchemy import Column, String, UnicodeText
+
+from . import BASE, SESSION
 
 
 class ChatBot(BASE):
-    __tablename__ = "chatbot_ai"
-    user_id = Column(Numeric, primary_key=True)
-    chat_id = Column(Numeric, primary_key=True)
-    session_id = Column(UnicodeText)
-    session_expires = Column(Numeric)
+    __tablename__ = "chatbot"
+    chat_id = Column(String(14), primary_key=True)
+    user_id = Column(String(14), primary_key=True, nullable=False)
+    chat_name = Column(UnicodeText)
+    user_name = Column(UnicodeText)
+    user_username = Column(UnicodeText)
+    chat_type = Column(UnicodeText)
 
     def __init__(
-        self,
-        user_id,
-        chat_id,
-        session_id,
-        session_expires
+        self, chat_id, user_id, chat_name, user_name, user_username, chat_type
     ):
-        self.user_id = user_id
-        self.chat_id = chat_id
-        self.session_id = session_id
-        self.session_expires = session_expires
+        self.chat_id = str(chat_id)
+        self.user_id = str(user_id)
+        self.chat_name = chat_name
+        self.user_name = user_name
+        self.user_username = user_username
+        self.chat_type = chat_type
+
+    def __eq__(self, other):
+        return bool(
+            isinstance(other, ChatBot)
+            and self.chat_id == other.chat_id
+            and self.user_id == other.user_id
+        )
 
 
 ChatBot.__table__.create(checkfirst=True)
 
 
-def get_ch(user_id, chat_id):
+def is_added(chat_id, user_id):
     try:
-        return SESSION.query(ChatBot).get((user_id, chat_id))
-    except:
+        return SESSION.query(ChatBot).get((str(chat_id), str(user_id)))
+    except BaseException:
         return None
     finally:
         SESSION.close()
 
 
-def get_all_ch():
+def get_users(chat_id):
+    try:
+        return SESSION.query(ChatBot).filter(ChatBot.chat_id == str(chat_id)).all()
+    finally:
+        SESSION.close()
+
+
+def get_all_users():
     try:
         return SESSION.query(ChatBot).all()
-    except:
+    except BaseException:
         return None
     finally:
         SESSION.close()
 
 
-def add_ch(
-    user_id,
-    chat_id,
-    session_id,
-    session_expires
-):
-    adder = SESSION.query(ChatBot).get((user_id, chat_id))
-    if adder:
-        adder.session_id = session_id
-        adder.session_expires = session_expires
-    else:
+def addai(chat_id, user_id, chat_name, user_name, user_username, chat_type):
+    to_check = is_added(chat_id, user_id)
+    if not to_check:
         adder = ChatBot(
-            user_id,
-            chat_id,
-            session_id,
-            session_expires
+            str(chat_id), str(user_id), chat_name, user_name, user_username, chat_type
         )
+        SESSION.add(adder)
+        SESSION.commit()
+        return True
+    rem = SESSION.query(ChatBot).get((str(chat_id), str(user_id)))
+    SESSION.delete(rem)
+    SESSION.commit()
+    adder = ChatBot(
+        str(chat_id), str(user_id), chat_name, user_name, user_username, chat_type
+    )
     SESSION.add(adder)
     SESSION.commit()
+    return False
 
 
-def remove_ch(
-    user_id,
-    chat_id
-):
-    note = SESSION.query(ChatBot).get((user_id, chat_id))
-    if note:
-        SESSION.delete(note)
+def remove_ai(chat_id, user_id):
+    to_check = is_added(chat_id, user_id)
+    if not to_check:
+        return False
+    rem = SESSION.query(ChatBot).get((str(chat_id), str(user_id)))
+    SESSION.delete(rem)
+    SESSION.commit()
+    return True
+
+
+def remove_users(chat_id):
+    saved_filter = SESSION.query(ChatBot).filter(ChatBot.chat_id == str(chat_id))
+    if saved_filter:
+        saved_filter.delete()
+        SESSION.commit()
+
+
+def remove_all_users():
+    saved_filter = SESSION.query(ChatBot)
+    if saved_filter:
+        saved_filter.delete()
         SESSION.commit()
