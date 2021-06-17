@@ -76,7 +76,7 @@ async def add_chatbot(event):
     except Exception as e:
         await event.edit(f"**Error:**\n`{str(e)}`")
     else:
-        await event.reply(event, "`🐟 Başarılı!`")
+        await event.reply("`🐟 Başarılı!`")
 
 @register(outgoing=True, pattern="^.remai$")
 async def remove_chatbot(event):
