@@ -128,6 +128,7 @@ if RANDOM_STUFF_API_KEY:
         rs_client = None
 else:
     rs_client = None
+AI_LANG = os.environ.get("AI_LANG", 'en')
 
 
 # Güncelleyici için özel (fork) repo linki.
