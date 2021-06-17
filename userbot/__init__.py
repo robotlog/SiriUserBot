@@ -293,10 +293,20 @@ for binary, path in binaries.items():
     downloader.start()
     os.chmod(path, 0o755)
 
+from telethon.network.connection.tcpabridged import ConnectionTcpAbridged
+loop = None
 # 'bot' değişkeni
 if STRING_SESSION:
     # pylint: devre dışı=geçersiz ad
-    bot = TelegramClient(StringSession(STRING_SESSION), API_KEY, API_HASH)
+    bot = TelegramClient(
+    StringSession(STRING_SESSION),
+    API_KEY,
+    API_HASH,
+    loop=loop,
+    connection=ConnectionTcpAbridged,
+    auto_reconnect=True,
+    connection_retries=None,
+)
 else:
     # pylint: devre dışı=geçersiz ad
     bot = TelegramClient("userbot", API_KEY, API_HASH)
