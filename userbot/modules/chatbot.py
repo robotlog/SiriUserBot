@@ -15,7 +15,6 @@ import asyncio
 import logging
 from userbot.cmdhelp import CmdHelp
 from telethon.utils import get_display_name
-from .admin import get_user_from_event
 
 
 logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
@@ -55,7 +54,8 @@ async def add_chatbot(event):
             "`ChatBot'u etkinleştirmek için bir kullanıcının mesajını yanıtlayın! `"
         )
     catevent = await event.edit("`Kullanıcıyı ChatBot'a ekliyorum...`")
-    user, _ = await get_user_from_event(event)
+    previous_message = await event.get_reply_message()
+    user = await event.client.get_entity(previous_message.from_id)
     if not user:
         return
     reply_msg = await event.get_reply_message()
@@ -76,7 +76,7 @@ async def add_chatbot(event):
     except Exception as e:
         await event.edit(f"**Error:**\n`{str(e)}`")
     else:
-        await event.reply(event, "🐟 Başarılı!")
+        await event.reply(event, "`🐟 Başarılı!`")
 
 @register(outgoing=True, pattern="^.remai$")
 async def remove_chatbot(event):
@@ -106,7 +106,7 @@ async def remove_chatbot(event):
 @register(incoming=True, disable_edited=True)
 async def ai_reply(event):
     if is_added(event.chat_id, event.sender_id) and (event.message.text):
-        AI_LANG = AI_LANG if AI_LANG else "en"
+        global AI_LANG
         master_name = get_display_name(await event.client.get_me())
         response = await rs_client.get_ai_response(
             message=event.message.text,
