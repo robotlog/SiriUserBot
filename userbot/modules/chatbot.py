@@ -10,7 +10,7 @@
 #
 
 from userbot.events import register
-from userbot import rs_client, AI_LANG, RANDOM_STUFF_API_KEY
+from userbot import rs_client, AI_LANG, RANDOM_STUFF_API_KEY,MYID
 import asyncio
 import logging
 from userbot.cmdhelp import CmdHelp
@@ -114,7 +114,7 @@ async def ai_reply(event):
             server="primary",
             master="SiriUserbot",
             bot=master_name,
-            uid=event.client.id,
+            uid=MYID,
             language=AI_LANG,
         )
         await event.reply(response.message)
