@@ -103,6 +103,7 @@ async def remove_chatbot(event):
         await event.edit("`Kullanıcıda zaten ChatBot etkinleştirilmedi!`")
 
 
+#@register(incoming=True, disable_edited=True,disable_errors=True)
 @register(incoming=True, disable_edited=True)
 async def ai_reply(event):
     if is_added(event.chat_id, event.sender_id) and (event.message.text):
@@ -113,13 +114,13 @@ async def ai_reply(event):
             server="primary",
             master="SiriUserbot",
             bot=master_name,
-            uid=event.client.uid,
+            uid=event.client.id,
             language=AI_LANG,
         )
         await event.reply(response.message)
 
 CmdHelp('chatbot').add_command(
-    'addai', '<kullanıcı adı/yanıtlayarak>', 'ChatBot\'un otomatik sohbetini etkinleştirir.'
+    'addai', '<yanıtlayarak>', 'ChatBot\'un otomatik sohbetini etkinleştirir.'
 ).add_command(
-    'remai', '<kullanıcı adı/yanıtlayarak>', 'ChatBot\'un otomatik sohbetini devre dışı bırakır.'
+    'remai', '<yanıtlayarak>', 'ChatBot\'un otomatik sohbetini devre dışı bırakır.'
 ).add()
