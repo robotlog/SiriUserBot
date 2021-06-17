@@ -10,7 +10,7 @@
 #
 
 from userbot.events import register
-from userbot import rs_client, AI_LANG
+from userbot import rs_client, AI_LANG, RANDOM_STUFF_API_KEY
 import asyncio
 import logging
 from userbot.cmdhelp import CmdHelp
@@ -46,6 +46,10 @@ except:
 @register(outgoing=True, pattern="^.addai$")
 async def add_chatbot(event):
     "Yanıtlanan kişi için yapay zekayı etkinleştirme"
+    if not RANDOM_STUFF_API_KEY:
+        return await event.edit(
+            "`ChatBot'u etkinleştirmek için bir API key ayarlayın! `"
+        )
     if event.reply_to_msg_id is None:
         return await event.edit(
             "`ChatBot'u etkinleştirmek için bir kullanıcının mesajını yanıtlayın! `"
@@ -77,6 +81,10 @@ async def add_chatbot(event):
 @register(outgoing=True, pattern="^.remai$")
 async def remove_chatbot(event):
     "Kullanıcı için ChatBot'u durdurmak"
+    if not RANDOM_STUFF_API_KEY:
+        return await event.edit(
+            "`ChatBot'u etkinleştirmek için bir API key ayarlayın! `"
+        )
     if event.reply_to_msg_id is None:
         return await event.edit(
             "Yapay zekayı durdurmak için bir kullanıcının mesajını yanıtlayın."
