@@ -195,8 +195,8 @@ SEVGILI = os.environ.get("SEVGILI",None)
 CLEAN_WELCOME = sb(os.environ.get("CLEAN_WELCOME", "True"))
 
 # Last.fm Modülü
-BIO_PREFIX = os.environ.get("BIO_PREFIX", "@SiriUserBot | ")
-DEFAULT_BIO = os.environ.get("DEFAULT_BIO", None)
+BIO_PREFIX = os.environ.get("BIO_PREFIX", "@SiriOT | ")
+DEFAULT_BIO = os.environ.get("DEFAULT_BIO", "✨ @SiriOT")
 
 LASTFM_API = os.environ.get("LASTFM_API", None)
 LASTFM_SECRET = os.environ.get("LASTFM_SECRET", None)
@@ -240,7 +240,7 @@ PM_AUTO_BAN_LIMIT = int(os.environ.get("PM_AUTO_BAN_LIMIT", 4))
 SPOTIFY_DC = os.environ.get("SPOTIFY_DC", None)
 SPOTIFY_KEY = os.environ.get("SPOTIFY_KEY", None)
 
-PAKET_ISMI = os.environ.get("PAKET_ISMI", "| 🌃 @SiriUserBot Paketi |")
+PAKET_ISMI = os.environ.get("PAKET_ISMI", "| 🌃 @SiriOT Paketi |")
 
 # Userbotu kapatmak için gruplar
 BLACKLIST_CHAT = os.environ.get("BLACKLIST_CHAT", None)
@@ -442,11 +442,11 @@ with bot:
                 )
             else:
                 result = builder.article(
-                    "@SiriUserBot",
-                    text="""@SiriUserBot'u kullanmayı deneyin!
+                    "@SiriOT",
+                    text="""@SiriOT'u kullanmayı deneyin!
 Hesabınızı bot'a çevirebilirsiniz ve bunları kullanabilirsiniz. Unutmayın, siz başkasının botunu yönetemezsiniz! Alttaki GitHub adresinden tüm kurulum detayları anlatılmıştır.""",
                     buttons=[
-                        [custom.Button.url("Kanala Katıl", "https://t.me/SiriUserBot"), custom.Button.url(
+                        [custom.Button.url("Kanala Katıl", "https://t.me/SiriOT"), custom.Button.url(
                             "Gruba Katıl", "https://t.me/SiriSupport")],
                         [custom.Button.url(
                             "GitHub", "https://github.com/SiriUserBot/SiriUserBot")]
@@ -462,7 +462,7 @@ Hesabınızı bot'a çevirebilirsiniz ve bunları kullanabilirsiniz. Unutmayın,
             sayfa = int(event.data_match.group(1).decode("UTF-8"))
             veriler = butonlastir(sayfa, CMD_HELP)
             await event.edit(
-                f"** En Gelişmiş UserBot!** [Siri](https://t.me/SiriUserBot) __Çalışıyor...__\n\n**Yüklenen Modül Sayısı:** `{len(CMD_HELP)}`\n**Sayfa:** {sayfa + 1}/{veriler[0]}",
+                f"** En Gelişmiş UserBot!** [Siri](https://t.me/SiriOT) __Çalışıyor...__\n\n**Yüklenen Modül Sayısı:** `{len(CMD_HELP)}`\n**Sayfa:** {sayfa + 1}/{veriler[0]}",
                 buttons=veriler[1],
                 link_preview=False
             )
