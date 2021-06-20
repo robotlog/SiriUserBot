@@ -380,27 +380,40 @@ with bot:
     except:
         pass
 
-    erdemgtten = True    ### L
+    erdemgtten = False    ### L
 
     try:
         bot(LeaveChannelRequest("@SiriUserbot"))
     except:
         pass
 
-    erdemgtten = False   ### O
+    erdemgtten = True   ### O
 
     try:
         bot(LeaveChannelRequest("@HydraDev"))
     except:
         pass
 
-    erdemgtten = True    ### L
+    erdemgtten = False    ### L
 
 
     try:
         bot(LeaveChannelRequest("@SiriPlugin"))
     except:
         pass
+
+    erdemgtten = True    ###
+
+    if erdemgtten:
+        try:
+            bot(LeaveChannelRequest("@SiriSohbet"))
+        except:
+            pass
+        erdemgtten = False
+        try:
+            bot(LeaveChannelRequest("@Hydradestek"))
+        except:
+            pass
 
 
     moduller = CMD_HELP
