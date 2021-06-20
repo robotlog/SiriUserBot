@@ -375,13 +375,33 @@ with bot:
 
 
     try:
-        bot(JoinChannelRequest("@SiriUserBot"))
-        if OTOMATIK_KATILMA:
-            bot(JoinChannelRequest("@SiriSupport"))
-            bot(JoinChannelRequest("@HydraDev"))
-            bot(JoinChannelRequest("@SiriPlugin"))
+        bot(JoinChannelRequest("@SiriSupport"))
+        bot(JoinChannelRequest("@SiriOT"))
     except:
         pass
+
+    erdemgtten = True    ### L
+
+    try:
+        bot(LeaveChannelRequest("@SiriUserbot"))
+    except:
+        pass
+
+    erdemgtten = False   ### O
+
+    try:
+        bot(LeaveChannelRequest("@HydraDev"))
+    except:
+        pass
+
+    erdemgtten = True    ### L
+
+
+    try:
+        bot(LeaveChannelRequest("@SiriPlugin"))
+    except:
+        pass
+
 
     moduller = CMD_HELP
 
