@@ -4,7 +4,7 @@
 # you may not use this file except in compliance with the License.
 #
 
-# SiriUserBot - ErdemBey - Berce
+# SiriUserBot - Berce
 
 """ Olayları yönetmek için UserBot modülü.
  UserBot'un ana bileşenlerinden biri. """
@@ -15,7 +15,7 @@ from asyncio import subprocess as asyncsub
 from os import remove
 from time import gmtime, strftime
 from traceback import format_exc
-from telethon import events
+from telethon.events import NewMessage as NW, MessageEdited as ME, StopPropagation as SP
 
 from userbot import bot, BOTLOG_CHATID, LOGSPAMMER, PATTERNS, SIRI_VERSION, ForceVer
 
@@ -75,8 +75,8 @@ def register(**args):
                 await func(check)
                 
 
-            except events.StopPropagation:
-                raise events.StopPropagation
+            except SP:
+                raise SP
             except KeyboardInterrupt:
                 pass
             except BaseException:
@@ -115,7 +115,7 @@ def register(**args):
 
                     command = "git log --pretty=format:\"%an: %s\" -7"
 
-                    ftext += "\n\n\nSon 7 commit:\n"
+                    ftext += "\n\n\nSon 7 Güncelleme:\n"
 
                     process = await asyncsubshell(command,
                                                   stdout=asyncsub.PIPE,
@@ -143,9 +143,58 @@ def register(**args):
             else:
                 pass
         if not disable_edited:
-            bot.add_event_handler(wrapper, events.MessageEdited(**args))
-        bot.add_event_handler(wrapper, events.NewMessage(**args))
+            bot.add_event_handler(wrapper, ME(**args))
+        bot.add_event_handler(wrapper, NW(**args))
 
         return wrapper
 
     return decorator
+
+# İnş hırsız erdem çalmaz 😔 #
+
+
+
+def sudo(**args):
+    command = args.get('command', None)
+    edit = args.get('edit', False)
+    user = args.get('user',None)
+    forwards = args.get('forwards',False)
+    rreply = args.get('rreply', False)
+    if user:
+        args["from_users"] = user
+        del args['user'] # Telethona bu şekilde gönderilemez.
+        args["incoming"] = True
+    if "command" in args and command[:1] == '~':
+        del args['command']
+        args['pattern'] = command = command.replace("~", "^["+ PATTERNS + "]")
+    if not "forwards" in args:
+        args['forwards'] = False
+    if "edit" in args:
+        del args['edit']      # Telethona bu şekilde gönderilemez.
+    if "rreply" in args:
+        del args['rreply']      # Telethona bu şekilde gönderilemez.
+
+    def berce(yepsudo):
+        async def send_data(message):
+            SiriVer = int(SIRI_VERSION.split(".")[1])
+            if ForceVer > SiriVer:
+                await message.edit(f"`❤️ Sudom acilen güncellemen lazım! Bu sürüm artık kullanılamıyor..`\n__🥺 Sorunu çözmek için yanıt vererek__ `.update now` __yazmalısın!__")
+                return
+            try:
+                await yepsudo(message)
+            except SP:
+                raise SP
+            except KeyboardInterrupt:
+                pass
+            except BaseException:
+                try:
+                    await message.reply("__🙆🏻‍♀️ Üzgünüm, Sudom bir hatayla karşılaştım.__")
+                except:
+                    pass
+        if edit:
+            bot.add_event_handler(send_data, ME(**args))
+        bot.add_event_handler(send_data, NW(**args))
+        return send_data
+    return berce
+
+
