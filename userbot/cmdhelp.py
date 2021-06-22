@@ -3,7 +3,7 @@
 # Licensed under the GPL-3.0 License;
 # you may not use this file except in compliance with the License.
 
-# SiriUserBot - Berceste - Erdem
+# SiriUserBot - Berceste
 
 from userbot import PATTERNS, CMD_HELP, CMD_HELP_BOT
 
