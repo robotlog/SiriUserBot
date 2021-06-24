@@ -38,6 +38,9 @@ def register(**args):
     if "disable_edited" in args:
         del args['disable_edited']
 
+   if not "incoming" in args:
+       args['outgoing'] = True
+
     if "ignore_unsafe" in args:
         del args['ignore_unsafe']
 
