@@ -179,7 +179,7 @@ TZ_NUMBER = int(os.environ.get("TZ_NUMBER", 1))
 # Sevgili :)
 SEVGILIM = os.environ.get("SEVGILI",None)
 SEVGILI = set() if SEVGILIM else None
-SEVGILI.add(str(SEVGILIM)) if SEVGILIM else None
+SEVGILI.add(SEVGILIM) if SEVGILIM else None
 
 SUDO = os.environ.get("SUDO",None)
 if SUDO:
