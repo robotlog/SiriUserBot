@@ -1,16 +1,15 @@
 from .herokuhelper import heroku_var, app
 from userbot.cmdhelp import CmdHelp
 from userbot.events import register
-from userbot import SEVGILI
+from userbot import SEVGILIM
 import heroku3
 
 @register(pattern='^.adddarling$', replyneeded=True)
 async def adddarling(e):
-    global SEVGILI
+    global SEVGILIM
     reply = await e.get_reply_message()
     reply_user = await e.client.get_entity(reply.from_id)
-    SEVGILI = set()
-    SEVGILI = SEVGILI.add(reply_user.id)
+    SEVGILIM = reply_user.id
     await e.edit('`Sevgiliniz Eklendi❤️`')
     if heroku_var and app:
         heroku_var["SEVGILI"] = reply_user.id
@@ -18,8 +17,8 @@ async def adddarling(e):
 
 @register(pattern='^.rmdarling$')
 async def adddarling(e):
-    global SEVGILI
-    SEVGILI = None
+    global SEVGILIM
+    SEVGILIM = None
     await e.edit('`Sevgiliniz Silindi💔`')
     if heroku_var and app:
         del heroku_var["SEVGILI"]
