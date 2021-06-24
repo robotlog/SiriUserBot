@@ -173,11 +173,9 @@ async def amialive(e):
             else:
                 await e.respond(PLUGIN_MESAJLAR['alive'])
 
-@register(incoming=True, from_users=WHITELIST, pattern="^!alive$")
-@register(incoming=True, from_users=ASISTAN, pattern="^.alive$")
+@register(incoming=True, from_users=WHITELIST, pattern="^!alive$",disable_errors=True)
+@register(incoming=True, from_users=ASISTAN, pattern="^.alive$",disable_errors=True)
 async def asistanalive(ups):
-    if ups.fwd_from:
-        return
     if ups.is_reply:
         reply = await ups.get_reply_message()
         replytext = reply.text
