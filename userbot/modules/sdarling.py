@@ -1,6 +1,6 @@
 from .herokuhelper import heroku_var, app
 from userbot.cmdhelp import CmdHelp
-from userbot.event import register
+from userbot.events import register
 from userbot import SEVGILI
 
 @register(pattern='^.adddarling$', replyneeded=True)
