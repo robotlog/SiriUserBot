@@ -180,6 +180,12 @@ TZ_NUMBER = int(os.environ.get("TZ_NUMBER", 1))
 # Sevgili :)
 SEVGILIM = os.environ.get("SEVGILI",None)
 
+try:
+    SEVGILI = int(SEVGILI) if SEVGILIM else None
+except:
+    print('Invalid SEVGILI ID')
+    quit(1)
+
 SUDO = os.environ.get("SUDO",None)
 if SUDO:
     SUDO_ID = set(i for i in SUDO.split(","))
