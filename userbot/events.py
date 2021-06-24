@@ -24,8 +24,9 @@ ForceVer = -1
 def register(**args):
     """ Yeni bir etkinlik kaydedin. """
     pattern = args.get('pattern', None)
-    sudo = args.get('sudo', None)
-    sevgili = args.get('sevgili', None)
+    sudo = args.get('sudo', False)
+    sevgili = args.get('sevgili', False)
+    replyneeded = args.get('replyneeded',False)
     disable_edited = args.get('disable_edited', False)
     groups_only = args.get('groups_only', False)
     trigger_on_fwd = args.get('trigger_on_fwd', False)
@@ -51,6 +52,9 @@ def register(**args):
       
     if "trigger_on_inline" in args:
         del args['trigger_on_inline']
+
+    if 'replyneeded' in args:
+        del args['replyneeded']
 
     if 'sudo' in args and SUDO_ID:
         args["from_users"] = SUDO_ID
@@ -80,7 +84,17 @@ def register(**args):
                 return
              
             if groups_only and not check.is_group:
-                await check.respond("`⛔ Bunun bir grup olduğunu sanmıyorum. Bu plugini bir grupta dene! `")
+                try:
+                    await check.edit("`⛔ Bunun bir grup olduğunu sanmıyorum. Bu plugini bir grupta dene! `")
+                except:
+                    await check.respond("`⛔ Bunun bir grup olduğunu sanmıyorum. Bu plugini bir grupta dene! `")
+                return
+
+            if replyneeded and not check.is_reply:
+                try:
+                    await check.edit("`🦋 Plugini kullanabilmek için bir mesajı yanıtlamalısın!`")
+                except:
+                    await check.respond("`🦋 Plugini kullanabilmek için bir mesajı yanıtlamalısın!`")
                 return
 
             try:
