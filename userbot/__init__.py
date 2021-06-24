@@ -152,7 +152,9 @@ GOOGLE_CHROME_BIN = os.environ.get("GOOGLE_CHROME_BIN", None)
 WORKTIME = time.time()
 
 PLUGINID = os.environ.get("PLUGIN_CHANNEL_ID", None)
-# Plugin İçin
+
+STORECHANNEL = os.environ.get("STORECHANNEL", '@siriaddon')
+
 if not PLUGINID:
     PLUGIN_CHANNEL_ID = "me"
 else:
