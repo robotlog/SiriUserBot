@@ -1,4 +1,4 @@
-# GNU LICENCE / SiriUserBot - ErdemBey - Midy - Berceste
+# GNU LICENCE / SiriUserBot - Berceste
 
 import codecs
 import heroku3
@@ -29,7 +29,7 @@ if HEROKU_APPNAME is not None and HEROKU_APIKEY is not None:
     heroku_var = app.config()
 else:
     app = None
-
+    heroku_var = None
 
 """Config Vars değeri ilave edin veya silin..."""
 
@@ -59,7 +59,7 @@ async def variable(var):
                     await var.edit("`Lütfen BOTLOG grubu ayarlayınız...`")
                     return False
             else:
-                await var.edit("`Hata:` **NoInfo.**")
+                await var.edit("`Hata:` **Olmayan Bir değer değiştirilemez.**")
                 return True
         else:
             configvars = heroku_var.to_dict()
@@ -112,7 +112,7 @@ async def set_var(var):
                     f"`{variable}` = `{value}`"
                 )
             await var.edit("`Veriler Yazıldı!`")
-        except PeerIdInvalidError:
+        except:
              fix = True
              await var.edit("😒 Botlog grubundan çıkmışsın.. Senin için düzeltiyorum..")
     else:
@@ -124,7 +124,7 @@ async def set_var(var):
                     f"`{variable}` = `{value}`"
                 )
             await var.edit("`Veriler Yazıldı!`")
-        except PeerIdInvalidError:
+        except:
             fix = True
             await var.edit("😒 Botlog grubundan çıkmışsın.. Senin için düzeltiyorum..")
     if fix:
