@@ -38,9 +38,6 @@ def register(**args):
     if "disable_edited" in args:
         del args['disable_edited']
 
-    if not "incoming" in args:
-        args['outgoing'] = True
-
     if "ignore_unsafe" in args:
         del args['ignore_unsafe']
 
@@ -61,18 +58,24 @@ def register(**args):
 
     if 'sudo' in args:
         del args['sudo']
+        args['incoming'] = True
         if SUDO_ID:
             args["from_users"] = SUDO_ID
 
-    elif 'sevgili' in args:
+    if 'sevgili' in args:
         del args['sevgili']
+        args['incoming'] = True
         if SEVGILI:
             args["from_users"] = SEVGILI
 
     if 'asistan' in args:
         del args['asistan']
+        args['incoming'] = True
         args["from_users"] = ASISTAN
 
+
+    if not "incoming" in args:
+        args['outgoing'] = True
 
     def decorator(func):
         async def wrapper(check):
