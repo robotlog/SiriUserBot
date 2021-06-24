@@ -4,7 +4,7 @@
 # you may not use this file except in compliance with the License.
 #
 
-# SiriUserBot - ErdemBey - Midy - Berceste
+# SiriUserBot - Berceste
 
 
 """ Sunucu hakkında bilgi veren UserBot modülüdür. """
@@ -20,6 +20,7 @@ import os
 from userbot import (CMD_HELP, SIRI_VERSION, DEFAULT_NAME, WHITELIST, MYID, ASISTAN, WORKTIME, timesiri, bot) 
 from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.types import MessageEntityMentionName
+from userbot.helps.asistan import bana_mi_diyo
 from userbot.events import register
 from userbot.main import PLUGIN_MESAJLAR
 from telethon import version
@@ -56,6 +57,14 @@ async def sysdetails(sysd):
     except FileNotFoundError:
         await sysd.edit(LANG['NO_NEOFETCH'])
 
+
+@register(asistan=True,pattern="^.worktime")
+async def worktime(u):
+    bana_mi_diyo = await bana_mi_diyo(u)
+    if not bana_mi_diyo:
+        return
+    worktime = await timesiri.get_readable_time((emit() - WORKTIME))
+    await u.reply(f'✨ {worktime}')
 
 @register(pattern="^.botver$")
 async def bot_ver(event):
@@ -148,7 +157,7 @@ async def amialive(e):
                 siri=SIRI_VERSION,
                 plugin=len(CMD_HELP),
                 id=me.id,
-		worktime = await timesiri.get_readable_time((emit() - WORKTIME)),
+                worktime = await timesiri.get_readable_time((emit() - WORKTIME)),
                 username='@' + me.username if me.username else f'[{me.first_name}](tg://user?id={me.id})',
                 first_name=me.first_name,
                 last_name=me.last_name if me.last_name else '',
@@ -164,7 +173,7 @@ async def amialive(e):
                     siri=SIRI_VERSION,
                     plugin=len(CMD_HELP),
                     id=me.id,
-		    worktime = await timesiri.get_readable_time((emit() - WORKTIME)),
+                    worktime = await timesiri.get_readable_time((emit() - WORKTIME)),
                     username='@' + me.username if me.username else f'[{me.first_name}](tg://user?id={me.id})',
                     first_name=me.first_name,
                     last_name=me.last_name if me.last_name else '',
