@@ -4,7 +4,7 @@
 # you may not use this file except in compliance with the License.
 #
 
-# SiriUserBot - ErdemBey - Berceste
+# SiriUserBot - Berceste
 
 import datetime
 from telethon import events
@@ -88,7 +88,7 @@ def MemeYap (Resim, Text, FontS = 40, Bottom = False, BottomText = None):
 
     Foto.save("bercmeme.png")
 
-@register(outgoing=True, pattern="^.sangmata(?: |$)(.*)")
+@register(pattern="^.sangmata(?: |$)(.*)")
 async def sangmata(event):
     if event.fwd_from:
         return 
@@ -126,7 +126,7 @@ async def sangmata(event):
           await bot.send_read_acknowledge(chat, max_id=(response.id+3))
           await conv.cancel_all()
 
-@register(outgoing=True, pattern="^.meme ?((\d*)(.*))")
+@register(pattern="^.meme ?((\d*)(.*))")
 async def memeyap(event):
     """ Meme modulu """
     font = event.pattern_match.group(2)
@@ -182,7 +182,7 @@ async def memeyap(event):
     else:
         await event.edit(LANG['REPLY_TO_MEME'])
 
-@register(outgoing=True, pattern="^.scan")
+@register(pattern="^.scan")
 async def scan(event):
     if event.fwd_from:
         return 
@@ -231,8 +231,10 @@ async def scan(event):
             await event.edit(LANG['CLEAN'])
          else:
             await event.edit(f"**{LANG['VIRUS_DETECTED']}**\n\nDetaylı bilgi: {response.message.message}")
+        await conv.mark_read()
+        await conv.cancel_all()
 
-@register(outgoing=True, pattern="^.creation")
+@register(pattern="^.creation")
 async def creation(event):
     if not event.reply_to_msg_id:
         await event.edit(LANG['REPLY_TO_MSG'])
@@ -259,6 +261,8 @@ async def creation(event):
             await event.edit(LANG['PRIVACY_ERR'])
         else:
             await event.edit(f"**Rapor hazır: **`{response.text.replace('**','')}`")
+        await conv.mark_read()
+        await conv.cancel_all()
 
 
 @register(outgoing=True, pattern="^.ocr2")
@@ -295,8 +299,10 @@ async def ocriki(event):
             await event.edit(LANG['OCR_ERROR'])
         else:
             await event.edit(f"**{LANG['SEE_SOMETHING']}: **`{response.text}`")
+        await conv.mark_read()
+        await conv.cancel_all()
 
-@register(outgoing=True, pattern="^.voicy")
+@register(pattern="^.voicy")
 async def voicy(event):
     if event.fwd_from:
         return 
@@ -327,16 +333,15 @@ async def voicy(event):
         elif response.text.startswith("__👮"):
             await event.edit(LANG['VOICY_ERR'])
         else:
-            res = response.text.replace("Powered by [Todorant](https://todorant.com/?utm_source=voicy)","`\n❤️ __by @SiriUserbot__")
+            res = response.text.replace("Powered by [Todorant](https://todorant.com/?utm_source=voicy)","`\n❤️ __by @SiriOT__")
             await event.edit(f"**{LANG['HEAR_SOMETHING']}: **`{res}")
+        await conv.mark_read()
+        await conv.cancel_all()
 
-@register(outgoing=True, pattern="^.q(?: |$)(.*)")
+@register(pattern="^.q(?: |$)(.*)",replyneeded=True)
 async def quotly(event):
     if event.fwd_from:
         return 
-    if not event.reply_to_msg_id:
-       await event.edit(LANG['REPLY_TO_MSG'])
-       return
     reply_message = await event.get_reply_message() 
     if not reply_message.text:
        await event.edit(LANG['REPLY_TO_MSG'])
