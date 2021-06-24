@@ -8,7 +8,7 @@ async def adddarling(e):
     global SEVGILI
     reply = await e.get_reply_message()
     reply_user = await e.client.get_entity(reply.from_id)
-    SEVGILI = set(reply_user.id)
+    SEVGILI = set(str(reply_user.id))
     await e.edit('`Sevgiliniz Eklendi❤️`')
     if heroku_var and app:
         heroku_var["SEVGILI"] = reply_user.id
