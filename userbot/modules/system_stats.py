@@ -11,12 +11,13 @@
 
 from asyncio import create_subprocess_shell as asyncrunapp
 from asyncio.subprocess import PIPE as asyncPIPE
+from time import time as emit
 from asyncio import sleep
 from platform import uname
 from shutil import which
 from requests import get
 import os
-from userbot import (CMD_HELP, SIRI_VERSION, DEFAULT_NAME, WHITELIST, MYID, ASISTAN, bot) 
+from userbot import (CMD_HELP, SIRI_VERSION, DEFAULT_NAME, WHITELIST, MYID, ASISTAN, WORKTIME, timesiri, bot) 
 from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.types import MessageEntityMentionName
 from userbot.events import register
@@ -147,6 +148,7 @@ async def amialive(e):
                 siri=SIRI_VERSION,
                 plugin=len(CMD_HELP),
                 id=me.id,
+		worktime = await timesiri.get_readable_time((emit() - WORKTIME)),
                 username='@' + me.username if me.username else f'[{me.first_name}](tg://user?id={me.id})',
                 first_name=me.first_name,
                 last_name=me.last_name if me.last_name else '',
@@ -162,6 +164,7 @@ async def amialive(e):
                     siri=SIRI_VERSION,
                     plugin=len(CMD_HELP),
                     id=me.id,
+		    worktime = await timesiri.get_readable_time((emit() - WORKTIME)),
                     username='@' + me.username if me.username else f'[{me.first_name}](tg://user?id={me.id})',
                     first_name=me.first_name,
                     last_name=me.last_name if me.last_name else '',
