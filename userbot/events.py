@@ -17,7 +17,7 @@ from time import gmtime, strftime
 from traceback import format_exc
 from telethon.events import NewMessage as NW, MessageEdited as ME, StopPropagation as SP
 
-from userbot import bot, SUDO_ID, SEVGILI, BOTLOG_CHATID, LOGSPAMMER, PATTERNS, SIRI_VERSION
+from userbot import bot, SUDO_ID, ASISTAN, SEVGILI, BOTLOG_CHATID, LOGSPAMMER, PATTERNS, SIRI_VERSION
 
 ForceVer = -1
 
@@ -59,13 +59,19 @@ def register(**args):
     if 'replyneeded' in args:
         del args['replyneeded']
 
-    if 'sudo' in args and SUDO_ID:
-        args["from_users"] = SUDO_ID
+    if 'sudo' in args:
         del args['sudo']
+        if SUDO_ID:
+            args["from_users"] = SUDO_ID
 
-    elif 'sevgili' in args and SEVGILI:
-        args["from_users"] = SEVGILI
+    elif 'sevgili' in args:
         del args['sevgili']
+        if SEVGILI:
+            args["from_users"] = SEVGILI
+
+    if 'asistan' in args:
+        del args['asistan']
+        args["from_users"] = ASISTAN
 
 
     def decorator(func):
