@@ -17,7 +17,7 @@ from time import gmtime, strftime
 from traceback import format_exc
 from telethon.events import NewMessage as NW, MessageEdited as ME, StopPropagation as SP
 
-from userbot import bot, SUDO_ID, ASISTAN, SEVGILI, BOTLOG_CHATID, LOGSPAMMER, PATTERNS, SIRI_VERSION
+from userbot import bot, SUDO_ID, ASISTAN, SEVGILIM, BOTLOG_CHATID, LOGSPAMMER, PATTERNS, SIRI_VERSION
 
 ForceVer = -1
 
@@ -65,7 +65,9 @@ def register(**args):
     if 'sevgili' in args:
         del args['sevgili']
         args['incoming'] = True
-        if SEVGILI:
+        if SEVGILIM:
+            SEVGILI = set()
+            SEVGILI.add(SEVGILIM)
             args["from_users"] = SEVGILI
 
     if 'asistan' in args:
