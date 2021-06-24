@@ -279,7 +279,7 @@ CURSOR.execute("""SELECT * FROM SURUM1""")
 ALL_ROWS = CURSOR.fetchall()
 
 for i in ALL_ROWS:
-    forceVer.append(i[0])
+    forceVer.append(i)
 connect("force-surum.check").close() 
 
 # CloudMail.ru ve MEGA.nz ayarlama
