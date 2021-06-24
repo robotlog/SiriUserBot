@@ -16,7 +16,7 @@ from platform import uname
 from shutil import which
 from requests import get
 import os
-from userbot import (CMD_HELP, SIRI_VERSION, DEFAULT_NAME, WHITELIST, MYID, ASISTAN, bot, SEVGILI) # Yakında
+from userbot import (CMD_HELP, SIRI_VERSION, DEFAULT_NAME, WHITELIST, MYID, ASISTAN, bot) 
 from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.types import MessageEntityMentionName
 from userbot.events import register
@@ -36,7 +36,7 @@ LANG = get_value("system_stats")
 # ============================================
 
 
-@register(outgoing=True, pattern="^.sysd$")
+@register(pattern="^.sysd$")
 async def sysdetails(sysd):
     """ .sysd komutu neofetch kullanarak sistem bilgisini gösterir. """
     try:
@@ -56,7 +56,7 @@ async def sysdetails(sysd):
         await sysd.edit(LANG['NO_NEOFETCH'])
 
 
-@register(outgoing=True, pattern="^.botver$")
+@register(pattern="^.botver$")
 async def bot_ver(event):
     """ .botver komutu bot versiyonunu gösterir. """
     if which("git") is not None:
@@ -82,6 +82,7 @@ async def bot_ver(event):
 
         await event.edit(f"=== {SIRI_VERSION} === "
                          f"`{LANG['VERSION']}: "
+                         "` \n"
                          f"{verout}"
                          "` \n"
                          f"`{LANG['REVOUT']}: "
@@ -93,7 +94,7 @@ async def bot_ver(event):
         )
 
 
-@register(outgoing=True, pattern="^.pip(?: |$)(.*)")
+@register(pattern="^.pip(?: |$)(.*)")
 async def pipcheck(pip):
     """ .pip komutu python-pip araması yapar. """
     pipmodule = pip.pattern_match.group(1)
@@ -135,7 +136,7 @@ async def pipcheck(pip):
     else:
         await pip.edit(LANG['EXAMPLE'])
 
-@register(outgoing=True, pattern="^.alive$")
+@register(pattern="^.alive$")
 async def amialive(e):
         sahipp = f"{DEFAULT_NAME}" if DEFAULT_NAME else "Sir"
         me = await e.client.get_me()
@@ -172,7 +173,7 @@ async def amialive(e):
             else:
                 await e.respond(PLUGIN_MESAJLAR['alive'])
 
-@register(incoming=True, from_users=WHITELIST, pattern="^.wlive$")
+@register(incoming=True, from_users=WHITELIST, pattern="^!alive$")
 @register(incoming=True, from_users=ASISTAN, pattern="^.alive$")
 async def asistanalive(ups):
     if ups.fwd_from:
