@@ -155,7 +155,11 @@ PLUGINID = os.environ.get("PLUGIN_CHANNEL_ID", None)
 if not PLUGINID:
     PLUGIN_CHANNEL_ID = "me"
 else:
-    PLUGIN_CHANNEL_ID = int(PLUGINID)
+    try:
+        PLUGIN_CHANNEL_ID = int(PLUGINID)
+    except:
+        print('Invalid Plugin Channel - Hatalı Plugin Kanalı')
+        quit(1)
 
 # OpenWeatherMap API Key
 OPEN_WEATHER_MAP_APPID = os.environ.get("OPEN_WEATHER_MAP_APPID", None)
@@ -174,6 +178,7 @@ TZ_NUMBER = int(os.environ.get("TZ_NUMBER", 1))
 
 # Sevgili :)
 SEVGILI = os.environ.get("SEVGILI",None)
+SEVGILI = set(SEVGILI) if SEVGILI else None
 
 SUDO = os.environ.get("SUDO",None)
 if SUDO:
