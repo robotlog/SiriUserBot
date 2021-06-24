@@ -70,7 +70,7 @@ if not LANGUAGE in ["EN", "TR", "AZ", "UZ", "DEFAULT"]:
     LANGUAGE = "DEFAULT"
     
 # Siri versiyon
-SIRI_VERSION = "v1.9"
+SIRI_VERSION = "v2.0"
 
 # Telegram API KEY ve HASH
 API_KEY = os.environ.get("API_KEY", None)
@@ -94,22 +94,6 @@ PM_AUTO_BAN = sb(os.environ.get("PM_AUTO_BAN", "False"))
 HEROKU_MEMEZ = sb(os.environ.get("HEROKU_MEMEZ", "False"))
 HEROKU_APPNAME = os.environ.get("HEROKU_APPNAME", None)
 HEROKU_APIKEY = os.environ.get("HEROKU_APIKEY", None)
-
-EZZEC = False
-Heroku = None
-app = None
-
-if HEROKU_APPNAME is not None and HEROKU_APIKEY is not None:
-    if EZZEC == True:
-        pass
-    else:
-        EZZEC = True
-        Heroku = heroku3.from_key(HEROKU_APIKEY)
-        app = Heroku.app(HEROKU_APPNAME)
-        heroku_var = app.config()
-        heroku_var["UPSTREAM_REPO_URL"] = "https://github.com/SiriUserBot/SiriUserBot.git"
-else:
-    app = None
 
 
 try:
@@ -190,6 +174,22 @@ TZ_NUMBER = int(os.environ.get("TZ_NUMBER", 1))
 
 # Sevgili :)
 SEVGILI = os.environ.get("SEVGILI",None)
+
+SUDO = os.environ.get("SUDO",None)
+if SUDO:
+    SUDO_ID = [i for i in SUDO.split(",")]
+    for i in SUDO_ID:
+        try:
+            int(i)
+        except:
+            FIX = ''.join(SUDO)
+            if ',' in FIX:
+                print("Sudo ID'lerinden '{}' hatalı lütfen düzeltin... Bot kapatılıyor..".format(i))
+            else:
+                print("Sudo Listenizi , (virgül) ile ayırın. Şuanda hatalı bot kapatılıyor....")
+            quit(1)
+else:
+    SUDO_ID = None
 
 # Temiz Karşılama
 CLEAN_WELCOME = sb(os.environ.get("CLEAN_WELCOME", "True"))
