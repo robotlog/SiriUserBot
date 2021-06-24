@@ -105,10 +105,10 @@
         },
 
         "afk": {
-            "REASON": "Sebep",
+            "REASON": "`Sebep`",
             "AFK": "Sahibim şu an AFK.",
-            "IM_AFK": "`Artık AFK'yım. 💤`",
-            "IM_NOT_AFK": "`🙋🏻‍♂️ Artık AFK değilim.`"
+            "IM_AFK": "**✨ Artık AFK'yım.**",
+            "IM_NOT_AFK": "**🦋 Artık AFK değilim.**"
         },
 
         "auto": {
@@ -116,7 +116,7 @@
             "ALREADY": "`Görünüşe göre %s zaten otomatik olarak değişiyor.`",
             "SETTING": "`%s ayarlanıyor...`",
             "BIO": "📆 Tarih: {tarih} | ⏰ Saat: {saat} | ",
-            "NICK": "@SiriUserBot",
+            "NICK": "@SiriOT",
             "SETTED": "`%s ayarlandı :)`",
             "NAME": "⌚%s"
         },
@@ -172,8 +172,8 @@
             "EFECTING": "`Efekt uygulanıyor...`",
             "NOT_FOUND_EFECT": "**Belirttiğiniz efekt bulunamadı! **`Kullanılabileceğiniz efektler: ``çocuk/robot/earrape/hızlı/parazit/yankı`",
             "NEED_VIDEO": "`Lütfen bir videoya yanıt verin!`",
-            "WITH_SIRI":"@SiriUserBot `ile efekt uygulandı.`",
-            "WITH_SIRI_GIF": "@SiriUserBot `ile Gif'e çevirildi.`",
+            "WITH_SIRI":"@SiriOT `ile efekt uygulandı.`",
+            "WITH_SIRI_GIF": "@SiriOT `ile Gif'e çevirildi.`",
             "CONVERTING_TO_GIF": "Gif'e çeviriliyor...",
             "UPLOADING_GIF": "`Gif yükleniyor...`",
             "ERROR": "Gif'e çeviremedim :/"
@@ -376,9 +376,9 @@
             "GOODBYE_MFRS": "`Görüşürüz... *Windows XP kapanma sesi*`",
             "RESTARTING": "`Bot yeniden başlatılıyor...`",
             "SUPPORT_GROUP": "[Buradan](http://t.me/SiriSupport) destek grubumuza ulaşabilirsiniz.",
-            "CREATOR": "Bu bot \n @orgutsahibi , @ixelizm ve @bberc tarafından geliştirilmiştir. \n",
-            "README": "[Siri README.md](https://github.com/ErdemBey1/SiriUserBot/blob/master/README.md)",
-            "REPO": "[Siri Repo](https://github.com/ErdemBey1/siriuserbot)",
+            "CREATOR": "Bu bot \n @bberc tarafından geliştirilmiştir. \n",
+            "README": "[Siri README.md](https://github.com/SiriUserBot/SiriUserBot/blob/master/README.md)",
+            "REPO": "[Siri Repo](https://github.com/SiriUserBot/SiriUserbot)",
             "CHECK_LOGS": "`Çözülmüş mesaj için userbot loglarını kontrol et!`"
         },
 
@@ -549,7 +549,7 @@
             "SEARCHING": "`Şarkı aranıyor...`",
             "BLOCKED_DEEZER": "`Mmmh sanırım` @DeezerMusicBot `engellemişsin. Lütfen engeli aç.",
             "NOT_FOUND": "`Aradığınız şarkı bulunamadı! Üzgünüm.`",
-            "UPLOADED_WITH": "@SiriUserBot ile yüklendi.",
+            "UPLOADED_WITH": "@SiriOT ile yüklendi.",
             "USAGE": "`Kullanım:` `.song şarkı ismi/youtube url/spotify url`",
             "SEARCHING_SPOT": "`Şarkı aranıyor ve indiriliyor lütfen bekleyin!",
             "DOWNLOADED": "`İndirme işlemi başarılı lütfen bekleyiniz.`",
