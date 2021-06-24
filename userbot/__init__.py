@@ -567,7 +567,7 @@ SON_GORULME = 0
 COUNT_MSG = 0
 USERS = {}
 MYID = uid
-ForceVer = forceVer[1]
+ForceVer = forceVer[0]
 print('Force: ',ForceVer)
 BRAIN_CHECKER = []
 COUNT_PM = {}
