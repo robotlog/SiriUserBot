@@ -12,6 +12,7 @@ async def adddarling(e):
     await e.edit('`Sevgiliniz Eklendi❤️`')
     if heroku_var and app:
         heroku_var["SEVGILI"] = reply_user.id
+    return True
 
 @register(pattern='^.rmdarling$')
 async def adddarling(e):
@@ -20,6 +21,8 @@ async def adddarling(e):
     await e.edit('`Sevgiliniz Silindi💔`')
     if heroku_var and app:
         del heroku_var["SEVGILI"]
+    return True
+
 
 
 @register(pattern='^!darling',sevgili=True)
