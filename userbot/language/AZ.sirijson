@@ -115,7 +115,7 @@
             "ALREADY": "`Hazırda %s onsuzda avtomatik olaraq dəyişir.`",
             "SETTING": "`%s nizamlanır...`",
             "BIO": "📆 Tarix: {tarih} | ⏰ Saat: {saat} | ",
-            "NICK": "@SiriUserBot",
+            "NICK": "@SiriOT",
             "SETTED": "`%s nizamlandı :)`",
             "NAME": "⌚%s"
         },
@@ -175,8 +175,8 @@
             "EFECTING": "`Effekt hazırlanır...`",
             "NOT_FOUND_EFECT": "**Qeyd etdiyiniz effekt tapılmadı! **`İstifadə edə biləcəyiniz effektlər: ``çocuk/robot/earrape/hızlı/parazit/yankı`",
             "NEED_VIDEO": "`Zəhmət olmasa bir videoya cavab verin!`",
-            "WITH_SIRI":"@SiriUserBot `ilə effekt hazırlandı.`",
-            "WITH_SIRI_GIF": "@SiriUserBot `ilə Gif'ə çevrildi.`",
+            "WITH_SIRI":"@SiriOT `ilə effekt hazırlandı.`",
+            "WITH_SIRI_GIF": "@SiriOT `ilə Gif'ə çevrildi.`",
             "CONVERTING_TO_GIF": "Gif'ə çevrilir...",
             "UPLOADING_GIF": "`Gif yüklənir...`",
             "ERROR": "Gif'ə çevirə bilmədim :/"
@@ -380,9 +380,9 @@
             "GOODBYE_MFRS": "`Görüşənədək... *Windows XP söndürlmə səsi*`",
             "RESTARTING": "`Bot yenidən qoşulur..`",
             "SUPPORT_GROUP": "[Buradan](http://t.me/sirisupport) Dəstək qrupumuza çata bilərsiniz.",
-            "CREATOR": "Bu bot \n@orgutsahibi , @bberc ve @ixelizm tərəfindən hazırlanmışdır. \n",
-            "README": "[Siri README.md](https://github.com/erdembey1/SiriUserBot/blob/master/README.md)",
-            "REPO": "[Siri Repo](https://github.com/erdembey1/siriuserbot)",
+            "CREATOR": "Bu bot @bberc tərəfindən hazırlanmışdır. \n",
+            "README": "[Siri README](https://github.com/SiriUserBot/SiriUserBot/blob/master/README.md)",
+            "REPO": "[Siri Repo](https://github.com/SiriUserBot/siriuserbot)",
             "CHECK_LOGS": "`Tapılmış Mesaj üçün istifadəçi qeydlərini yoxlayın!`"
         },
 
@@ -555,7 +555,7 @@
             "SEARCHING": "`Musiqi axtarılır...`",
             "BLOCKED_DEEZER": "`Hmm deyəsən` @DeezerMusicBot `bloklamısan zəhmət olmasa bloku aç",
             "NOT_FOUND": "`Axtardığınız mahnı tapılmadı! Bağışlayın.`",
-            "UPLOADED_WITH": "@SiriUserBot ilə yükləndi",
+            "UPLOADED_WITH": "@SiriOT ilə yükləndi",
             "USAGE": "`İstifadəsi:` `.song mahnı ad/youtube url/spotify url`",
             "SEARCHING_SPOT": "`Mahnıların axtarışı və yüklənməsini gözləyin!",
             "DOWNLOADED": "`Yükləmə uğurlu oldu, xahiş edirəm gözləyin.`",
