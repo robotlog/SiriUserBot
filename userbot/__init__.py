@@ -5,7 +5,7 @@
 #
 
 # Thanks github.com/spechide for creating inline bot support.
-# SiriUserBot - Erdem By - Berceste
+# SiriUserBot - Berceste
 """ UserBot hazırlanışı. """
 
 import os
@@ -38,12 +38,12 @@ ASYNC_POOL = []
 if CONSOLE_LOGGER_VERBOSE:
     basicConfig(
         level=DEBUG,
-        format="[%(asctime)s - %(levelname)s] - @SiriUserBot : %(message)s",
+        format="[%(asctime)s - %(levelname)s] - @SiriOT : %(message)s",
         datefmt='%d-%b-%y %H:%M:%S')
 else:
     basicConfig(
         level=INFO,
-        format="[%(asctime)s - %(levelname)s] - @SiriUserBot : %(message)s",
+        format="[%(asctime)s - %(levelname)s] - @SiriOT : %(message)s",
         datefmt='%d-%b-%y %H:%M:%S')
 LOGS = getLogger(__name__)
 
@@ -386,8 +386,9 @@ with bot:
 
 
     try:
-        bot(JoinChannelRequest("@SiriSupport"))
         bot(JoinChannelRequest("@SiriOT"))
+        if OTOMATIK_KATILMA:
+            bot(JoinChannelRequest("@SiriSupport"))
     except:
         pass
 
@@ -436,7 +437,7 @@ with bot:
         @tgbot.on(NewMessage(pattern='/start'))
         async def start_bot_handler(event):
             if not event.message.from_id == uid:
-                await event.reply(f'`Merhaba ben` @SiriUserBot`! Ben sahibime (`@{me.username}`) yardımcı olmak için varım, yaani sana yardımcı olamam :/ Ama sen de bir Siri açabilirsin; Kanala bak` @SiriUserBot')
+                await event.reply(f'`Merhaba ben` @SiriOT`! Ben sahibime (`@{me.username}`) yardımcı olmak için varım, yaani sana yardımcı olamam :/ Ama sen de bir Siri açabilirsin; Kanala bak` @SiriOT')
             else:
                 await event.reply(f'`Tengri save Turks! Siri working... `')
 
@@ -445,7 +446,7 @@ with bot:
             builder = event.builder
             result = None
             query = event.text
-            if event.query.user_id == uid and query == "@SiriUserBot":
+            if event.query.user_id == uid and query == "@SiriOT":
                 rev_text = query[::-1]
                 veriler = (butonlastir(0, sorted(CMD_HELP)))
                 result = await builder.article(
@@ -482,7 +483,7 @@ Hesabınızı bot'a çevirebilirsiniz ve bunları kullanabilirsiniz. Unutmayın,
         @tgbot.on(callbackquery.CallbackQuery(data=compile(b"sayfa\((.+?)\)")))
         async def sayfa(event):
             if not event.query.user_id == uid: 
-                return await event.answer("❌ Hey! Benim mesajlarımı düzenlemeye kalkma! Kendine bir @SiriUserBot kur.", cache_time=0, alert=True)
+                return await event.answer("❌ Hey! Benim mesajlarımı düzenlemeye kalkma! Kendine bir @SiriOT kur.", cache_time=0, alert=True)
             sayfa = int(event.data_match.group(1).decode("UTF-8"))
             veriler = butonlastir(sayfa, CMD_HELP)
             await event.edit(
@@ -494,7 +495,7 @@ Hesabınızı bot'a çevirebilirsiniz ve bunları kullanabilirsiniz. Unutmayın,
         @tgbot.on(callbackquery.CallbackQuery(data=compile(b"bilgi\[(\d*)\]\((.*)\)")))
         async def bilgi(event):
             if not event.query.user_id == uid: 
-                return await event.answer("❌  Hey! Benim mesajlarımı düzenlemeye kalkma! Kendine bir @SiriUserBot kur.", cache_time=0, alert=True)
+                return await event.answer("❌  Hey! Benim mesajlarımı düzenlemeye kalkma! Kendine bir @SiriOT kur.", cache_time=0, alert=True)
 
             sayfa = int(event.data_match.group(1).decode("UTF-8"))
             komut = event.data_match.group(2).decode("UTF-8")
@@ -514,7 +515,7 @@ Hesabınızı bot'a çevirebilirsiniz ve bunları kullanabilirsiniz. Unutmayın,
         @tgbot.on(callbackquery.CallbackQuery(data=compile(b"komut\[(.*)\[(\d*)\]\]\((.*)\)")))
         async def komut(event):
             if not event.query.user_id == uid: 
-                return await event.answer("❌ Hey! Benim mesajlarımı düzenlemeye kalkma! Kendine bir @SiriUserBot kur.", cache_time=0, alert=True)
+                return await event.answer("❌ Hey! Benim mesajlarımı düzenlemeye kalkma! Kendine bir @SiriOT kur.", cache_time=0, alert=True)
 
             cmd = event.data_match.group(1).decode("UTF-8")
             sayfa = int(event.data_match.group(2).decode("UTF-8"))
