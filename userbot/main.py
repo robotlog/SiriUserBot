@@ -4,7 +4,7 @@
 # you may not use this file except in compliance with the License.
 #
 
-# Siri UserBot - ErdemBey - Midy
+# Siri UserBot - Berceste
 
 """ UserBot başlangıç noktası """
 import importlib
@@ -29,15 +29,13 @@ import re
 import userbot.cmdhelp
 
 ALIVE_MSG = [
-    "`Userbotunuz çalışıyor ve sana bişey demek istiyor.. Seni seviyorum` **{sirisahip}** ❤️",
-    "🎆 `Endişelenme! Seni yanlız bırakmam.` **{sirisahip}**, `userbot çalışıyor.`",
-    "`⛈️ Elimden gelenin en iyisini yapmaya hazırım`, **{sirisahip}:3**",
-    "✨ `Siri sahibinin emirlerine hazır...`",
-    "😔 `Gitmez dediğiniz insanlar bile gidiyor olmalı ki alive yazarak beni kontrol ediyorsun! Ben dynom bitene kadar` **{sirisahip}'i** `bırakmam!`",
-    "`Şuan en gelişmiş userbotun düzenlediği mesajı okuyor olmalısın` **{sirisahip}**.",
-    "`Huh!` **{sirisahip}** `beni çağırıyor 🍰 yiyordum ee şey en azından yemiş gibi yapıyorum..`",
-    "`Hokus Pokus 🔮! Ee şey sanırım büyücülükle pek aram yok ama özelliklerime` **{sirisahip}** `düşüyor..`",
-    "`Benimi Aramıştın ❓ Ben Buradayım Merak Etme`"
+    "`Userbotunuz çalışalı şu kadar oluyor:` **{worktime}** ❤️",
+    "🎆 `Endişelenme! Seninleyim.` **{sirisahip}**, `userbot çalışıyor.`",
+    "`⛈️ Yeni gibi görünüyor!`, **{sirisahip}:3**",
+    "✨ `Userbot sahibinin emirlerine hazır...`",
+    "`Huh!` **{sirisahip}** `beni çağırıyor 🍰 < bu senin için 🥺..`",
+    "{mention} **Siri Senin İçin Çalışıyor✨**",
+    "`{username}, `SiriOT çalışıyor...`\n——————————————\n**Telethon sürümü :** `{telethon}`\n**Userbot sürümü  :** `{siri}`\n**Python sürümü    :** `{python}`\n**Plugin sayısı         :** `{plugin}`\n——————————————\n**Emrine amadeyim dostum... 😇**"
 ]
 
 DIZCILIK_STR = [
@@ -88,7 +86,7 @@ KICKME_MSG = [
     "Haberin olmadan çıkarsam bir gün benim grupta olmadığı farkedeceksin.. O yüzden bu mesajı bırakıyorum🚪",
     "Hemen burayı terk etmeliyim🤭",
     "7 deniz ve 7 ülke,\n7 su ve 7 kıta,\n7 dağ ve 7 tepe,\n7 ovala ve 7 höyük,\n7 havuz ve 7 göl,\n7 bahar ve 7 çayır,\n7 şehir ve 7 mahalle,\n7 blok ve 7 ev...\n\nKısaca bu gruptan uzak bi yere..!",
-    "Hadi Ben Kaçtım"
+    "Hadi ben kaçtım!"
 ]
 
 
