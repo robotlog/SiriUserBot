@@ -4,12 +4,12 @@
 # you may not use this file except in compliance with the License.
 #
 
-# SiriUserBot - ErdemBey - Midy
+# SiriUserBot - Berceste
 
 import os
 from telethon.tl.types import InputMessagesFilterDocument
 from userbot.events import register
-from userbot import BOT_USERNAME, PATTERNS, CMD_HELP, PLUGIN_CHANNEL_ID
+from userbot import BOT_USERNAME, PATTERNS, CMD_HELP, PLUGIN_CHANNEL_ID, STORECHANNEL
 import userbot.cmdhelp
 from random import choice, sample
 import importlib
@@ -32,18 +32,18 @@ async def magaza(event):
     split = plugin.split()
     if plugin == '':
         plugin = 'Son Yüklenen'
-        plugins = await event.client.get_messages('@siriplugin', limit=15, filter=InputMessagesFilterDocument)
+        plugins = await event.client.get_messages(STORECHANNEL, limit=15, filter=InputMessagesFilterDocument)
     elif len(split) >= 1 and (split[0] == 'random' or split[0] == 'rastgele'):
         plugin = 'Rastgele'
-        plugins = await event.client.get_messages('@siriplugin', limit=None, filter=InputMessagesFilterDocument)
+        plugins = await event.client.get_messages(STORECHANNEL, limit=None, filter=InputMessagesFilterDocument)
         plugins = sample(plugins, int(split[1]) if len(split) == 2 else 5)
     else:
-        plugins = await event.client.get_messages('@siriplugin', limit=None, search=plugin, filter=InputMessagesFilterDocument)
-        random = await event.client.get_messages('@siriplugin', limit=None, filter=InputMessagesFilterDocument)
+        plugins = await event.client.get_messages('@siriaddon', limit=None, search=plugin, filter=InputMessagesFilterDocument)
+        random = await event.client.get_messages('@siriaddon', limit=None, filter=InputMessagesFilterDocument)
         random = choice(random)
         random_file = random.file.name
 
-    result = f'** Siri Plugin Mağazası**\n__Versiyon 1.0__\n\n**🔎 Veriler:** `{plugin}`\n**🔢 Sonuç: __({len(plugins)})__**\n➖➖➖➖➖\n\n'
+    result = f'**✨Siri Plugin Mağazası**\n__Versiyon 1.0__\n\n**🔎 Veriler:** `{plugin}`\n**🔢 Sonuç: __({len(plugins)})__**\n➖➖➖➖➖\n\n'
     
     if len(plugins) == 0:
         result += f'**Bu İsimde Plugin Bulamadım...**\n`{random_file}` __Bu plugini Denemek İster Misin ?__'
@@ -66,10 +66,10 @@ async def sinstall(event):
     try:
         plugin = int(plugin)
     except:
-        return await event.edit('**Siri Plugin Mağazası**\n__Versiyon 1.0__\n\n**⚠️ Hata:** `Lütfen Sadece Say Yazınız .sinstall pluginid`')
+        return await event.edit('**Siri Plugin Mağazası**\n__Versiyon 1.0__\n\n**⚠️ Hata:** `Lütfen Sadece Sayı Yazınız.. Örneğin: .sinstall 2`')
     
     await event.edit('**Siri Plugin Mağazası**\n__Versiyon 1.0__\n\n`🔎 Plugin\'i Getiriyorum...`')
-    plugin = await event.client.get_messages('@siriplugin', ids=plugin)
+    plugin = await event.client.get_messages(STORECHANNEL, ids=plugin)
     await event.edit(f'**Siri Plugin Mağazası**\n__Versiyon 1.0__\n\n`✅ {plugin.file.name} Plugini Getirildi!`\n`⬇️ Plugini Yüklüyorum... Bekleyin.`')
     dosya = await plugin.download_media('./userbot/modules/')
     await event.edit(f'**Siri Plugin Mağazası**\n__Versiyon 1.0__\n\n`✅ {plugin.file.name} indirme başarılı!`\n`⬇️ Plugini Yüklüyorum... Bekleyin.`')
