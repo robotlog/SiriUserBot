@@ -181,7 +181,7 @@ TZ_NUMBER = int(os.environ.get("TZ_NUMBER", 1))
 SEVGILIM = os.environ.get("SEVGILI",None)
 
 try:
-    SEVGILI = int(SEVGILI) if SEVGILIM else None
+    SEVGILI = int(SEVGILIM) if SEVGILIM else None
 except:
     print('Invalid SEVGILI ID')
     quit(1)
