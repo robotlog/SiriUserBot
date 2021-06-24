@@ -177,7 +177,7 @@ SEVGILI = os.environ.get("SEVGILI",None)
 
 SUDO = os.environ.get("SUDO",None)
 if SUDO:
-    SUDO_ID = [i for i in SUDO.split(",")]
+    SUDO_ID = set(i for i in SUDO.split(","))
     for i in SUDO_ID:
         try:
             int(i)
