@@ -231,8 +231,8 @@ async def scan(event):
             await event.edit(LANG['CLEAN'])
          else:
             await event.edit(f"**{LANG['VIRUS_DETECTED']}**\n\nDetaylı bilgi: {response.message.message}")
-        await conv.mark_read()
-        await conv.cancel_all()
+      await conv.mark_read()
+      await conv.cancel_all()
 
 @register(pattern="^.creation")
 async def creation(event):
