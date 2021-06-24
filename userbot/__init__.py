@@ -177,8 +177,9 @@ COUNTRY = str(os.environ.get("COUNTRY", ""))
 TZ_NUMBER = int(os.environ.get("TZ_NUMBER", 1))
 
 # Sevgili :)
-SEVGILI = os.environ.get("SEVGILI",None)
-SEVGILI = set(SEVGILI) if SEVGILI else None
+SEVGILIM = os.environ.get("SEVGILI",None)
+SEVGILI = set() if SEVGILIM else None
+SEVGILI.add(str(SEVGILIM)) if SEVGILIM else None
 
 SUDO = os.environ.get("SUDO",None)
 if SUDO:
