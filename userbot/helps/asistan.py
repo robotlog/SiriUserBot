@@ -1,4 +1,4 @@
-from asistan import MYID
+from userbot import MYID
 
 async def bana_mi_diyo(ups):
     if ups.is_reply:
