@@ -17,8 +17,9 @@ from time import gmtime, strftime
 from traceback import format_exc
 from telethon.events import NewMessage as NW, MessageEdited as ME, StopPropagation as SP
 
-from userbot import bot, SUDO_ID, SEVGILI, BOTLOG_CHATID, LOGSPAMMER, PATTERNS, SIRI_VERSION, ForceVer
+from userbot import bot, SUDO_ID, SEVGILI, BOTLOG_CHATID, LOGSPAMMER, PATTERNS, SIRI_VERSION
 
+ForceVer = -1
 
 def register(**args):
     """ Yeni bir etkinlik kaydedin. """
