@@ -4,7 +4,7 @@
 # you may not use this file except in compliance with the License.
 #
 
-# SiriUserBot - ErdemBey - Midy
+# SiriUserBot - Berceste
 
 
 """ Birkaç küçük komutu içeren UserBot modülü. """
@@ -26,7 +26,7 @@ LANG = get_value("misc")
 
 # ████████████████████████████████ #
 
-@register(outgoing=True, pattern="^.resend")
+@register(pattern="^.resend")
 async def resend(event):
     await event.delete()
     m = await event.get_reply_message()
@@ -35,7 +35,7 @@ async def resend(event):
         return
     await event.respond(m)
 
-@register(outgoing=True, pattern="^.random")
+@register(pattern="^.random")
 async def randomise(items):
     """ .random komutu, eşya listesinden rastgele bir eşya seçer. """
     itemo = (items.text[8:]).split()
@@ -49,7 +49,7 @@ async def randomise(items):
                      itemo[index] + "`")
 
 
-@register(outgoing=True, pattern="^.sleep( [0-9]+)?$")
+@register(pattern="^.sleep( [0-9]+)?$")
 async def sleepybot(time):
     """ .sleep komutu Siri'nın birkaç saniye uyumasına olanak sağlar. """
     if " " not in time.pattern_match.group(1):
@@ -67,7 +67,7 @@ async def sleepybot(time):
         await time.edit(LANG['GOODMORNIN_YALL'])
 
 
-@register(outgoing=True, pattern="^.shutdown$")
+@register(pattern="^.shutdown$")
 async def shutdown(event):
     """ .shutdown komutu botu kapatır. """
     await event.client.send_file(event.chat_id, 'https://www.winhistory.de/more/winstart/mp3/winxpshutdown.mp3', caption=LANG['GOODBYE_MFRS'], voice_note=True)
@@ -81,7 +81,7 @@ async def shutdown(event):
     except:
         pass
 
-@register(incoming=True, from_users=ASISTAN, pattern="^.shutdown$")
+@register(asistan=True, pattern="^.shutdown$")
 async def asistanshutdown(ups):
     """ .shutdown komutunu asistana söylerseniz sizin yerinize o botu kapatır. """
     if ups.is_reply:
@@ -99,13 +99,16 @@ async def asistanshutdown(ups):
                 pass
 
 
-@register(outgoing=True, pattern="^.kill (.*)")
-@register(outgoing=True, pattern="^.restart$")
+@register(pattern="^.kill (.*)")
+@register(pattern="^.restart$")
 async def restart(event):
     await event.edit(LANG['RESTARTING'])
     if BOTLOG:
-        await event.client.send_message(BOTLOG_CHATID, "#RESTART \n"
-                                        "Bot yeniden başlatıldı.")
+        try:
+            await event.client.send_message(BOTLOG_CHATID, "#RESTART \n"
+                                            "Bot yeniden başlatıldı.")
+        except:
+            pass
 
     try:
         await bot.disconnect()
@@ -114,25 +117,25 @@ async def restart(event):
 
     execl(sys.executable, sys.executable, *sys.argv)
 
-@register(outgoing=True, pattern="^.support$")
+@register(pattern="^.support$")
 async def bot_support(wannahelp):
     """ .support komutu destek grubumuzu verir. """
     await wannahelp.edit(LANG['SUPPORT_GROUP'])
 
 
 
-@register(outgoing=True, pattern="^.creator$")
+@register(pattern="^.creator$")
 async def creator(e):
     await e.edit(LANG['CREATOR'])
 
 
-@register(outgoing=True, pattern="^.readme$")
+@register(pattern="^.readme$")
 async def reedme(e):
     await e.edit(LANG['README'])
 
 
 # Copyright (c) Gegham Zakaryan | 2019
-@register(outgoing=True, pattern="^.repeat (.*)")
+@register(pattern="^.repeat (.*)")
 async def repeat(rep):
     cnt, txt = rep.pattern_match.group(1).split(' ', 1)
     replyCount = int(cnt)
@@ -146,12 +149,12 @@ async def repeat(rep):
     await rep.edit(replyText)
 
 
-@register(outgoing=True, pattern="^.repo$")
+@register(pattern="^.repo$")
 async def repo_is_here(wannasee):
     """ .repo komutunun tek yaptığı şey GitHub repomuzun bağlantısını vermek. """
     await wannasee.edit(LANG['REPO'])
 
-@register(outgoing=True, pattern="^.raw$")
+@register(pattern="^.raw$")
 async def raw(event):
     the_real_message = None
     reply_to_id = None
