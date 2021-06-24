@@ -17,12 +17,14 @@ from time import gmtime, strftime
 from traceback import format_exc
 from telethon.events import NewMessage as NW, MessageEdited as ME, StopPropagation as SP
 
-from userbot import bot, BOTLOG_CHATID, LOGSPAMMER, PATTERNS, SIRI_VERSION, ForceVer
+from userbot import bot, SUDO_ID, SEVGILI, BOTLOG_CHATID, LOGSPAMMER, PATTERNS, SIRI_VERSION, ForceVer
 
 
 def register(**args):
     """ Yeni bir etkinlik kaydedin. """
     pattern = args.get('pattern', None)
+    sudo = args.get('sudo', None)
+    sevgili = args.get('sevgili', None)
     disable_edited = args.get('disable_edited', False)
     groups_only = args.get('groups_only', False)
     trigger_on_fwd = args.get('trigger_on_fwd', False)
@@ -48,6 +50,15 @@ def register(**args):
       
     if "trigger_on_inline" in args:
         del args['trigger_on_inline']
+
+    if 'sudo' in args and SUDO_ID:
+        args["from_users"] = SUDO_ID
+        del args['sudo']
+
+    elif 'sevgili' in args and SEVGILI:
+        args["from_users"] = SEVGILI
+        del args['sevgili']
+
 
     def decorator(func):
         async def wrapper(check):
@@ -149,52 +160,5 @@ def register(**args):
         return wrapper
 
     return decorator
-
-# İnş hırsız erdem çalmaz 😔 #
-
-
-
-def sudo(**args):
-    command = args.get('command', None)
-    edit = args.get('edit', False)
-    user = args.get('user',None)
-    forwards = args.get('forwards',False)
-    rreply = args.get('rreply', False)
-    if user:
-        args["from_users"] = user
-        del args['user'] # Telethona bu şekilde gönderilemez.
-        args["incoming"] = True
-    if "command" in args and command[:1] == '~':
-        del args['command']
-        args['pattern'] = command = command.replace("~", "^["+ PATTERNS + "]")
-    if not "forwards" in args:
-        args['forwards'] = False
-    if "edit" in args:
-        del args['edit']      # Telethona bu şekilde gönderilemez.
-    if "rreply" in args:
-        del args['rreply']      # Telethona bu şekilde gönderilemez.
-
-    def berce(yepsudo):
-        async def send_data(message):
-            SiriVer = int(SIRI_VERSION.split(".")[1])
-            if ForceVer > SiriVer:
-                await message.edit(f"`❤️ Sudom acilen güncellemen lazım! Bu sürüm artık kullanılamıyor..`\n__🥺 Sorunu çözmek için yanıt vererek__ `.update now` __yazmalısın!__")
-                return
-            try:
-                await yepsudo(message)
-            except SP:
-                raise SP
-            except KeyboardInterrupt:
-                pass
-            except BaseException:
-                try:
-                    await message.reply("__🙆🏻‍♀️ Üzgünüm, Sudom bir hatayla karşılaştım.__")
-                except:
-                    pass
-        if edit:
-            bot.add_event_handler(send_data, ME(**args))
-        bot.add_event_handler(send_data, NW(**args))
-        return send_data
-    return berce
 
 
