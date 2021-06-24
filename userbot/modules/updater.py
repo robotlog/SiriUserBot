@@ -4,7 +4,7 @@
 # you may not use this file except in compliance with the License.
 # 
 
-# SiriUserBot - ErdemBey - Midy - Berceste
+# SiriUserBot - Berceste
 
 """
 Bu modül commit sayısına bağlı olarak botu günceller.
@@ -189,7 +189,7 @@ async def asistan_update(ups):
         reply_user = await ups.client.get_entity(reply.from_id)
         ren = reply_user.id
         if ren == MYID:
-            "Asistan botu güncelliyor gibi"
+            """Asistan botu güncelliyor gibi"""
             usp = await ups.reply(LANG['DETECTING'])
             off_repo = UPSTREAM_REPO_URL
             force_update = False
