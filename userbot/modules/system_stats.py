@@ -60,8 +60,8 @@ async def sysdetails(sysd):
 
 @register(asistan=True,pattern="^.worktime")
 async def worktime(u):
-    bana_mi_diyo = await bana_mi_diyo(u)
-    if not bana_mi_diyo:
+    bana = await bana_mi_diyo(u)
+    if not bana:
         return
     worktime = await timesiri.get_readable_time((emit() - WORKTIME))
     await u.reply(f'✨ {worktime}')
