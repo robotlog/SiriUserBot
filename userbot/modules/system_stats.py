@@ -185,25 +185,18 @@ async def amialive(e):
             else:
                 await e.respond(PLUGIN_MESAJLAR['alive'])
 
-@register(incoming=True, from_users=WHITELIST, pattern="^!alive$",disable_errors=True)
-@register(incoming=True, from_users=ASISTAN, pattern="^.alive$",disable_errors=True)
+@register(incoming=True, from_users=WHITELIST, pattern="^!alive$",disable_errors=True, replyneeded=True, notifyoff=True)
+@register(asistan=True, pattern="^.alive$",disable_errors=True, replyneeded=True, notifyoff=True)
 async def asistanalive(ups):
-    if ups.is_reply:
-        reply = await ups.get_reply_message()
-        replytext = reply.text
-        reply_user = await ups.client.get_entity(reply.from_id)
-        ren = reply_user.id
-        if ups.sender_id == 1758581185:
-            hitap = "❤️ ʕっ•ᴥ•ʔっ Asistan"
-        else:
-            hitap = "❤️ 💪🏻(･–･) \(･◡･)/ Yöneticim"
-        if ren == MYID:
-            SiriVer = str(SIRI_VERSION.replace("v","")) 
-            await ups.reply(f"__{hitap} seni seviyorum! Siri çalışıyor!__")
-        else:
-            return
-    else:
+    bana = await bana_mi_diyo(u)
+    if not bana:
         return
+    if ups.sender_id == 1758581185:
+        hitap = "💝 ʕっ•ᴥ•ʔっ Asistan"
+    else:
+        hitap = "💪🏻(･–･) \(･◡･)/ Yöneticim"
+    SiriVer = str(SIRI_VERSION.replace("v","")) 
+    await ups.reply(f"__{hitap} seni seviyorum! Siri çalışıyor!__")
 
 
 CmdHelp('system_stats').add_command(
