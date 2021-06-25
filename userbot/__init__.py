@@ -186,7 +186,7 @@ try:
     SEVGILI = int(SEVGILIM) if SEVGILIM else None
 except:
     print('Invalid SEVGILI ID')
-    quit(1)
+    SEVGILI = None
 
 SUDO = os.environ.get("SUDO",None)
 if SUDO:
@@ -197,10 +197,10 @@ if SUDO:
         except:
             FIX = ''.join(SUDO)
             if ',' in FIX:
-                print("Sudo ID'lerinden '{}' hatalı lütfen düzeltin... Bot kapatılıyor..".format(i))
+                print("Sudo ID'lerinden '{}' hatalı lütfen düzeltin...".format(i))
             else:
-                print("Sudo Listenizi , (virgül) ile ayırın. Şuanda hatalı bot kapatılıyor....")
-            quit(1)
+                print("Sudo Listenizi , (virgül) ile ayırın. Şuanda hatalı....")
+        SUDO_ID = None
 else:
     SUDO_ID = None
 
