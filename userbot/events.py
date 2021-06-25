@@ -32,6 +32,7 @@ def register(**args):
     trigger_on_fwd = args.get('trigger_on_fwd', False)
     trigger_on_inline = args.get('trigger_on_inline', False)
     disable_errors = args.get('disable_errors', False)
+    notifyoff = args.get('notifyoff', False)
 
     if pattern:
         args["pattern"] = pattern.replace("^.", "^["+ PATTERNS + "]")
@@ -55,6 +56,10 @@ def register(**args):
 
     if 'replyneeded' in args:
         del args['replyneeded']
+
+    if 'notifyoff' in args:
+        del args['notifyoff']
+
 
     if 'sudo' in args:
         del args['sudo']
@@ -96,17 +101,19 @@ def register(**args):
                 return
              
             if groups_only and not check.is_group:
-                try:
-                    await check.edit("`⛔ Bunun bir grup olduğunu sanmıyorum. Bu plugini bir grupta dene! `")
-                except:
-                    await check.respond("`⛔ Bunun bir grup olduğunu sanmıyorum. Bu plugini bir grupta dene! `")
+                if not notifyoff:
+                    try:
+                        await check.edit("`⛔ Bunun bir grup olduğunu sanmıyorum. Bu plugini bir grupta dene! `")
+                    except:
+                        await check.respond("`⛔ Bunun bir grup olduğunu sanmıyorum. Bu plugini bir grupta dene! `")
                 return
 
             if replyneeded and not check.is_reply:
-                try:
-                    await check.edit("`🦋 Plugini kullanabilmek için bir mesajı yanıtlamalısın!`")
-                except:
-                    await check.respond("`🦋 Plugini kullanabilmek için bir mesajı yanıtlamalısın!`")
+                if not notifyoff:
+                    try:
+                        await check.edit("`🦋 Plugini kullanabilmek için bir mesajı yanıtlamalısın!`")
+                    except:
+                        await check.respond("`🦋 Plugini kullanabilmek için bir mesajı yanıtlamalısın!`")
                 return
 
             try:
