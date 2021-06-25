@@ -1,4 +1,4 @@
-# ERDEM-BEY / SİRİUSERBOT
+# BERCESTE / SİRİUSERBOT
 
 import os
 from datetime import datetime
@@ -14,10 +14,8 @@ auth_url = r["auth_url"]
 
 # """.telegraph modülü ile medyanızı / metinlerinizi telgrapha yükleyin"""
 
-@register(outgoing=True, pattern="^.tg (m|t)$")
+@register(pattern="^.tg (m|t)$")
 async def telegraphs(graph):
-    if graph.fwd_from:
-        return
     await graph.edit("`🔄 Hazırlanıyor...`")
     if not graph.text[0].isalpha() and graph.text[0] not in ("/", "#", "@", "!"):
         if not os.path.isdir(TEMP_DOWNLOAD_DIRECTORY):
@@ -26,7 +24,7 @@ async def telegraphs(graph):
             start = datetime.now()
             r_message = await graph.get_reply_message()
             input_str = graph.pattern_match.group(1)
-            if input_str == "media":
+            if input_str == "m":
                 downloaded_file_name = await bot.download_media(
                     r_message, TEMP_DOWNLOAD_DIRECTORY
                 )
@@ -53,7 +51,7 @@ async def telegraphs(graph):
                         ),
                         link_preview=True,
                     )
-            elif input_str == "text":
+            elif input_str == "t":
                 user_object = await bot.get_entity(r_message.from_id)
                 title_of_page = user_object.first_name  # + " " + user_object.last_name
                 # apparently, all Users do not have last_name field
