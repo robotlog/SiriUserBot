@@ -4,7 +4,7 @@
 # you may not use this file except in compliance with the License.
 #
 
-# SiriUserBot - ErdemBey - Midy
+# SiriUserBot - Berceste
 
 
 """ Internet ile alakalı bilgileri edinmek için kullanılan UserBot modülüdür. """
@@ -24,7 +24,7 @@ LANG = get_value("www")
 
 # ████████████████████████████████ #
 
-@register(outgoing=True, pattern="^.speed$")
+@register(pattern="^.speed$")
 async def speedtst(spd):
     """ .speed komutu sunucu hızını tespit etmek için SpeedTest kullanır. """
     await spd.edit(LANG['SPEED'])
@@ -62,7 +62,7 @@ def speed_convert(size):
     return f"{round(size, 2)} {units[zero]}"
 
 
-@register(outgoing=True, pattern="^.dc$")
+@register(pattern="^.dc$")
 async def neardc(event):
     """ .dc komutu en yakın datacenter bilgisini verir. """
     result = await event.client(functions.help.GetNearestDcRequest())
@@ -71,7 +71,7 @@ async def neardc(event):
                      f"Şu anki datacenter : `{result.this_dc}`")
 
 
-@register(outgoing=True, pattern="^.ping$")
+@register(pattern="^.ping$")
 async def pingme(pong):
     """ .ping komutu userbotun ping değerini herhangi bir sohbette gösterebilir.  """
     start = datetime.now()
@@ -80,7 +80,7 @@ async def pingme(pong):
     duration = (end - start).microseconds / 1000
     await pong.edit("`Pong!\n%sms`" % (duration))
 
-@register(incoming=True, from_users=ASISTAN, pattern="^.ping$")
+@register(asistan=True, pattern="^.ping$")
 async def asistanping(ups):
     if ups.is_reply:
         reply = await ups.get_reply_message()
