@@ -58,14 +58,14 @@ def register(**args):
 
     if 'sudo' in args:
         del args['sudo']
-        args['incoming'] = True
         if SUDO_ID:
+            args['incoming'] = True
             args["from_users"] = SUDO_ID
 
     if 'sevgili' in args:
         del args['sevgili']
-        args['incoming'] = True
         if SEVGILI:
+            args['incoming'] = True
             args["from_users"] = SEVGILI
 
     if 'asistan' in args:
