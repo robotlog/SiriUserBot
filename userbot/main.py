@@ -35,7 +35,7 @@ ALIVE_MSG = [
     "✨ `Userbot sahibinin emirlerine hazır...`",
     "`Huh!` **{sirisahip}** `beni çağırıyor 🍰 < bu senin için 🥺..`",
     "{mention} **Siri Senin İçin Çalışıyor✨**",
-    "`{username}, `SiriOT çalışıyor...`\n——————————————\n**Telethon sürümü :** `{telethon}`\n**Userbot sürümü  :** `{siri}`\n**Python sürümü    :** `{python}`\n**Plugin sayısı         :** `{plugin}`\n——————————————\n**Emrine amadeyim dostum... 😇**"
+    "{username}, `SiriOT {worktime} zamandır çalışıyor...`\n——————————————\n**Telethon sürümü :** `{telethon}`\n**Userbot sürümü  :** `{siri}`\n**Python sürümü    :** `{python}`\n**Plugin sayısı :** `{plugin}`\n——————————————\n**Emrine amadeyim dostum... 😇**"
 ]
 
 DIZCILIK_STR = [
