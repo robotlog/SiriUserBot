@@ -1,10 +1,16 @@
-from userbot import SEVGILI, SUDO_ID
-from userbot.main import idim
+try:
+    from userbot import SEVGILI as SEW, SUDO_ID as S
+except ImportError:
+    SEW = [0]
+    S = [0]
+
+from userbot.main import idim 
+
 async def edit_or_reply(event, text):
     m = event
     try:
-        THISSUDO = SUDO_ID or [0]
-        THISSEW = SEVGILI or [0]
+        THISSUDO = S or [0]
+        THISSEW = SEW or [0]
         if event.from_id in THISSUDO or event.from_id in THISSEW:
             reply_to = await event.get_reply_message()
             if reply_to:
