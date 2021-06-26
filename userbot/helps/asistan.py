@@ -1,17 +1,22 @@
 from userbot import MYID, SEVGILI, SUDO_ID
 
 async def edit_or_reply(event, text):
+    m = None
     try:
         THISSUDO = SUDO_ID or [0]
         THISSEW = SEVGILI or [0]
         if event.from_id in THISSUDO or event.from_id in THISSEW:
             reply_to = await event.get_reply_message()
             if reply_to:
-                return await reply_to.reply(text)
-            return await event.reply(text)
-        return await event.edit(text)
+                m = await reply_to.reply(text)
+                return m
+            m = await event.reply(text)
+            return m 
+        await event.edit(text)
+        return m
     except:
-        return await event.edit(text)
+        await event.edit(text)
+        return m
 
 
 async def bana_mi_diyo(ups):
