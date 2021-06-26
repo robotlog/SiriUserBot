@@ -2,7 +2,7 @@
     "__SIRIJSON__": true,
     "LANGUAGE": "English",
     "LANGCODE": "en",
-    "AUTHOR": "Erdem Bey/ @erdembey1",
+    "AUTHOR": "Berceste",
     "STRINGS": {
         "__plugin": {
             "REPLY_FOR_PORT": "`Please give a file for Plugin-Port`",
@@ -113,7 +113,7 @@
             "ALREADY": "`It looks like %s is already changing automatically. `",
             "SETTING": "`%s setting...`",
             "BIO": "📅 Date: {tarih} | ⏰ Time: {saat} | ",
-            "NICK": "@SiriUserBot",
+            "NICK": "@SiriOT",
             "SETTED": "`%s set :)`",
             "NAME": "⌚%s"
         },
@@ -166,8 +166,8 @@
             "EFECTING": "`Applying effect...`",
             "NOT_FOUND_EFECT": "**The effect you specified was not found! ** `Effects you can use:\" çocuk/robot/earrape/fast/interference/echo`",
             "NEED_VIDEO": "`Please reply to a Video!`",
-            "WITH_SIRI": "`Effect applied with` @SiriUserBot",
-            "WITH_SIRI_GIF": "`Turned to Gif with` @SiriUserBot",
+            "WITH_SIRI": "`Effect applied with` @SiriOT",
+            "WITH_SIRI_GIF": "`Turned to Gif with` @SiriOT",
             "CONVERTING_TO_GIF": "Turning to gif ...",
             "UPLOADING_GIF": "` Loading Gif ... `",
             "ERROR": "I couldn't turn it into a gif :/"
@@ -361,7 +361,7 @@
             "GOODBYE_MFRS": "`I'll see you... *Windows XP shutdown sound* `",
             "RESTARTING": "`Bot restarting...`",
             "SUPPORT_GROUP": "[From Here](http://t.me/SiriSupport) you can contact our support group.",
-            "CREATOR": "developed by \n @erdembey1 , @ixelizm and @bberc. \n",
+            "CREATOR": "Developer: @bberc.",
             "README": "[Siri README.md](https://github.com/SiriUserBot/SiriUserBot/blob/master/README.md)",
             "REPO": "[Siri Repo](https://github.com/SiriUserBot/Siriuserbot)",
             "CHECK_LOGS": "`Check userbot logs for decoded message!`"
@@ -523,7 +523,7 @@
             "SEARCHING": "`Song searching...`",
             "BLOCKED_DEEZER": "`Mmmh, I think you blocked` @DeezerMusicBot `Please open the block.`",
             "NOT_FOUND": "` The song you were looking for was not found! I'm sorry.`",
-            "UPLOADED_WITH": "Upload with @SiriUserBot",
+            "UPLOADED_WITH": "Upload with @SiriOT",
             "USAGE": "`Usage:` `.song song name/youtube url/spotify url`",
             "SEARCHING_SPOT": "Song searching and downloading please wait!",
             "DOWNLOADED": "`Download is successfully please wait.`",
