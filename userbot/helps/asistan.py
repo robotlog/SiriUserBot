@@ -1,7 +1,7 @@
 from userbot import MYID, SEVGILI, SUDO_ID
 
 async def edit_or_reply(event, text):
-    m = None
+    m = event
     try:
         THISSUDO = SUDO_ID or [0]
         THISSEW = SEVGILI or [0]
