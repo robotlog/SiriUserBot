@@ -1,5 +1,5 @@
-from userbot import MYID, SEVGILI, SUDO_ID
-
+from userbot import SEVGILI, SUDO_ID
+from userbot.main import idim
 async def edit_or_reply(event, text):
     m = event
     try:
@@ -24,7 +24,7 @@ async def bana_mi_diyo(ups):
         reply = await ups.get_reply_message()
         reply_user = await ups.client.get_entity(reply.from_id)
         ren = reply_user.id
-        if ren == MYID:
+        if ren == idim:
             return True
         return False
     return False
