@@ -185,8 +185,8 @@ async def amialive(e):
             else:
                 await e.respond(PLUGIN_MESAJLAR['alive'])
 
-@register(incoming=True, from_users=WHITELIST, pattern="^!alive$",disable_errors=True, replyneeded=True, notifyoff=True)
-@register(asistan=True, pattern="^.alive$",disable_errors=True, replyneeded=True, notifyoff=True)
+@register(incoming=True, from_users=WHITELIST, pattern="^!alive$",disable_errors=True)
+@register(asistan=True, pattern="^.alive$",disable_errors=True)
 async def asistanalive(ups):
     bana = await bana_mi_diyo(u)
     if not bana:
