@@ -1,4 +1,4 @@
-from .herokuhelper import heroku_var, app
+from .heroku import heroku_var, app
 from userbot.cmdhelp import CmdHelp
 from userbot.events import register
 from userbot import SEVGILI
