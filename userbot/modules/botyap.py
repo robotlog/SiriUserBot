@@ -1,11 +1,12 @@
 """
-               SİRİUSERBOT
+               SİRİUSERBOT  -  BERCE
 """
 import os
 from telethon.tl.functions.contacts import UnblockRequest
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from userbot.events import register
 from userbot.cmdhelp import CmdHelp
+from userbot import BOTLOG_CHATID
 
 # ██████ LANGUAGE CONSTANTS ██████ #
 
@@ -15,12 +16,8 @@ LANG = get_value("botfather")
 # ████████████████████████████████ #
 
 
-chat = "@BotFather"
-
-@register(outgoing=True, pattern="^.newbot ?(.*)")
-async def _(event):
-    if event.fwd_from:
-        return
+@register(pattern="^.newbot ?(.*)")
+async def newbot(event):
     if event.pattern_match.group(1):
         text, username= event.pattern_match.group(1).split()
         
@@ -28,7 +25,7 @@ async def _(event):
         await event.edit(LANG["ERROR"])
         return
 
-    async with event.client.conversation(chat) as conv:
+    async with event.client.conversation("@BotFather") as conv:
         try:
             await conv.send_message("/newbot")
             audio = await conv.get_response()
@@ -36,8 +33,12 @@ async def _(event):
             audio = await conv.get_response()
             await conv.send_message(username)
             audio = await conv.get_response()
-            await event.client.forward_messages(event.chat_id, audio)
-            await event.delete()
+            if BOTLOG_CHATID:
+                await event.client.forward_messages(BOTLOG_CHATID, audio)
+                await event.edit('✅ Send to Botlog')
+            else:
+                await event.client.forward_messages(event.chat_id, audio)
+                await event.delete()
         except YouBlockedUserError:
             await event.client(UnblockRequest("93372553"))
             await conv.send_message("/newbot")
@@ -46,10 +47,14 @@ async def _(event):
             audio = await conv.get_response()
             await conv.send_message(username)
             audio = await conv.get_response()
-            await event.client.forward_messages(event.chat_id, audio)
-            await event.delete()
+            if BOTLOG_CHATID:
+                await event.client.forward_messages(BOTLOG_CHATID, audio)
+                await event.edit('✅ Send to Botlog')
+            else:
+                await event.client.forward_messages(event.chat_id, audio)
+                await event.delete()
 
 
 
 add_ = CmdHelp('botyap')
-add_.add_command("newbot", "<bot_name><bot_username>", "Yeni Bot Oluşturun").add()
+add_.add_command("newbot", "<bot_name> <bot_username>", "Yeni Bot Oluşturun").add()
