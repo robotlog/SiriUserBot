@@ -96,6 +96,11 @@ HEROKU_MEMEZ = sb(os.environ.get("HEROKU_MEMEZ", "False"))
 HEROKU_APPNAME = os.environ.get("HEROKU_APPNAME", None)
 HEROKU_APIKEY = os.environ.get("HEROKU_APIKEY", None)
 
+try:
+    AUTODISPOSAL = int(os.environ.get("AUTODISPOSAL", 0))
+except:
+    print('Hatalı imha süresi')
+    AUTODISPOSAL = 0
 
 try:
     import randomstuff
