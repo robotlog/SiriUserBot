@@ -4,7 +4,7 @@
 # you may not use this file except in compliance with the License.
 #
 
-# SiriUserBot - ErdemBey - Midy
+# SiriUserBot - Berceste
 
 from pydub import AudioSegment
 from json import dumps
@@ -16,7 +16,7 @@ from os import remove
 import urllib.parse
 from userbot.cmdhelp import CmdHelp
 
-@register(outgoing=True, pattern="^.shazam")
+@register(pattern="^.shazam")
 async def shazam(event):
     if not event.is_reply:
         return await event.edit('`Lütfen Bir Ses Dosyasına Yanıt Veriniz!`')
@@ -106,5 +106,5 @@ async def shazam(event):
         remove(dosya)
 
 CmdHelp('shazam').add_command(
-    'shazam', '<yanıt>', 'Cevap verdiğiniz ses dosyasını Shazamda aratır.'
+    'shazam', '<yanıt>', 'Cevap verdiğiniz ses dosyasını Shazam'da aratır.'
 ).add()
