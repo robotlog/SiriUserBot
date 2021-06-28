@@ -20,6 +20,7 @@ from userbot import (
 
 from userbot.events import register
 from userbot.cmdhelp import CmdHelp
+from userbot.helps.asistan import bana_mi_diyo
 from telethon.errors.rpcerrorlist import PeerIdInvalidError # Botlog grubundan çıktıysa
 
 heroku_api = "https://api.heroku.com"
@@ -34,8 +35,7 @@ else:
 """Config Vars değeri ilave edin veya silin..."""
 
 
-@register(outgoing=True,
-          pattern=r"^.(get|del) var(?: |$)(\w*)")
+@register(pattern=r"^.(get|del) var(?: |$)(\w*)")
 async def variable(var):
     exe = var.pattern_match.group(1)
     if app is None:
@@ -97,7 +97,7 @@ async def variable(var):
             return True
 
 
-@register(outgoing=True, pattern=r'^.set var (\w*) ([\s\S]*)')
+@register(pattern=r'^.set var (\w*) ([\s\S]*)')
 async def set_var(var):
     await var.edit("`🔄 Verilenler Herokuya Yazılıyor...`")
     variable = var.pattern_match.group(1)
@@ -111,7 +111,7 @@ async def set_var(var):
                     "**ConfigVar Değişikliği**:\n"
                     f"`{variable}` = `{value}`"
                 )
-            await var.edit("`Veriler Yazıldı!`")
+            await var.edit(f"`✅ {variable} değeri değiştirildi!`")
         except:
              fix = True
              await var.edit("😒 Botlog grubundan çıkmışsın.. Senin için düzeltiyorum..")
@@ -123,7 +123,7 @@ async def set_var(var):
                     "**Yeni ConfigVar Eklendi**:\n"
                     f"`{variable}` = `{value}`"
                 )
-            await var.edit("`Veriler Yazıldı!`")
+            await var.edit(f"`✅ {variable} değeri ayarlandı!`")
         except:
             fix = True
             await var.edit("😒 Botlog grubundan çıkmışsın.. Senin için düzeltiyorum..")
@@ -133,45 +133,39 @@ async def set_var(var):
         heroku_var[variable] = value
 
 
-@register(incoming=True, from_users=ASISTAN, pattern="^.setvar (\w*) ([\s\S]*)")
+@register(asistan=True, pattern="^.setvar (\w*) ([\s\S]*)")
 async def asistansetvar(ups):
     """ Sadece bilgileri değiştirebilir kodlardan görüldüğü üzere bilgileri göremez. """
-    if ups.is_reply:
-        reply = await ups.get_reply_message()
-        reply_user = await ups.client.get_entity(reply.from_id)
-        ren = reply_user.id
-        if ren == MYID:
-            usp = await ups.reply("`⚙️ Asistan'dan alınan veriler herokuya yazılıyor...`")
-            dg = ups.text.replace(".setvar ","")
-            dgs = dg.split(":")
-            variable = dgs[0]
-            value = dgs[1]
-            heroku_var[variable] = value
-            if variable in heroku_var:
-                if BOTLOG:
-                    await ups.client.send_message(
-                        BOTLOG_CHATID, "#SETCONFIGVAR\n\n"
-                        "**Asistan tarafından ConfigVar Değişikliği**:\n"
-                        f"`{variable}` = `{value}`"
-                    )
-            else:
-                if BOTLOG:
-                    await ups.client.send_message(
-                        BOTLOG_CHATID, "#ADDCONFIGVAR\n\n"
-                        "**Yeni ConfigVar Eklendi**:\n"
-                        f"`{variable}` = `{value}`"
-                    )
-            await usp.edit("`⚙️ Asistandan alınan veriler herokuya aktarıldı!`")
-        else:
-            return
-    else:
+    bana = await bana_mi_diyo(u)
+    if not bana:
         return
+    usp = await ups.reply("`⚙️ Asistan'dan alınan veriler herokuya yazılıyor...`")
+    dg = ups.text.replace(".setvar ","")
+    dgs = dg.split(":")
+    variable = dgs[0]
+    value = dgs[1]
+    if variable in heroku_var:
+        if BOTLOG:
+            await ups.client.send_message(
+                BOTLOG_CHATID, "#SETCONFIGVAR\n\n"
+                "**Asistan tarafından ConfigVar Değişikliği**:\n"
+                f"`{variable}` = `{value}`"
+            )
+    else:
+        if BOTLOG:
+            await ups.client.send_message(
+                BOTLOG_CHATID, "#ADDCONFIGVAR\n\n"
+                "**Yeni ConfigVar Eklendi**:\n"
+                f"`{variable}` = `{value}`"
+            )
+    await usp.edit("`⚙️ Asistandan alınan veriler herokuya aktarıldı!`")
+    heroku_var[variable] = value
 
 
 """Hesabınızdakı dynosuna bakmanızı yarayan userbot modulu"""
 
 
-@register(outgoing=True, pattern=r"^.dyno(?: |$)")
+@register(pattern=r"^.dyno(?: |$)")
 async def dyno_usage(dyno):
     """Bu qisimdə bot istifadə edilmiş dynonu əldə etməyə çalışır"""
     await dyno.edit("`🔄 Lütfen Bekleyiniz...`")
@@ -226,7 +220,7 @@ async def dyno_usage(dyno):
                            f"**|**  [`{percentage}` **%**]"
                            )
 
-@register(outgoing=True, pattern=r"^\.herokulog")
+@register(pattern=r"^\.herokulog")
 async def _(dyno):
     try:
         Heroku = heroku3.from_key(HEROKU_APIKEY)
