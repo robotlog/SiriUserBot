@@ -4,7 +4,7 @@
 # you may not use this file except in compliance with the License.
 #
 
-# SiriUserBot - ErdemBey - Midy
+# SiriUserBot - Berceste
 
 
 import os
@@ -22,7 +22,7 @@ LANG = get_value("lyrics")
 
 # ████████████████████████████████ #
 
-@register(outgoing=True, pattern="^.lyrics(?: |$)(.*)")
+@register(pattern="^.lyrics(?: |$)(.*)")
 async def lyrics(lyric):
     if r"-" in lyric.text:
         pass
@@ -72,7 +72,7 @@ async def lyrics(lyric):
         await lyric.edit(f"{LANG['LYRICS']} \n`{artist} - {song}`\n\n```{songs.lyrics}```")
     return
 
-@register(outgoing=True, pattern="^.singer(?: |$)(.*)")
+@register(pattern="^.singer(?: |$)(.*)")
 async def singer(lyric):
     if r"-" in lyric.text:
         pass
@@ -126,16 +126,6 @@ async def singer(lyric):
     return
 
             
-
-CMD_HELP.update({
-    "lyrics":
-    "Kullanım: .`lyrics <sanatçı adı> - <şarkı ismi>`\n"
-    "NOT: ""-"" ayracı önemli!",
-    "singer":
-    "Şarkı söyler, Kullanım: .`singer <sanatçı adı> - <şarkı ismi>`\n"
-    "NOT: ""-"" ayracı önemli!"
-
-})
 
 CmdHelp('lyrics').add_command(
     'lyrics', ' <sanatçı adı> - <şarkı ismi>', 'Şarkı sözlerini getirir.', 'lyrics System Of a Down - Scince'
