@@ -4,7 +4,7 @@
 # you may not use this file except in compliance with the License.
 #
 
-# SiriUserBot - ErdemBey - Midy
+# SiriUserBot - Berceste
 
 # @Qulec tarafından yazılmıştır.
 # Thanks @Spechide.
@@ -19,7 +19,7 @@ LANG = get_value("__helpme")
 
 # ████████████████████████████████ #
 
-@register(outgoing=True, pattern="^.yard[iı]m|^.help")
+@register(pattern="^.yard[iı]m|^.help")
 async def yardim(event):
     tgbotusername = BOT_USERNAME
     if tgbotusername is not None:
