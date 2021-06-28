@@ -4,7 +4,7 @@
 # you may not use this file except in compliance with the License.
 #
 
-# SiriUserBot - ErdemBey - Midy
+# SiriUserBot - Berceste
 
 from userbot import CMD_HELP
 from userbot.events import register
@@ -13,6 +13,9 @@ import io
 import os
 import asyncio
 from userbot.cmdhelp import CmdHelp
+from telethon.tl.types import DocumentAttributeAudio
+import asyncio
+from os import (remove, path)
 
 # ██████ LANGUAGE CONSTANTS ██████ #
 
@@ -21,8 +24,8 @@ LANG = get_value("cevir")
 
 # ████████████████████████████████ #
 
-@register(outgoing=True, pattern="^.çevir ?(foto|ses|gif|mp3)? ?(.*)")
-@register(outgoing=True, pattern="^.convt ?(gif|voice|photo|mp3)? ?(.*)")
+@register(pattern="^.çevir ?(foto|ses|gif|mp3)? ?(.*)", replyneeded=True)
+@register(pattern="^.convt ?(gif|voice|photo|mp3)? ?(.*)", replyneeded=True)
 async def cevir(event):
     islem = event.pattern_match.group(1)
     try:
@@ -36,7 +39,7 @@ async def cevir(event):
     if islem == "foto" or islem == "photo":
         rep_msg = await event.get_reply_message()
 
-        if not event.is_reply or not rep_msg.sticker:
+        if not rep_msg.sticker:
             await event.edit(LANG['NEED_REPLY'])
             return
         await event.edit(LANG['CONVERTING_TO_PHOTO'])
@@ -61,7 +64,7 @@ async def cevir(event):
 
         rep_msg = await event.get_reply_message()
 
-        if not event.is_reply or not (rep_msg.voice or rep_msg.audio):
+        if not (rep_msg.voice or rep_msg.audio):
             await event.edit(LANG['NEED_SOUND'])
             return
 
@@ -80,7 +83,7 @@ async def cevir(event):
     elif islem == "gif":
         rep_msg = await event.get_reply_message()
 
-        if not event.is_reply or (not rep_msg.video) and (not rep_msg.document.mime_type == 'application/x-tgsticker'):
+        if (not rep_msg.video) and (not rep_msg.document.mime_type == 'application/x-tgsticker'):
             await event.edit(LANG['NEED_VIDEO'])
             return
 
@@ -108,7 +111,7 @@ async def cevir(event):
             os.remove(video)
     elif islem == "mp3":
         rep_msg = await event.get_reply_message()
-        if not event.is_reply or not rep_msg.video:
+        if not rep_msg.video:
             await event.edit(LANG['NEED_VIDEO'])
             return
         await event.edit('`Sese çevriliyor...`')
@@ -128,6 +131,24 @@ async def cevir(event):
         await event.delete()
         os.remove("out.mp3")
         os.remove(video)
+    elif islem == "voice":  #credit:miri
+        caption = "@SiriOT ile sesli mesaja dönüştürüldü."
+        rep_msg = await event.get_reply_message()
+        sarki = rep_msg.text
+        if rep_msg.audio:
+            await event.edit(f"__Ses indiriliyor...__")
+            indir = await rep_msg.download_media()
+            await event.edit(f"__Sesi indirdim, sesli mesaj olarak gönderiyorum...__")
+            voice = await asyncio.create_subprocess_shell(f"ffmpeg -i '{indir}' -y -c:a libopus 'unvoice.ogg'")
+            await voice.communicate()
+            if path.isfile("unvoice.ogg"):
+                await event.client.send_file(event.chat_id, file="unvoice.ogg", voice_note=True, caption=caption, reply_to=rep_msg)
+                await event.delete()
+                remove("unvoice.ogg")
+            else:
+                await event.edit("`Ses, sesli nota dönüştürülemedi!`")
+            remove(indir)
+            return
     else:
         await event.edit(LANG['INVALID_COMMAND'])
         return
@@ -140,4 +161,6 @@ CmdHelp('cevir').add_command(
     'çevir ses', '<çocuk/robot/earrape/hızlı/parazit/yankı>', 'Sese efekt uygular.'
 ).add_command(
     'çevir mp3', '<yanıt>', 'yanıtladığınız videoyu mp3\'e çevirir.'
+).add_command(
+    'çevir voice', '<yanıt>', 'yanıtladığınız mp3\'ü ses atmış gibi gösterir.'
 ).add()
