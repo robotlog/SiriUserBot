@@ -4,8 +4,7 @@
 # you may not use this file except in compliance with the License.
 #
 
-# SiriUserBot - ErdemBey - Midy
-
+# SiriUserBot - Berceste
 
 """ Telegram'daki profil detaylarınızı değişmeye yarayan UserBot modülüdür. """
 
@@ -45,7 +44,7 @@ USERNAME_TAKEN = LANG['USERNAME_TAKEN']
 # ===============================================================
 
 
-@register(outgoing=True, pattern="^.reserved$")
+@register(pattern="^.reserved$")
 async def mine(event):
     """ .reserved komutu ayırdığınız kullanıcı adlarını listeler. """
     result = await bot(GetAdminedPublicChannelsRequest())
@@ -55,7 +54,7 @@ async def mine(event):
     await event.edit(output_str)
 
 
-@register(outgoing=True, pattern="^.name")
+@register(pattern="^.setname")
 async def update_name(name):
     """ .name komutu Telegram'daki isminizi değişir. """
     newname = name.text[6:]
@@ -72,7 +71,7 @@ async def update_name(name):
     await name.edit(NAME_OK)
 
 
-@register(outgoing=True, pattern="^.setpfp$")
+@register(pattern="^.setpfp$")
 async def set_profilepic(propic):
     """ .profilepic komutu Telegram'daki profil resminizi yanıtladığınız resimle değişir. """
     replymsg = await propic.get_reply_message()
@@ -100,7 +99,7 @@ async def set_profilepic(propic):
             await propic.edit(INVALID_MEDIA)
 
 
-@register(outgoing=True, pattern="^.setbio (.*)")
+@register(pattern="^.setbio (.*)")
 async def set_biograph(setbio):
     """ .setbio komutu Telegram'da yeni bir biyografi ayarlamanızı sağlar. """
     newbio = setbio.pattern_match.group(1)
@@ -108,7 +107,7 @@ async def set_biograph(setbio):
     await setbio.edit(BIO_SUCCESS)
 
 
-@register(outgoing=True, pattern="^.username (.*)")
+@register(pattern="^.username (.*)")
 async def update_username(username):
     """ .username komutu Telegram'da yeni bir kullanıcı adı belirlemenizi sağlar. """
     newusername = username.pattern_match.group(1)
@@ -119,7 +118,7 @@ async def update_username(username):
         await username.edit(USERNAME_TAKEN)
 
 
-@register(outgoing=True, pattern="^.count$")
+@register(pattern="^.count$")
 async def count(event):
     """ .count komutu profil istatistiklerini gösterir. """
     u = 0
@@ -156,7 +155,7 @@ async def count(event):
     await event.edit(result)
 
 
-@register(outgoing=True, pattern=r"^.delpfp")
+@register(pattern=r"^.delpfp")
 async def remove_profilepic(delpfp):
     """ .delpfp komutu Telegram'daki şu anki profil resminizi kaldırır. """
     group = delpfp.text[8:]
@@ -185,7 +184,7 @@ async def remove_profilepic(delpfp):
 CmdHelp('profile').add_command(
     'username', '<yeni kullanıcı adı>', 'Telegram\'daki kullanıcı adınızı değişir.'
 ).add_command(
-    'name', '<isim> or .name <isim> <soyisim>', 'Telegram\'daki isminizi değişir. (Ad ve soyad ilk boşluğa dayanarak birleştirilir.)'
+    'setname', '<isim> or .name <isim> <soyisim>', 'Telegram\'daki isminizi değişir. (Ad ve soyad ilk boşluğa dayanarak birleştirilir.)'
 ).add_command(
     'setpfp', None, 'Bir resmi Telegram\'da profil resmi yapmak için .setpfp komutuyla cevap verin.'
 ).add_command(
