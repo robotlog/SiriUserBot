@@ -4,7 +4,7 @@
 # you may not use this file except in compliance with the License.
 #
 
-# SiriUserBot - Berceste - ErdemBey - Midy
+# SiriUserBot - Berceste
 #
 
 ''' Gruba katılan spamcıları banlamada yardımcı olan modüldür. '''
@@ -132,14 +132,12 @@ async def anti_spambot(welcm):
                         reason = "`ouo.io` URL'leri tespit edildi."
                         spambot = True
                     else:
-                        if check_user.first_name in ("Bitmex", "Promotion",
-                                                     "Information", "Dex",
-                                                     "Announcements", "Info",
-                                                     "Duyuru", "Duyurular"
-                                                     "Bilgilendirme", "Bilgilendirmeler"):
-                            if check_user.last_name == "Bot":
-                                reason = "Bilinen SpamBot"
-                                spambot = True
+                        ULIST = ["Bitmex", "Bitcoin", "Promotion","Information", "Dex","Announcements", "Info","Duyuru", "Duyurular","Bilgilendirme", "Bilgilendirmeler"]
+                        for i in ULIST:
+                            if i in check_user.first_name:
+                                if check_user.last_name == "Bot":
+                                    reason = "Bilinen SpamBot"
+                                    spambot = True
 
                     if spambot:
                         print(f"Potansiyel Spam Mesajı: {message.text}")
@@ -155,7 +153,7 @@ async def anti_spambot(welcm):
                 if not admin and not creator:
                     if ANTI_SPAMBOT_SHOUT:
                         await welcm.reply(
-                            "@admins\n"
+                            "@admin\n"
                             "`ANTI SPAMBOT TESPİT EDİLDİ!\n"
                             "BU KULLANICI BENİM SPAMBOT ALGORİTMALARIMLA EŞLEŞİYOR!`"
                             f"SEBEP: {reason}")
@@ -167,7 +165,7 @@ async def anti_spambot(welcm):
                         await welcm.reply(
                             "`Potansiyel Spambot Tespit Edildi !!`\n"
                             f"`SEBEP:` {reason}\n"
-                            "Şu anlık gruptan kickleniyor, bu ID ilerideki durumlar için kaydedilecek.\n"
+                            "Şu anlık gruptan atılıyor, bu ID ilerideki durumlar için kaydedilecek.\n"
                             f"`KULLANICI:` [{check_user.first_name}](tg://user?id={check_user.id})"
                         )
 
@@ -179,7 +177,7 @@ async def anti_spambot(welcm):
                     except BaseException:
                         if ANTI_SPAMBOT_SHOUT:
                             await welcm.reply(
-                                "@admins\n"
+                                "@admin\n"
                                 "`ANTI SPAMBOT TESPİT EDİLDİ!\n"
                                 "BU KULLANICI BENİM SPAMBOT ALGORİTMALARIMLA EŞLEŞİYOR!`"
                                 f"SEBEP: {reason}")
