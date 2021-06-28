@@ -4,7 +4,7 @@
 # you may not use this file except in compliance with the License.
 #
 
-# SiriUserBot - ErdemBey - Midy
+# SiriUserBot - Berceste
 
 import io
 import re
@@ -52,7 +52,7 @@ async def on_new_message(event):
 
 
 
-@register(outgoing=True, pattern="^.küfür ?(.*)")
+@register(pattern="^.k[üu]f[üu]r ?(.*)")
 async def kufur(event):
     kufur = event.pattern_match.group(1)
     if len(kufur) < 1:
@@ -68,7 +68,7 @@ async def kufur(event):
             await event.edit(LANG['ALREADY_CLOSED_KUFUR'])
 
 
-@register(outgoing=True, pattern="^.addblacklist(?: |$)(.*)")
+@register(pattern="^.addblacklist(?: |$)(.*)")
 async def on_add_black_list(addbl):
     if addbl.is_reply:
         reply = await addbl.get_reply_message()
@@ -80,7 +80,7 @@ async def on_add_black_list(addbl):
         sql.add_to_blacklist(addbl.chat_id, trigger)
     await addbl.edit("{} **{}**".format(len(to_blacklist), LANG['ADDED']))
 
-@register(outgoing=True, pattern="^.listblacklist(?: |$)(.*)")
+@register(pattern="^.listblacklist(?: |$)(.*)")
 async def on_view_blacklist(listbl):
     all_blacklisted = sql.get_chat_blacklist(listbl.chat_id)
     OUT_STR = f"**{LANG['BLACKLIST']}**\n"
@@ -104,7 +104,7 @@ async def on_view_blacklist(listbl):
     else:
         await listbl.edit(OUT_STR)
 
-@register(outgoing=True, pattern="^.rmblacklist(?: |$)(.*)")
+@register(pattern="^.rmblacklist(?: |$)(.*)")
 async def on_delete_blacklist(rmbl):
     text = rmbl.pattern_match.group(1)
     to_unblacklist = list(set(trigger.strip() for trigger in text.split("\n") if trigger.strip()))
