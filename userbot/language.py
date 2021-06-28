@@ -4,7 +4,7 @@
 # you may not use this file except in compliance with the License.
 #
 
-# SiriUserBot - Erdem Bey - Midy
+# SiriUserBot - Berceste
 
 from . import LANGUAGE, LOGS, bot, PLUGIN_CHANNEL_ID
 from json import loads, JSONDecodeError
@@ -55,7 +55,7 @@ if LANGUAGE_JSON == None:
         else:
             raise Exception(f"Didn't find {LANGUAGE} file")
 
-LOGS.info(f"{LANGUAGE_JSON['LANGUAGE']} dili yüklendi.")
+LOGS.info(f"{LANGUAGE_JSON['LANGUAGE']} language loaded.")
 
 def get_value (plugin = None, value = None):
     global LANGUAGE_JSON
