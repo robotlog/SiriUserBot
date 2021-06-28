@@ -1,4 +1,4 @@
-# SİRİ USERBOT / Midy - Erdem Bey - Berce 
+#              SİRİ USERBOT /  Berce            # thx: Midy - Erdem Bey
 # Bu bize ait birşeydir alıyorsan silme burayı dostum anladın sen zaten
 
 
@@ -23,7 +23,7 @@ aylar = {
   "Apr": "Nisan",
   "May": "Mayıs",
   "Jun": "Haziran",
-  "July": "Temmuz",
+  "Jul": "Temmuz",
   "Aug": "Ağustos",
   "Sep": "Eylül",
   "Oct": "Ekim",
@@ -31,7 +31,7 @@ aylar = {
   "Dec": "Aralık"
   
 }
-@register(outgoing=True, pattern=r"^.sinfo")
+@register(pattern=r"^.sinfo")
 async def sinfos(event):
     await event.edit("🔄")
     chat = "@spambot"
@@ -48,7 +48,7 @@ async def sinfos(event):
             getspam = spamdurumu.text.split("until ")[1].split(", ")[0]
             spamgun, spamay, spamyil = getspam.split(" ")[0], aylar[getspam.split(" ")[1]], getspam.split(" ")[2]
             spamsaat = spamdurumu.text.split(":")[0].split(", ")[1] + ":" + spamdurumu.text.split(":")[1].split("UTC.")[0]
-            toparla = f"🥲 Spamınız {spamgun} {spamay} {spamyil} {spamsaat}  Tarihinde Bitiyor...."
+            toparla = f"`🥲 Spamınız {spamgun} {spamay} {spamyil} {spamsaat} Tarihinde Bitiyor....`"
             await event.edit(toparla)
         elif spamdurumu.text.startswith("Good news"):
             await event.edit(LANG["BIRD"])
