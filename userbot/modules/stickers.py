@@ -77,7 +77,7 @@ async def kang(event):
         if message.file.emoji: # ...but the sticker has one
             emoji = message.file.emoji
         else: # ...and the sticker doesn't have one either
-            emoji = choice([❤️','😆','🤰🏻','😳','💗','🥺','🤔'])
+            emoji = choice(['❤️','😆','🤰🏻','😳','💗','🥺','🤔'])
 
     packname = f"a{user.id}_by_{pack_username}_{number}{'_anim' if is_anim else ''}"
     packtitle = (f"@{user.username or user.first_name} {PAKET_ISMI} "
