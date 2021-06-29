@@ -188,7 +188,7 @@ async def amialive(e):
 @register(incoming=True, from_users=WHITELIST, pattern="^!alive$",disable_errors=True)
 @register(asistan=True, pattern="^.alive$",disable_errors=True)
 async def asistanalive(ups):
-    bana = await bana_mi_diyo(u)
+    bana = await bana_mi_diyo(ups)
     if not bana:
         return
     if ups.sender_id == 1758581185:
