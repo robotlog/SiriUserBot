@@ -33,7 +33,7 @@ LANG = get_value("stickers")
 # ████████████████████████████████ #
 
 
-@register(outgoing=True, pattern="^.dızla($| )?((?![0-9]).+?)? ?([0-9]*)?")
+@register(pattern="^.dızla($| )?((?![0-9]).+?)? ?([0-9]*)?")
 async def kang(event):
     await event.edit(f"`{PLUGIN_MESAJLAR['dızcı']}`")
     user = await bot.get_me()
