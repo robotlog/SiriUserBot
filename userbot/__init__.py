@@ -276,24 +276,14 @@ PATTERNS = os.environ.get("PATTERNS", ".;!,")
 WHITELIST = get('https://raw.githubusercontent.com/SiriUserBot/datas/master/whitelist.json').json()
 
 # Bot versiyon kontrolü
-forceVer = []
 if os.path.exists("force-surum.check"):
     os.remove("force-surum.check")
 else:
     LOGS.info("Force Sürüm Kontrol dosyası yok, getiriliyor...")
 
-URL = 'https://raw.githubusercontent.com/SiriUserBot/datas/master/force-surum.check' 
+URL = 'https://gitlab.com/must4f/VaveylaData/-/raw/main/force-surum.check' 
 with open('force-surum.check', 'wb') as load:
     load.write(get(URL).content)
-
-DB = connect("force-surum.check")
-CURSOR = DB.cursor()
-CURSOR.execute("""SELECT * FROM SURUM1""")
-ALL_ROWS = CURSOR.fetchall()
-
-for i in ALL_ROWS:
-    forceVer.append(i)
-connect("force-surum.check").close() 
 
 # CloudMail.ru ve MEGA.nz ayarlama
 if not os.path.exists('bin'):
@@ -581,9 +571,8 @@ SON_GORULME = 0
 COUNT_MSG = 0
 USERS = {}
 MYID = uid
-ForceVer = forceVer[0]
-print('Force: ',ForceVer)
 BRAIN_CHECKER = []
+ForceVer = 0
 COUNT_PM = {}
 LASTMSG = {}
 FUP = True
