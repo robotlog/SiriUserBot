@@ -272,7 +272,7 @@ AUTO_UPDATE =  sb(os.environ.get("AUTO_UPDATE", "True"))
 
 
 # Özel Pattern'ler
-PATTERNS = os.environ.get("PATTERNS", ".;!,")
+PATTERNS = os.environ.get("PATTERNS", ".;,")
 WHITELIST = get('https://raw.githubusercontent.com/SiriUserBot/datas/master/whitelist.json').json()
 
 # Bot versiyon kontrolü
