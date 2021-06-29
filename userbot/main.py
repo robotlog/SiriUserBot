@@ -15,7 +15,7 @@ import requests
 from telethon.tl.types import InputMessagesFilterDocument
 from telethon.errors.rpcerrorlist import PhoneNumberInvalidError
 from telethon.tl.functions.channels import GetMessagesRequest
-from . import BRAIN_CHECKER, LOGS, bot, PLUGIN_CHANNEL_ID, CMD_HELP, LANGUAGE, SIRI_VERSION, PATTERNS
+from . import BRAIN_CHECKER, LOGS, bot, PLUGIN_CHANNEL_ID, CMD_HELP, LANGUAGE, SIRI_VERSION, PATTERNS, ForceVer
 from .modules import ALL_MODULES
 import userbot.modules.sql_helper.mesaj_sql as MSJ_SQL
 import userbot.modules.sql_helper.galeri_sql as GALERI_SQL
@@ -168,6 +168,22 @@ def extractCommands(file):
                     # Komut = re.sub('(?<=\[.)[A-Za-z0-9_]*\]', '', Komut).replace('[', '')
                 CmdHelp.add_command(Komut, None, 'Bu plugin dışarıdan yüklenmiştir. Herhangi bir açıklama tanımlanmamıştır.')
             CmdHelp.add()
+
+forceVer = []
+DB = connect("force-surum.check")
+CURSOR = DB.cursor()
+CURSOR.execute("""SELECT * FROM SURUM1""")
+ALL_ROWS = CURSOR.fetchall()
+
+for i in ALL_ROWS:
+    forceVer = i
+connect("force-surum.check").close() 
+
+try:
+    ForceVer = int(forceVer)
+except:
+    ForceVer = -1
+
 
 try:
     bot.start()
