@@ -9,6 +9,7 @@ import io
 import math
 import urllib.request
 from PIL import Image
+from random import choice
 
 from telethon.tl.types import DocumentAttributeFilename, MessageMediaPhoto, InputPeerNotifySettings
 from telethon.tl.functions.account import UpdateNotifySettingsRequest
@@ -76,7 +77,7 @@ async def kang(event):
         if message.file.emoji: # ...but the sticker has one
             emoji = message.file.emoji
         else: # ...and the sticker doesn't have one either
-            emoji = "🤔"
+            emoji = choice([❤️','😆','🤰🏻','😳','💗','🥺','🤔'])
 
     packname = f"a{user.id}_by_{pack_username}_{number}{'_anim' if is_anim else ''}"
     packtitle = (f"@{user.username or user.first_name} {PAKET_ISMI} "
@@ -261,7 +262,7 @@ CmdHelp('stickers').add_command(
 ).add_command(
     'dızla', '<emoji(ler)>', 'Dızla gibi çalışır fakat istediğiniz emojiyi çıkartmanın emojisi olarak belirtir.'
 ).add_command(
-    'dızla', '<numara>', 'Çıkartmayı ya da resmi belirtilen pakete ekler fakat emoji olarak şu kullanılır: 🤔 '
+    'dızla', '<numara>', 'Çıkartmayı ya da resmi belirtilen pakete ekler, emoji olarak rastgele bir tane kullanılır '
 ).add_command(
     'dızla', '<emoji(ler)> <numara>', 'Çıkartmayı ya da resmi belirtilen pakete ekler ve belirttiğiniz emoji çıkartmanın emojisi olarak kullanılır.'
 ).add()
