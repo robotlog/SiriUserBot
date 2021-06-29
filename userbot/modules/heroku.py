@@ -124,11 +124,12 @@ async def set_var(var):
                     f"`{variable}` = `{value}`"
                 )
             await var.edit(f"`✅ {variable} değeri ayarlandı!`")
-        except:
+        except Exception:
             fix = True
             await var.edit("😒 Botlog grubundan çıkmışsın.. Senin için düzeltiyorum..")
     if fix:
         heroku_var["BOTLOG"] = "False"
+        heroku_var["BOTLOG_CHATID"] = "0"
     else:
         heroku_var[variable] = value
 
@@ -194,6 +195,7 @@ async def dyno_usage(dyno):
     minutes_remaining = remaining_quota / 60
     hours = math.floor(minutes_remaining / 60)
     minutes = math.floor(minutes_remaining % 60)
+    remaining = math.floor(hours / 24) # Sadece şu satır için eyw @coshgyn
 
     """ - Current - """
     App = result['apps']
@@ -217,11 +219,13 @@ async def dyno_usage(dyno):
                            "\n"
                            " 👉🏻 `Bu ay için kalan dyno saati`:\n"
                            f"     ⌛  `{hours}` **saat**  `{minutes}` **dakika**  "
-                           f"**|**  [`{percentage}` **%**]"
+                           f"**|**  [`{percentage}` **%**]\n"
+                           " 👉🏻 `Ne zaman biter`: "
+                           "      ⌛  [**{remaining} gün**]"
                            )
 
-@register(pattern=r"^\.herokulog")
-async def _(dyno):
+@register(pattern=r"^.herokulog")
+async def herokulog(dyno):
     try:
         Heroku = heroku3.from_key(HEROKU_APIKEY)
         app = Heroku.app(HEROKU_APPNAME)
