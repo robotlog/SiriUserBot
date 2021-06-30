@@ -110,9 +110,9 @@ def register(**args):
             if replyneeded and not check.is_reply:
                 if not notifyoff:
                     try:
-                        await check.edit("`🦋 Plugini kullanabilmek için bir mesajı yanıtlamalısın!`")
+                        await check.edit("`🤰🏻Plugini kullanabilmek için bir mesajı yanıtlamalısın!`")
                     except:
-                        await check.respond("`🦋 Plugini kullanabilmek için bir mesajı yanıtlamalısın!`")
+                        await check.respond("`🤰🏻 Plugini kullanabilmek için bir mesajı yanıtlamalısın!`")
                 return
 
             try:
@@ -128,34 +128,34 @@ def register(**args):
                     date = strftime("%Y-%m-%d %H:%M:%S", gmtime())
 
                     eventtext = str(check.text)
-                    text = "**==USERBOT HATA RAPORU==**\n"
+                    text = "**≛『 USERBOT HATA RAPORU 』≛**\n"
                     link = "[Siri Destek Grubuna](https://t.me/SiriSupport)"
-                    if len(eventtext)<10:
+                    if len(eventtext)<20:
                         text += f"\n**🗒️ Şu yüzden:** {eventtext}\n"
-                    text += "\nℹ️ İsterseniz, bunu bildirebilirsiniz."
-                    text += f"- sadece bu mesajı {link} gönderin.\n"
-                    text += "Hata ve tarih haricinde hiçbir şey kayıt edilmez.\n"
+                    text += "\n✆ İsterseniz, bunu bildirebilirsiniz."
+                    text += f"- sadece bu mesajı {link} gönderin."
+                    text += "**Hata ve tarih haricinde hiçbir şey** kayıt edilmez.\n"
 
-                    ftext = "========== UYARI =========="
+                    ftext = ""
+                    ftext += "========== UYARI =========="
                     ftext += "\nBu dosya sadece burada yüklendi,"
                     ftext += "\nSadece hata ve tarih kısmını kaydettik,"
                     ftext += "\nGizliliğinize saygı duyuyoruz,"
                     ftext += "\nBurada herhangi bir gizli veri varsa"
                     ftext += "\nBu hata raporu olmayabilir, kimse verilerinize ulaşamaz.\n"
                     ftext += "--------USERBOT HATA GUNLUGU--------\n"
-                    ftext += "\nTarih: " + date
-                    ftext += "\nGrup ID: " + str(check.chat_id)
-                    ftext += "\nGönderen kişinin ID: " + str(check.sender_id)
-                    ftext += "\n\nOlay Tetikleyici:\n"
+                    ftext += "\n➢ Tarih: " + date
+                    ftext += "\n➢ Grup ID: " + str(check.chat_id)
+                    ftext += "\n➢ Gönderen kişinin ID: " + str(check.sender_id)
+                    ftext += "\n\n➢ Olay Tetikleyici:\n"
                     ftext += str(check.text)
-                    ftext += "\n\nHata metni:\n"
+                    ftext += "\n\n➢ Hata metni:\n"
                     ftext += str(sys.exc_info()[1])
-                    ftext += "\n\n\nGeri izleme bilgisi:\n"
+                    ftext += "\n\n➢ Bot versiyonu:\n"
+                    ftext += "{}".format(str(SIRI_VERSION))
+                    ftext += "\n\n\n➢ Geri izleme bilgisi: \n"
                     ftext += str(format_exc())
                     ftext += "\n\n--------USERBOT HATA GUNLUGU BITIS--------"
-                    ftext += "\n\n================================\n"
-                    ftext += f"====== BOTVER : {SIRI_VERSION} ======\n"
-                    ftext += "================================"
 
                     command = "git log --pretty=format:\"%an: %s\" -7"
 
@@ -176,16 +176,16 @@ def register(**args):
 
                     if LOGSPAMMER:
                         try:
-                            await check.edit("`❕ Üzgünüm, UserBot bir hatayla karşılaştı.\n ℹ️ Hata günlükleri UserBot günlük grubunda saklanır.`")
+                            await check.edit("**🥺 Üzgünüm, UserBot bir hatayla karşılaştı.\n🐙 Hata raporu Botlog grubuna gönderildi.`")
                         except:
                             pass
                     await check.client.send_file(send_to,
                                                  "error.log",
                                                  caption=text)
-
-                    remove("error.log")
-            else:
-                pass
+                    try:
+                        remove("error.log")
+                    except:
+                        pass
         if not disable_edited:
             bot.add_event_handler(wrapper, ME(**args))
         bot.add_event_handler(wrapper, NW(**args))
