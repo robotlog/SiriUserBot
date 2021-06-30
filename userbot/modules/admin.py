@@ -80,10 +80,9 @@ MUTE_RIGHTS = ChatBannedRights(until_date=None, send_messages=True)
 
 UNMUTE_RIGHTS = ChatBannedRights(until_date=None, send_messages=False)
 # ================================================
-@register(outgoing=True, pattern="^.ekle ?(.*)")
+@register(pattern="^.ekle ?(.*)")
+@register(pattern="^.add ?(.*)")
 async def ekle(event):
-    if event.fwd_from:
-        return
     to_add_users = event.pattern_match.group(1)
     if event.is_private:
         await event.edit(LANG['EKLE_PRIVATE'])
@@ -114,7 +113,7 @@ async def ekle(event):
                     continue
                 await event.edit(f'`{user_id} gruba eklendi!`')
 
-@register(outgoing=True, pattern="^.gban(?: |$)(.*)")
+@register(pattern="^.gban(?: |$)(.*)")
 async def gbanspider(gspdr):
     """ .gban komutu belirlenen kişiyi küresel olarak yasaklar """
     # Yetki kontrolü
@@ -194,7 +193,7 @@ async def gbanmsg(moot):
         except:
             return
 
-@register(outgoing=True, pattern="^.ungban(?: |$)(.*)")
+@register(pattern="^.ungban(?: |$)(.*)")
 async def ungban(un_gban):
     """ .ungban komutu belirlenen kişinin küresel susturulmasını kaldırır """
     # Yetki kontrolü
@@ -236,7 +235,7 @@ async def ungban(un_gban):
                 f"GRUP: {un_gban.chat.title}(`{un_gban.chat_id}`)")
 
 
-@register(outgoing=True, pattern="^.setgpic$")
+@register(pattern="^.setgpic$")
 async def set_group_photo(gpic):
     """ .setgpic komutu ile grubunuzun fotoğrafını değiştirebilirsiniz """
     if not gpic.is_group:
@@ -273,7 +272,7 @@ async def set_group_photo(gpic):
             await gpic.edit(PP_ERROR)
 
 
-@register(pattern="^.promote(?: |$)(.*)")
+@register(outgoing=True, pattern="^.promote(?: |$)(.*)")
 @register(incoming=True, from_users=BRAIN_CHECKER[0], pattern="^.promote(?: |$)(.*)", disable_errors=True)
 async def promote(promt):
     """ .promote komutu ile belirlenen kişiyi yönetici yapar """
@@ -1053,7 +1052,7 @@ async def get_admin(show):
 @register(pattern="^.pin(?: |$)(.*)")
 async def pin(msg):
     """ .pin komutu verildiği grupta ki yazıyı & medyayı sabitler """
-    if not event.is_private:
+    if not msg.is_private:
         # Yönetici kontrolü
         chat = await msg.get_chat()
         admin = chat.admin_rights
