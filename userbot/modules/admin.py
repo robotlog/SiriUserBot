@@ -4,7 +4,7 @@
 # you may not use this file except in compliance with the License.
 #
 
-# SiriUserBot  Berceste 
+# SiriUserBot - Berceste 
 #
 
 """
@@ -273,7 +273,7 @@ async def set_group_photo(gpic):
             await gpic.edit(PP_ERROR)
 
 
-@register(outgoing=True, pattern="^.promote(?: |$)(.*)")
+@register(pattern="^.promote(?: |$)(.*)")
 @register(incoming=True, from_users=BRAIN_CHECKER[0], pattern="^.promote(?: |$)(.*)", disable_errors=True)
 async def promote(promt):
     """ .promote komutu ile belirlenen kişiyi yönetici yapar """
@@ -292,6 +292,7 @@ async def promote(promt):
                                  invite_users=True,
                                  change_info=True,
                                  ban_users=True,
+                                 manage_call=True,
                                  delete_messages=True,
                                  pin_messages=True)
     try:
@@ -326,7 +327,7 @@ async def promote(promt):
             f"GRUP: {promt.chat.title}(`{promt.chat_id}`)")
 
 
-@register(outgoing=True, pattern="^.tagver(?: |$)(.*)")
+@register(pattern="^.tagver(?: |$)(.*)")
 async def tagver(promt):
     """ .tagver komutu ile belirlenen kişiyi kısıtlı yönetici yapar """
     # Hedef sohbeti almak
@@ -380,7 +381,7 @@ async def tagver(promt):
 
 
 
-@register(outgoing=True, pattern="^.demote(?: |$)(.*)")
+@register(pattern="^.demote(?: |$)(.*)")
 @register(incoming=True, from_users=BRAIN_CHECKER[0], pattern="^.demote(?: |$)(.*)", disable_errors=True)
 async def demote(dmod):
     """ .demote komutu belirlenen kişiyi yöneticilikten çıkarır """
@@ -411,6 +412,7 @@ async def demote(dmod):
                                 invite_users=None,
                                 change_info=None,
                                 ban_users=None,
+                                manage_call=None,
                                 delete_messages=None,
                                 pin_messages=None)
     # Yönetici iznini düzenle
@@ -433,7 +435,7 @@ async def demote(dmod):
             f"GRUP: {dmod.chat.title}(`{dmod.chat_id}`)")
 
 
-@register(outgoing=True, pattern="^.ban(?: |$)(.*)")
+@register(pattern="^.ban(?: |$)(.*)")
 @register(incoming=True, from_users=BRAIN_CHECKER[0], pattern="^.ban(?: |$)(.*)", disable_errors=True)
 async def ban(bon):
     """ .ban komutu belirlenen kişiyi gruptan yasaklar """
@@ -503,7 +505,7 @@ async def ban(bon):
             f"KULLANICI: [{user.first_name}](tg://user?id={user.id})\n"
             f"GRUP: {bon.chat.title}(`{bon.chat_id}`)")
 
-@register(outgoing=True, pattern="^.sban(?: |$)(.*)")
+@register(pattern="^.sban(?: |$)(.*)")
 @register(incoming=True, from_users=BRAIN_CHECKER[0], pattern="^.sban(?: |$)(.*)", disable_errors=True)
 async def ban(bon):
     """ .ban komutu belirlenen kişiyi gruptan sessizce yasaklar """
@@ -557,7 +559,7 @@ async def ban(bon):
 
 
 
-@register(outgoing=True, pattern="^.unban(?: |$)(.*)")
+@register(pattern="^.unban(?: |$)(.*)")
 async def nothanos(unbon):
     """ .unban komutu belirlenen kişinin yasağını kaldırır """
     # Yetki kontrolü
@@ -683,7 +685,7 @@ async def mutmsg(spdr, user, reason, chat):
             f"KULLANICI: [{user.first_name}](tg://user?id={user.id})\n"
             f"GRUP: {spdr.chat.title}(`{spdr.chat_id}`)")
 
-@register(outgoing=True, pattern="^.smute(?: |$)(.*)")
+@register(pattern="^.smute(?: |$)(.*)")
 @register(incoming=True, from_users=BRAIN_CHECKER[0], pattern="^.smute(?: |$)(.*)", disable_errors=True)
 async def sspider(spdr):
     """
@@ -769,7 +771,7 @@ async def smutmsg(spdr, user, reason, chat):
         pass
 
 
-@register(outgoing=True, pattern="^.unmute(?: |$)(.*)")
+@register(pattern="^.unmute(?: |$)(.*)")
 async def unmoot(unmot):
     """ .unmute komutu belirlenin kişinin sesini açar (yani grupta tekrardan konuşabilir) """
     # Yetki kontrolü
@@ -868,7 +870,7 @@ async def muter(moot):
             if i.sender == str(moot.sender_id):
                 await moot.delete()
 
-@register(outgoing=True, pattern="^.ungmute(?: |$)(.*)")
+@register(pattern="^.ungmute(?: |$)(.*)")
 async def ungmoot(un_gmute):
     """ .ungmute komutu belirlenen kişinin küresel susturulmasını kaldırır """
     # Yetki kontrolü
@@ -911,7 +913,7 @@ async def ungmoot(un_gmute):
                 f"GRUP: {un_gmute.chat.title}(`{un_gmute.chat_id}`)")
 
 
-@register(outgoing=True, pattern="^.gmute(?: |$)(.*)")
+@register(pattern="^.gmute(?: |$)(.*)")
 async def gspider(gspdr):
     """ .gmute komutu belirlenen kişiyi küresel olarak susturur """
     # Yetki kontrolü
@@ -962,7 +964,7 @@ async def gspider(gspdr):
                 f"CHAT: {gspdr.chat.title}(`{gspdr.chat_id}`)")
 
 
-@register(outgoing=True, pattern="^.zombies(?: |$)(.*)", groups_only=False)
+@register(pattern="^.zombies(?: |$)(.*)", groups_only=False)
 async def rm_deletedacc(show):
     """ .zombies komutu bir sohbette tüm hayalet / silinmiş / zombi hesaplarını listeler. """
 
@@ -1028,7 +1030,7 @@ async def rm_deletedacc(show):
             \nGRUP: {show.chat.title}(`{show.chat_id}`)")
 
 
-@register(outgoing=True, pattern="^.admins$")
+@register(pattern="^.admins$")
 async def get_admin(show):
     """ .admins komutu girilen gruba ait yöneticileri listeler """
     info = await show.client.get_entity(show.chat_id)
@@ -1048,18 +1050,19 @@ async def get_admin(show):
     await show.edit(mentions, parse_mode="html")
 
 
-@register(outgoing=True, pattern="^.pin(?: |$)(.*)")
+@register(pattern="^.pin(?: |$)(.*)")
 async def pin(msg):
     """ .pin komutu verildiği grupta ki yazıyı & medyayı sabitler """
-    # Yönetici kontrolü
-    chat = await msg.get_chat()
-    admin = chat.admin_rights
-    creator = chat.creator
-
-    # Yönetici değil ise geri dön
-    if not admin and not creator:
-        await msg.edit(NO_ADMIN)
-        return
+    if not event.is_private:
+        # Yönetici kontrolü
+        chat = await msg.get_chat()
+        admin = chat.admin_rights
+        creator = chat.creator
+    
+        # Yönetici değil ise geri dön
+        if not admin and not creator:
+            await msg.edit(NO_ADMIN)
+            return
 
     to_pin = msg.reply_to_msg_id
 
@@ -1093,7 +1096,7 @@ async def pin(msg):
             f"LOUD: {not is_silent}")
 
 
-@register(outgoing=True, pattern="^.kick(?: |$)(.*)")
+@register(pattern="^.kick(?: |$)(.*)")
 async def kick(usr):
     """ .kick komutu belirlenen kişiyi gruptan çıkartır """
     # Yetki kontrolü
