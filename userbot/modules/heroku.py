@@ -220,8 +220,8 @@ async def dyno_usage(dyno):
                            " 👉🏻 `Bu ay için kalan dyno saati`:\n"
                            f"     ⌛  `{hours}` **saat**  `{minutes}` **dakika**  "
                            f"**|**  [`{percentage}` **%**]\n"
-                           " 👉🏻 `Ne zaman biter`: "
-                           "      ⌛  [**{remaining} gün**]"
+                           " 👉🏻 `Ne zaman biter`:\n"
+                           f"      ⌛  [**{remaining} gün**]"
                            )
 
 @register(pattern=r"^.herokulog")
