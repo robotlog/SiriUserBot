@@ -317,13 +317,9 @@ if STRING_SESSION:
     auto_reconnect=True,
     connection_retries=None,
 )
-    del STRING_SESSION
 else:
     # pylint: devre dışı=geçersiz ad
     bot = TelegramClient("userbot", API_KEY, API_HASH)
-
-del API_KEY
-del API_HASH
 
 ASISTAN = 1758581185 # Bot yardımcısı
 
@@ -571,6 +567,11 @@ Hesabınızı bot'a çevirebilirsiniz ve bunları kullanabilirsiniz. Unutmayın,
         )
         quit(1)
 
+
+if STRING_SESSION:
+    del STRING_SESSION
+del API_KEY
+del API_HASH
 
 # Küresel Değişkenler
 SON_GORULME = 0
