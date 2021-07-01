@@ -71,7 +71,7 @@ if not LANGUAGE in ["EN", "TR", "AZ", "UZ", "DEFAULT"]:
     LANGUAGE = "DEFAULT"
     
 # Siri versiyon
-SIRI_VERSION = "v2.5"
+SIRI_VERSION = "v2.6"
 
 # Telegram API KEY ve HASH
 API_KEY = os.environ.get("API_KEY", None)
@@ -317,9 +317,13 @@ if STRING_SESSION:
     auto_reconnect=True,
     connection_retries=None,
 )
+    del STRING_SESSION
 else:
     # pylint: devre dışı=geçersiz ad
     bot = TelegramClient("userbot", API_KEY, API_HASH)
+
+del API_KEY
+del API_HASH
 
 ASISTAN = 1758581185 # Bot yardımcısı
 
