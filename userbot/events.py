@@ -176,7 +176,7 @@ def register(**args):
 
                     if LOGSPAMMER:
                         try:
-                            await check.edit("**🥺 Üzgünüm, UserBot bir hatayla karşılaştı.\n🐙 Hata raporu Botlog grubuna gönderildi.`")
+                            await check.edit("__🥺 Üzgünüm, UserBot bir hatayla karşılaştı.\n🐙 Hata raporu Botlog grubuna gönderildi.__")
                         except:
                             pass
                     await check.client.send_file(send_to,
