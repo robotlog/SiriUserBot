@@ -3,8 +3,7 @@
 # Licensed under the GPL-3.0 License;
 # you may not use this file except in compliance with the License.
 ##
-# - tg: @siriuserbot - @sirisupport
-# SiriUserBot - Berceste - Erdem Bey # Thx: fireganqQ
+# - tg: @siriot - @sirisupport - Berceste  # Thx: fireganqQ
 
 
 """ AFK ile ilgili komutları içeren UserBot modülü """
@@ -20,6 +19,8 @@ from userbot.events import register
 from userbot.main import PLUGIN_MESAJLAR
 from time import time
 from userbot.cmdhelp import CmdHelp
+from userbot.helps.asistan import bana_mi_diyo
+
 
 # ██████ LANGUAGE CONSTANTS ██████ #
 
@@ -321,7 +322,7 @@ async def afk_on_pm(sender):
                     COUNT_MSG = COUNT_MSG + 1
 
 
-@register(outgoing=True, pattern="^.afk(?: |$)(.*)", disable_errors=True)
+@register(pattern="^.afk(?: |$)(.*)", disable_errors=True)
 async def set_afk(afk_e):
     """ .afk komutu siz afk iken insanları afk olduğunuza dair bilgilendirmeye yarar. """
     message = afk_e.text
@@ -343,17 +344,19 @@ async def set_afk(afk_e):
     ISAFK = True
     raise StopPropagation
 
-@register(incoming=True, from_users=ASISTAN, pattern="^.afk(?: |$)(.*)", disable_errors=True)
+@register(asistan=True, pattern="^.afk(?: |$)(.*)", disable_errors=True)
 async def asistanafk(ups):
-    global ISAFK
-    global AFKREASON
-    global SON_GORULME
     string = ups.pattern_match.group(1)
-    if ups.is_reply:
-        reply = await ups.get_reply_message()
-        reply_user = await ups.client.get_entity(reply.from_id)
-        ren = reply_user.id
-        if ren == MYID:
+    bana = await bana_mi_diyo(ups):
+    if not bana:
+        return
+    await asistanafknow(string=string)
+
+
+async def asistanafknow(string=None)
+            global ISAFK
+            global AFKREASON
+            global SON_GORULME
             if string:
                 AFKREASON = string
                 await ups.reply(f"{LANG['IM_AFK']}\
@@ -365,12 +368,8 @@ async def asistanafk(ups):
                 await ups.client.send_message(BOTLOG_CHATID, "#AFK\nAsistan tarafından afk oldunuz.")
             ISAFK = True
             raise StopPropagation
-        else:
-            return
-    else:
-        return
 
-@register(outgoing=True)
+@register()
 async def type_afk_is_not_true(notafk):
     """ Bu kısım bir yere bir şey yazdığınızda sizi AFK modundan çıkarmaya yarar. """
     global ISAFK
