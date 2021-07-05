@@ -46,7 +46,7 @@ async def telegraphs(graph):
                 else:
                     os.remove(downloaded_file_name)
                     await graph.edit(
-                        "[telegra.ph](https://telegra.ph{}) 'a yüklendi.".format(
+                        "➤ ```https://telegra.ph{}``` **'a yüklendi.**".format(
                             media_urls[0]
                         ),
                         link_preview=True,
@@ -73,7 +73,7 @@ async def telegraphs(graph):
                     title_of_page, html_content=page_content
                 )
                 await graph.edit(
-                    "✨```Dosya Linki: https://telegra.ph/{}```".format(
+                    "➤```https://telegra.ph/{}``` **'a yüklendi!**".format(
                         response["path"]
                     ),
                     link_preview=True,
