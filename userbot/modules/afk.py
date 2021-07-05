@@ -352,7 +352,7 @@ async def asistanafk(ups):
         await asistanafknow(string=string)
 
 
-async def asistanafknow(string=None)
+async def asistanafknow(string=None):
             global ISAFK
             global AFKREASON
             global SON_GORULME
