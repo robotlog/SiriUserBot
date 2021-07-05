@@ -347,10 +347,9 @@ async def set_afk(afk_e):
 @register(asistan=True, pattern="^.afk(?: |$)(.*)", disable_errors=True)
 async def asistanafk(ups):
     string = ups.pattern_match.group(1)
-    bana = await bana_mi_diyo(ups):
-    if not bana:
-        return
-    await asistanafknow(string=string)
+    bana = await bana_mi_diyo(ups)
+    if bana:
+        await asistanafknow(string=string)
 
 
 async def asistanafknow(string=None)
