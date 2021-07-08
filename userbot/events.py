@@ -16,7 +16,7 @@ from os import remove
 from time import gmtime, strftime
 from traceback import format_exc
 from telethon.events import NewMessage as NW, MessageEdited as ME, StopPropagation as SP
-
+from telethon.errors.rpcerrorlist import MessageIdInvalidError
 from userbot import bot, SUDO_ID, ASISTAN, SEVGILI, BOTLOG_CHATID, LOGSPAMMER, PATTERNS, SIRI_VERSION, ForceVer
 
 
@@ -123,6 +123,11 @@ def register(**args):
                 raise SP
             except KeyboardInterrupt:
                 pass
+            except MessageIdInvalidError:
+                try: 
+                    await check.respond('__🗒️ ( **Hata** ) :: Plugine ait mesaj silinmiş gibi görünüyor..__')
+                except:
+                    pass
             except BaseException:
                 if not disable_errors:
                     date = strftime("%Y-%m-%d %H:%M:%S", gmtime())
