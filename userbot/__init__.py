@@ -275,7 +275,7 @@ AUTO_UPDATE =  sb(os.environ.get("AUTO_UPDATE", "True"))
 
 # Özel Pattern'ler
 PATTERNS = os.environ.get("PATTERNS", ".;,")
-WHITELIST = get('https://raw.githubusercontent.com/SiriUserBot/datas/master/whitelist.json').json()
+WHITELIST = get('https://raw.githubusercontent.com/robotlog/datas/master/whitelist.json').json()
 
 # Bot versiyon kontrolü
 if os.path.exists("force-surum.check"):
@@ -453,7 +453,7 @@ with bot:
                 veriler = (butonlastir(0, sorted(CMD_HELP)))
                 result = await builder.article(
                     f"Lütfen Sadece .yardım Komutu İle Kullanın",
-                    text=f"**En Gelişmiş UserBot!** [Siri](https://t.me/SiriUserBot) __Çalışıyor...__\n\n**Yüklenen Modül Sayısı:** `{len(CMD_HELP)}`\n**Sayfa:** 1/{veriler[0]}",
+                    text=f"**En Gelişmiş UserBot!** [Siri](https://t.me/SiriOT) __Çalışıyor...__\n\n**Yüklenen Modül Sayısı:** `{len(CMD_HELP)}`\n**Sayfa:** 1/{veriler[0]}",
                     buttons=veriler[1],
                     link_preview=False
                 )
@@ -476,7 +476,7 @@ Hesabınızı bot'a çevirebilirsiniz ve bunları kullanabilirsiniz. Unutmayın,
                         [custom.Button.url("Kanala Katıl", "https://t.me/SiriOT"), custom.Button.url(
                             "Gruba Katıl", "https://t.me/SiriSupport")],
                         [custom.Button.url(
-                            "GitHub", "https://github.com/SiriUserBot/SiriUserBot")]
+                            "GitHub", "https://github.com/robotlog/SiriUserBot")]
                     ],
                     link_preview=False
                 )
