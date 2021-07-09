@@ -35,7 +35,7 @@ else:
 """Config Vars değeri ilave edin veya silin..."""
 
 
-@register(pattern=r"^.(get|del) var(?: |$)(\w*)")
+@register(outgoing=True, pattern=r"^.(get|del) var(?: |$)(\w*)")
 async def variable(var):
     exe = var.pattern_match.group(1)
     if app is None:
@@ -134,7 +134,7 @@ async def set_var(var):
         heroku_var[variable] = value
 
 
-@register(asistan=True, pattern="^.setvar (\w*) ([\s\S]*)")
+#@register(asistan=True, pattern="^.setvar (\w*) ([\s\S]*)")
 async def asistansetvar(ups):
     """ Sadece bilgileri değiştirebilir kodlardan görüldüğü üzere bilgileri göremez. """
     bana = await bana_mi_diyo(u)
