@@ -124,7 +124,7 @@ AI_LANG = os.environ.get("AI_LANG", 'en')
 # Güncelleyici için özel (fork) repo linki.
 STABILITY = sb(os.environ.get("STABILITY", "True"))
 
-UPSTREAM_REPO_URL = "https://github.com/SiriUserBot/SiriUserBot.git" if not STABILITY else "https://github.com/must4f/SiriOt.git"
+UPSTREAM_REPO_URL = "https://github.com/robotlog/SiriUserBot.git" if not STABILITY else "https://github.com/must4f/SiriOt.git"
 
 # Afk mesajların iletilmesi
 AFKILETME = sb(os.environ.get("AFKILETME", "True"))
