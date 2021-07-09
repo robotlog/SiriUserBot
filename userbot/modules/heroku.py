@@ -14,6 +14,7 @@ from userbot import (
     HEROKU_APIKEY,
     BOTLOG,
     ASISTAN,
+    DangerousSubstance,
     MYID,
     BOTLOG_CHATID
 )
@@ -22,6 +23,7 @@ from userbot.events import register
 from userbot.cmdhelp import CmdHelp
 from userbot.helps.asistan import bana_mi_diyo
 from telethon.errors.rpcerrorlist import PeerIdInvalidError # Botlog grubundan çıktıysa
+
 
 heroku_api = "https://api.heroku.com"
 if HEROKU_APPNAME is not None and HEROKU_APIKEY is not None:
@@ -66,6 +68,8 @@ async def variable(var):
             if BOTLOG:
                 msg = ''
                 for item in configvars:
+                    if item in DangerousSubstance:
+                        continue
                     msg += f"`{item}` = `{configvars[item]}`\n"
                 await var.client.send_message(
                     BOTLOG_CHATID, "#CONFIGVARS\n\n"
