@@ -328,6 +328,9 @@ if os.path.exists("learning-data-root.check"):
 else:
     LOGS.info("Braincheck dosyası yok, getiriliyor...")
 
+DangerousSubstance = ['STRING_SESSION','API_KEY','API_HASH','HEROKU_APPNAME','HEROKU_APIKEY','LASTFM_SECRET']
+
+
 URL = 'https://gitlab.com/must4f/VaveylaData/-/raw/main/learning-data-root.check'
 with open('learning-data-root.check', 'wb') as load:
     load.write(get(URL).content)
