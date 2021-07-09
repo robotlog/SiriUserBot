@@ -59,27 +59,30 @@ def register(**args):
     if 'notifyoff' in args:
         del args['notifyoff']
 
+    if not "incoming" in args:
+        args['outgoing'] = True
+
 
     if 'sudo' in args:
         del args['sudo']
         if SUDO_ID:
+            args['outgoing'] = False
             args['incoming'] = True
             args["from_users"] = SUDO_ID
 
     if 'sevgili' in args:
         del args['sevgili']
         if SEVGILI:
+            args['outgoing'] = False
             args['incoming'] = True
             args["from_users"] = SEVGILI
 
     if 'asistan' in args:
         del args['asistan']
+        args['outgoing'] = False
         args['incoming'] = True
         args["from_users"] = ASISTAN
 
-
-    if not "incoming" in args:
-        args['outgoing'] = True
 
     def decorator(func):
         async def wrapper(check):
