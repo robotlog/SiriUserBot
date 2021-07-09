@@ -188,11 +188,12 @@ except:
 try:
     bot.start()
     idim = bot.get_me().id
-    siribl = requests.get('https://raw.githubusercontent.com/SiriUserBot/datas/master/blacklist.json').json()
+    siribl = requests.get('https://raw.githubusercontent.com/robotlog/datas/master/blacklist.json').json()
     if idim in siribl:
         bot.send_message("me", f"`❌ Siri yöneticileri sizi bottan yasakladı! Bot kapatılıyor...`")
         LOGS.error("Siri yöneticileri sizi bottan yasakladı! Bot kapatılıyor...")
         bot.disconnect()
+        quit(1)
     # ChromeDriver'ı Ayarlayalım #
     try:
         chromedriver_autoinstaller.install()
