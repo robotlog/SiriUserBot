@@ -4,7 +4,7 @@
 # you may not use this file except in compliance with the License.
 #
 
-# SiriUserBot - ErdemBey - Midy
+# SiriUserBot - Berceste
 
 
 """ Diğer kategorilere uymayan fazlalık komutların yer aldığı modül. """
@@ -22,6 +22,7 @@ from re import findall
 from selenium import webdriver
 from urllib.parse import quote_plus
 from urllib.error import HTTPError
+from googletrans import Translator
 from google_trans_new import LANGUAGES, google_translator
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.chrome.options import Options
@@ -638,10 +639,10 @@ async def translateme(trans):
             "`Bana Metin Ver!`")
 
     await trans.edit("**Tercüme ediyorum...**")
-    translator = google_translator()
+    translator = Translator()
     try:
         reply_text = translator.translate(deEmojify(message),
-                                          lang_tgt=TRT_LANG)
+                                          dest=TRT_LANG)
     except ValueError:
         return await trans.edit(
             "**hatalı dil kodu, düzgün dil kodu seçin **`.lang tts/trt <dil kodu>`**.**"
@@ -659,7 +660,7 @@ async def translateme(trans):
     if BOTLOG:
         await trans.client.send_message(
             BOTLOG_CHATID,
-            f"`{message} kelimesi çeviri modülü ile {reply_text} 'e çevirildi.`")
+            f"`{message} kelimesi çeviri modülü ile {source_lan} 'e çevirildi.`")
 
 
 
