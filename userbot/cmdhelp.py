@@ -67,10 +67,10 @@ class CmdHelp:
             result += f"**✨ Official:** {'✅' if self.IS_OFFICIAL else '❌'}\n"
             
             if self.INFO == '':
-                if not self.WARNING == '':
+                if self.WARNING != '':
                     result += f"**⚠️ Uyarı:** {self.WARNING}\n\n"
             else:
-                if not self.WARNING == '':
+                if self.WARNING != '':
                     result += f"**⚠️ Uyarı:** {self.WARNING}\n"
                 result += f"**ℹ️ Info:** {self.INFO}\n\n"
                      

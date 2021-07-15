@@ -53,7 +53,7 @@ async def shazam(event):
             else:
                 await event.edit(f'`İlk {(signature_generator.samples_processed / 16000)} saniyede hiçbir şey bulunamadı... Biraz daha deniyorum.`')
         
-        if not 'track' in sarki:
+        if 'track' not in sarki:
             return await event.edit('`Ehh Shazam verdiğiniz sesi anlamadı 😔. Biraz daha açık ses göndere bilir misiniz?`')
         await event.edit('`✅ Müziği Buldum... Veriler Toplanıyor...`')
         Caption = f'**Müzik:** [{sarki["track"]["title"]}]({sarki["track"]["url"]})\n'
