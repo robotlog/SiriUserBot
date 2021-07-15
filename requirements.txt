@@ -53,7 +53,7 @@ numpy
 Pillow
 telegraph
 lottie
-git+https://github.com/Joeclinton1/google-images-download.git
+git+https://github.com/must4f/google-images-download.git
 eksipy
 pydub
 geopy
