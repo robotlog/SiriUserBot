@@ -29,7 +29,7 @@ LANGG = get_value("misc")
 # ████████████████████████████████ #
 
 # Plugin Porter - UniBorg
-@register(outgoing=True, pattern="^.pport")
+@register(pattern="^.pport")
 async def pport(event):
     if event.is_reply:
         reply_message = await event.get_reply_message()
@@ -199,9 +199,9 @@ async def pins(event):
         return os.remove("./userbot/modules/" + dosya)
 
     dosy = open(dosya, "r").read()
-    warningg = await scanp(dosy,event)
+    warningg = await scanp(dosya,event)
     if warningg:
-        return
+        return await event.delete()
     if re.search(r"@tgbot\.on\(.*pattern=(r|)\".*\".*\)", dosy):
         komu = re.findall(r"\(.*pattern=(r|)\"(.*)\".*\)", dosy)
         komutlar = ""
