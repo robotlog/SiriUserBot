@@ -66,7 +66,7 @@ if CONFIG_CHECK:
 # Bot'un dili
 LANGUAGE = os.environ.get("LANGUAGE", "DEFAULT").upper()
 
-if not LANGUAGE in ["EN", "TR", "AZ", "UZ", "DEFAULT"]:
+if LANGUAGE not in ["EN", "TR", "AZ", "UZ", "DEFAULT"]:
     LOGS.info("Bilinmeyen bir dil yazdınız. Bundan dolayı DEFAULT kullanılıyor.")
     LANGUAGE = "DEFAULT"
     
@@ -145,7 +145,7 @@ AUTO_PP = os.environ.get("AUTO_PP", None)
 WARN_LIMIT = int(os.environ.get("WARN_LIMIT", 3))
 WARN_MODE = os.environ.get("WARN_MODE", "gmute")
 
-if not WARN_MODE in ["gmute", "gban"]:
+if WARN_MODE not in ["gmute", "gban"]:
     WARN_MODE = "gmute"
 
 # Galeri

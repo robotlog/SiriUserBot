@@ -59,7 +59,7 @@ def register(**args):
     if 'notifyoff' in args:
         del args['notifyoff']
 
-    if not "incoming" in args:
+    if "incoming" not in args:
         args['outgoing'] = True
 
 

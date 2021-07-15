@@ -77,7 +77,7 @@ async def galeri(event):
                 fotolar = sql.TUM_GALERI
                 i = 0
                 while i < len(fotolar):
-                    if not "galeri" in ASYNC_POOL:
+                    if "galeri" not in ASYNC_POOL:
                         break
                     if i == len(fotolar):
                         i = 0

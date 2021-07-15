@@ -58,7 +58,7 @@ def getSimilarWords(kelime, limit = 5):
             benzerler.append(word['madde'])
     benzerlerStr = ""
     for benzer in benzerler:
-        if not benzerlerStr == "":
+        if benzerlerStr != "":
             benzerlerStr += ", "
         benzerlerStr += f"`{benzer}`"
     return benzerlerStr
