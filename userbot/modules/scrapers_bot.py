@@ -10,8 +10,9 @@ import datetime
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.functions.account import UpdateNotifySettingsRequest
+from userbot.helps.forc import *
 from userbot.events import register
-from userbot import bot, CMD_HELP
+from userbot import CMD_HELP
 from time import sleep
 import os
 from telethon.tl.types import MessageMediaPhoto
@@ -200,13 +201,9 @@ async def scan(event):
        return
     await event.edit(LANG['MIZAH_EXE'])
     async with event.client.conversation(chat) as conv:
-      try:     
-         response = conv.wait_event(events.NewMessage(incoming=True,from_users=161163358))
-         await event.client.forward_messages(chat, reply_message)
-         response = await response 
-      except YouBlockedUserError:
-         await event.reply(LANG['BLOCKED_CHAT'])
-         return
+      response = conv.wait_event(events.NewMessage(incoming=True,from_users=161163358))
+      await force_send_message(event,reply_message,forward=True, chat=161163358)
+      response = await response
 
       if response.text.startswith("Forward"):
          await event.edit(LANG['USER_PRIVACY'])
@@ -237,25 +234,17 @@ async def scan(event):
 @register(pattern="^.creation")
 async def creation(event):
     if not event.reply_to_msg_id:
-        await event.edit(LANG['REPLY_TO_MSG'])
-        return
+        return await event.edit(LANG['REPLY_TO_MSG'])
     reply_message = await event.get_reply_message() 
-    if event.fwd_from:
-        return 
     chat = "@creationdatebot"
     sender = reply_message.sender
     if reply_message.sender.bot:
-       await event.edit(LANG['REPLY_TO_MSG'])
-       return
+       return await event.edit(LANG['REPLY_TO_MSG'])
     await event.edit(LANG['CALCULATING_TIME'])
     async with event.client.conversation(chat) as conv:
-        try:     
-            await event.client.forward_messages(chat, reply_message)
-        except YouBlockedUserError:
-            await event.reply(f"`Mmmh sanırım` {chat} `engellemişsin. Lütfen engeli aç.`")
-            return
-      
         response = conv.wait_event(events.NewMessage(incoming=True,from_users=747653812))
+        await force_send_message(event,reply_message,forward=True, chat=747653812)
+      
         response = await response
         if response.text.startswith("Looks"):
             await event.edit(LANG['PRIVACY_ERR'])
@@ -283,13 +272,9 @@ async def ocriki(event):
        return
     await event.edit(LANG['READING'])
     async with event.client.conversation(chat) as conv:
-        try:     
-            await event.client.forward_messages(chat, reply_message)
-        except YouBlockedUserError:
-            await event.reply(f"`Mmmh sanırım` {chat} `engellemişsin. Lütfen engeli aç.`")
-            return
-      
         response = conv.wait_event(events.NewMessage(incoming=True,from_users=834289439))
+        await force_send_message(event,reply_message,forward=True, chat=834289439)
+      
         response = await response
         if response.text.startswith("Please try my other cool bot:"):
             response = conv.wait_event(events.NewMessage(incoming=True,from_users=834289439))
@@ -320,13 +305,9 @@ async def voicy(event):
        return
     await event.edit("`Ses dinleniyor... Erkan enegtarlar...`")
     async with event.client.conversation(chat) as conv:
-        try:     
-            await event.client.forward_messages(chat, reply_message)
-        except YouBlockedUserError:
-            await event.reply(f"`Mmmh sanırım` {chat} `engellemişsin. Lütfen engeli aç.`")
-            return
-      
         response = conv.wait_event(events.MessageEdited(incoming=True,from_users=259276793))
+        await force_send_message(event,reply_message,forward=True, chat=259276793)
+      
         response = await response
         if response.text.startswith("__👋"):
             await event.edit(LANG['VOICY_LANG_ERR'])
