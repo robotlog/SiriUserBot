@@ -14,7 +14,6 @@ from time import sleep
 from os import execl
 import sys
 import io
-import sys
 from userbot import BOTLOG, BOTLOG_CHATID, ASISTAN, MYID, CMD_HELP, bot
 from userbot.events import register
 from userbot.cmdhelp import CmdHelp

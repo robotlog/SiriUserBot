@@ -14,7 +14,6 @@ import os
 import asyncio
 from userbot.cmdhelp import CmdHelp
 from telethon.tl.types import DocumentAttributeAudio
-import asyncio
 from os import (remove, path)
 
 # ██████ LANGUAGE CONSTANTS ██████ #

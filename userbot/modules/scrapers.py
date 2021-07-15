@@ -36,7 +36,6 @@ from requests import get
 from search_engine_parser import GoogleSearch
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
-from google_trans_new import LANGUAGES, google_translator
 from gtts import gTTS
 from gtts.lang import tts_langs
 from emoji import get_emoji_regexp
@@ -45,7 +44,6 @@ from youtube_dl.utils import (DownloadError, ContentTooShortError,
                               ExtractorError, GeoRestrictedError,
                               MaxDownloadsReached, PostProcessingError,
                               UnavailableVideoError, XAttrMetadataError)
-from asyncio import sleep
 from userbot import CMD_HELP, BOTLOG, BOTLOG_CHATID, YOUTUBE_API_KEY, CHROME_DRIVER, GOOGLE_CHROME_BIN
 from userbot.helps.forc import *
 from userbot.events import register
@@ -55,7 +53,6 @@ from google_images_download.google_images_download import googleimagesdownload
 import base64, binascii
 import random
 from userbot.cmdhelp import CmdHelp
-from telethon.tl.types import DocumentAttributeAudio
 from telethon import events
 
 
@@ -65,9 +62,6 @@ TRT_LANG = "tr"
 LAN = {"Diller":
       [{"Türkçe":"tr",
        "İngilizce" : "en"}]}
-
-
-from telethon import events
 import subprocess
 from telethon.errors import MessageEmptyError, MessageTooLongError, MessageNotModifiedError
 import io

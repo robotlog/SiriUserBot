@@ -91,7 +91,6 @@ async def delayspammer(e):
         spam_delay = float(messageSplit[1])
         counter = int(messageSplit[2])
         spam_message = str(messageSplit[3])
-        from userbot.events import register
         await e.delete()
         delaySpamEvent = threading.Event()
         for i in range(1, counter):
