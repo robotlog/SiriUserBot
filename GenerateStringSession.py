@@ -55,10 +55,10 @@ class InteractiveTelegramClient(TelegramClient):
                 self_user = None
             except PhoneNumberInvalidError:
                 print("[!] Geçersiz Bir Numara Girdiniz Örnekte Gibi Giriniz. Örnek: +994xxxxxxxxx")
-                exit(1)
+                sys.exit(1)
             except ValueError:
                print("[!] Geçersiz Bir Numara Girdiniz Örnekte Gibi Giriniz. Örnek: +994xxxxxxxxx")
-               exit(1)
+               sys.exit(1)
 
             while self_user is None:
                 code = input('[?] Telegramdan Gelen Beş (5) Haneli Kodu Giriniz: ')
@@ -104,14 +104,14 @@ if __name__ == '__main__':
          rastgele = requests.post("https://my.telegram.org/auth/send_password", data={"phone": numara}).json()["random_hash"]
       except:
          print("[!] Kod Gönderilemedi. Telefon Numaranızı Kontrol Ediniz.")
-         exit(1)
+         sys.exit(1)
       
       sifre = input("[?] Telegram'dan Gelen Kodu Yazınız: ")
       try:
          cookie = requests.post("https://my.telegram.org/auth/login", data={"phone": numara, "random_hash": rastgele, "password": sifre}).cookies.get_dict()
       except:
          print("[!] Büyük İhtimal Kodu Yanlış Yazdınız. Lütfen Scripti Yeniden Başlatın.")
-         exit(1)
+         sys.exit(1)
       app = requests.post("https://my.telegram.org/apps", cookies=cookie).text
       soup = bs4.BeautifulSoup(app, features="html.parser")
 
@@ -149,7 +149,7 @@ if __name__ == '__main__':
             print("[i] String Keyiniz Aşağıdadır!\n\n\n" + client.session.save())
          else:
             print("[i] Script Durduruluyor...")
-            exit(1)
+            sys.exit(1)
       elif  soup.title.string == "App configuration":
          print("[i] Halihazır da Uygulama Oluşturmuşsunuz. API ID/HASH Çekiliyor...")
          g_inputs = soup.find_all("span", {"class": "form-control input-xlarge uneditable-input"})
@@ -168,9 +168,9 @@ if __name__ == '__main__':
             print("[i] String Keyiniz Aşağıdadır!\n\n\n" + client.session.save())
          else:
             print("[i] Script Durduruluyor...")
-            exit(1)
+            sys.exit(1)
       else:
          print("[!] Bir Hata Oluştu.")
-         exit(1)
+         sys.exit(1)
    else:
       print("[!] Bilinmeyen seçim.")

@@ -12,6 +12,7 @@ from importlib import import_module
 from sqlite3 import connect
 import os
 import requests
+import sys
 from telethon.tl.types import InputMessagesFilterDocument
 from telethon.errors.rpcerrorlist import PhoneNumberInvalidError
 from telethon.tl.functions.channels import GetMessagesRequest
@@ -193,7 +194,7 @@ try:
         bot.send_message("me", f"`❌ Siri yöneticileri sizi bottan yasakladı! Bot kapatılıyor...`")
         LOGS.error("Siri yöneticileri sizi bottan yasakladı! Bot kapatılıyor...")
         bot.disconnect()
-        quit(1)
+        sys.exit(1)
     # ChromeDriver'ı Ayarlayalım #
     try:
         chromedriver_autoinstaller.install()
@@ -262,7 +263,7 @@ try:
         bot.send_message("me", f"`Lütfen pluginlerin kalıcı olması için PLUGIN_CHANNEL_ID'i ayarlayın.`")
 except PhoneNumberInvalidError:
     print(INVALID_PH)
-    exit(1)
+    sys.exit(1)
 
 async def FotoDegistir (foto):
     FOTOURL = GALERI_SQL.TUM_GALERI[foto].foto
