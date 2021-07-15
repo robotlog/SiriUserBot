@@ -4,9 +4,9 @@
 # you may not use this file except in compliance with the License.
 #
 
-# SiriUserBot - ErdemBey - Berceste - Midy
+# SiriUserBot - Berceste 
 
-import re
+import userbot.helps.scan import *
 import os
 import sys
 from telethon.tl.types import DocumentAttributeFilename, InputMessagesFilterDocument
@@ -113,8 +113,11 @@ async def pport(event):
 
     else:
         await event.edit(LANG["UNIBORG_NOT_FOUND"])
-
-@register(outgoing=True, pattern="^.plist")
+        try: # bug
+            os.remove(dosya)
+        except:
+            pass
+@register(pattern="^.plist")
 async def plist(event):
     if PLUGIN_CHANNEL_ID != None:
         await event.edit(LANG["PLIST_CHECKING"])
@@ -126,7 +129,7 @@ async def plist(event):
                 continue
 
             if dosyaismi == "py":
-                yuklenen += f"🌈 {plugin.file.name}\n"
+                yuklenen += f"✨ {plugin.file.name}\n"
         try:
             await event.edit(yuklenen)
         except:
@@ -138,7 +141,7 @@ async def plist(event):
             await event.reply(LANG["TEMP_PLUGIN"])
 
 
-@register(incoming=True, from_users=ASISTAN, pattern="^.plist")
+@register(asistan=True, pattern="^.plist")
 async def plistasistan(ups):
     if ups.is_reply:
         reply = await ups.get_reply_message()
@@ -161,7 +164,7 @@ async def plistasistan(ups):
     else:
         return
 
-@register(outgoing=True, pattern="^.pinstall")
+@register(pattern="^.pinstall")
 async def pins(event):
     if event.is_reply:
         reply_message = await event.get_reply_message()
@@ -196,6 +199,9 @@ async def pins(event):
         return os.remove("./userbot/modules/" + dosya)
 
     dosy = open(dosya, "r").read()
+    warningg = await scanp(dosy,event)
+    if warningg:
+        return
     if re.search(r"@tgbot\.on\(.*pattern=(r|)\".*\".*\)", dosy):
         komu = re.findall(r"\(.*pattern=(r|)\"(.*)\".*\)", dosy)
         komutlar = ""
@@ -229,7 +235,7 @@ async def pins(event):
                 await reply_message.forward_to(PLUGIN_CHANNEL_ID)
                 return await event.edit(f'**Modül Başarıyla Yüklendi**\n__Modülün  Kullanımını Öğrenmek İçin__ `.siri {dosyaAdi}` __yazın.__')
 
-@register(outgoing=True, pattern="^.ptest")
+@register(pattern="^.ptest")
 async def ptest(event):
     if event.is_reply:
         reply_message = await event.get_reply_message()
@@ -254,7 +260,7 @@ async def ptest(event):
     return await event.edit(f'**Modül Başarıyla Yüklendi!**\
     \n__Modülü Test Edebilirsiniz. Botu yeniden başlattığınızda plugin silinecektir.__')
 
-@register(outgoing=True, pattern="^.psend ?(.*)")
+@register(pattern="^.psend ?(.*)")
 async def psend(event):
     modul = event.pattern_match.group(1)
     if len(modul) < 1:
@@ -268,7 +274,7 @@ async def psend(event):
         await event.edit(LANG['NOT_FOUND_PLUGIN'])
 
 
-@register(outgoing=True, pattern="^.premove ?(.*)")
+@register(pattern="^.premove ?(.*)")
 async def premove(event):
     modul = event.pattern_match.group(1).lower()
     if len(modul) < 1:
@@ -276,20 +282,21 @@ async def premove(event):
         return
 
     await event.edit(LANG['PREMOVE_DELETING'])
-    i = 0
     a = 0
+    r = 0
     async for message in event.client.iter_messages(PLUGIN_CHANNEL_ID, filter=InputMessagesFilterDocument, search=modul):
         await message.delete()
         try:
             os.remove(f"./userbot/modules/{message.file.name}")
+            r +=1
         except FileNotFoundError:
-            await event.reply(LANG['ALREADY_DELETED'])
+            if r>1:
+                pass
+            else:
+                await event.reply(LANG['ALREADY_DELETED'])
 
-        i += 1
-        if i > 1:
-            break
 
-    if i == 0:
+    if r == 0:
         await event.edit(LANG['NOT_FOUND_PLUGIN'])
     else:
         await event.edit(LANG['PLUG_DELETED'])
@@ -297,9 +304,11 @@ async def premove(event):
         await event.edit(LANGG['RESTARTING'])
         try: 
             if BOTLOG:
-                await event.client.send_message(BOTLOG_CHATID, "#OTORESTART \n"
-                                        "Plugin silme sonrası bot yeniden başlatıldı.")
-
+                try:
+                    await event.client.send_message(BOTLOG_CHATID, "#OTORESTART \n"
+                                            "Plugin silme sonrası bot yeniden başlatıldı.")
+                except:
+                    pass
             await bot.disconnect()
         except:
             pass
@@ -365,10 +374,6 @@ async def pinsasistan(ups):
         return
     usp = await ups.reply(LANG["DOWNLOADING"])
     edizin = f"./userbot/modules/{reply_message.file.name}"
-
-    if os.path.exists(edizin):
-        await usp.edit(LANG["ALREADY_INSTALLED"])
-        return
 
     dosya = await ups.client.download_media(reply_message, "./userbot/modules/")
 
