@@ -177,7 +177,7 @@ async def gbanmsg(moot):
         except:
             return
             
-        if (type(chat) == User):
+        if (type(chat) is User):
             return 
 
         admin = chat.admin_rights

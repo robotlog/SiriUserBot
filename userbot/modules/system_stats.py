@@ -150,7 +150,7 @@ async def pipcheck(pip):
 async def amialive(e):
         sahipp = f"{DEFAULT_NAME}" if DEFAULT_NAME else "Sir"
         me = await e.client.get_me()
-        if type(PLUGIN_MESAJLAR['alive']) == str:
+        if type(PLUGIN_MESAJLAR['alive']) is str:
             await e.edit(PLUGIN_MESAJLAR['alive'].format(
                 telethon=version.__version__,
                 python=python_version(),

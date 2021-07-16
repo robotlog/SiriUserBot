@@ -96,7 +96,7 @@ async def sinstall(event):
     else:
         Pattern = re.findall(r"@register\(.*pattern=(r|)\"(.*)\".*\)", dosy)
 
-        if (not type(Pattern) == list) or (len(Pattern) < 1 or len(Pattern[0]) < 1):
+        if (not type(Pattern) is list) or (len(Pattern) < 1 or len(Pattern[0]) < 1):
             if re.search(r'CmdHelp\(.*\)', dosy):
                 cmdhelp = re.findall(r"CmdHelp\([\"'](.*)[\"']\)", dosy)[0]
                 await plugin.forward_to(PLUGIN_CHANNEL_ID)
