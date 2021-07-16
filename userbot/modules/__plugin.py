@@ -6,7 +6,7 @@
 
 # SiriUserBot - Berceste 
 
-import userbot.helps.scan import *
+from userbot.helps.scan import *
 import os
 import sys
 from telethon.tl.types import DocumentAttributeFilename, InputMessagesFilterDocument
