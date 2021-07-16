@@ -115,7 +115,7 @@ async def singer(lyric):
     i = 0
     while i < len(split):
         try:
-            if split[i] != None:
+            if split[i] is not None:
                 await lyric.edit(split[i])
                 await asyncio.sleep(2)
             i += 1

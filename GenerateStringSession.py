@@ -46,7 +46,7 @@ class InteractiveTelegramClient(TelegramClient):
             loop.run_until_complete(self.connect())
 
         if not loop.run_until_complete(self.is_user_authorized()):
-            if telefon == None:
+            if telefon is None:
                user_phone = input('[?] Telefon Numaranız (Örnek: +994xxxxxxxxx): ')
             else:
                user_phone = telefon

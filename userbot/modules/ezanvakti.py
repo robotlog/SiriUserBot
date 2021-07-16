@@ -36,7 +36,7 @@ async def ezanvakti(event):
         return
 
     url = f'https://www.mynet.com/{konum}/namaz-vakitleri'
-    if not ilce == None:
+    if not ilce is None:
         url += '/' + ilce.strip()
 
     request = requests.get(url)

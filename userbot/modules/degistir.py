@@ -49,7 +49,7 @@ async def degistir(event):
                 return await event.edit(f"Plugin(`{plugin}`) {LANG['SETTED_REPLY']}")   
 
             silme = sql.sil_mesaj(plugin)
-            if silme == True:
+            if silme is True:
                 PLUGIN_MESAJLAR[plugin] = ORJ_PLUGIN_MESAJLAR[plugin]
                 await event.edit(LANG['SUCCESS_DELETED'])
             else:

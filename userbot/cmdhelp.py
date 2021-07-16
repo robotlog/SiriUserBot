@@ -25,7 +25,7 @@ class CmdHelp:
         self.FILE = file
         self.ORIGINAL_FILE = file
         self.IS_OFFICIAL = official
-        self.FILE_NAME = file_name if not file_name == None else file + '.py'
+        self.FILE_NAME = file_name if not file_name is None else file + '.py'
         self.COMMANDS = {}
         self.FILE_AUTHOR = ""
         self.WARNING = ""
@@ -76,12 +76,12 @@ class CmdHelp:
                      
         for command in self.COMMANDS:
             command = self.COMMANDS[command]
-            if command['params'] == None:
+            if command['params'] is None:
                 result += f"**🔧 Komut:** `{PATTERNS[:1]}{command['command']}`\n"
             else:
                 result += f"**🔧 Komut:** `{PATTERNS[:1]}{command['command']} {command['params']}`\n"
                 
-            if command['example'] == None:
+            if command['example'] is None:
                 result += f"**🌀 Açıklama:** `{command['usage']}`\n\n"
             else:
                 result += f"**🌀 Açıklama:** `{command['usage']}`\n"

@@ -150,7 +150,7 @@ def extractCommands(file):
 
             # SIRIPY
             Siripy = re.search('\"\"\"SIRIPY(.*)\"\"\"', FileRead, re.DOTALL)
-            if not Siripy == None:
+            if not Siripy is None:
                 Siripy = Siripy.group(0)
                 for Satir in Siripy.splitlines():
                     if (not '"""' in Satir) and (':' in Satir):
@@ -212,7 +212,7 @@ try:
     PLUGIN_MESAJLAR_TURLER = ["alive", "afk", "kickme", "pm", "dızcı", "ban", "mute", "approve", "disapprove", "block"]
     for mesaj in PLUGIN_MESAJLAR_TURLER:
         dmsj = MSJ_SQL.getir_mesaj(mesaj)
-        if dmsj == False:
+        if dmsj is False:
             PLUGIN_MESAJLAR[mesaj] = ORJ_PLUGIN_MESAJLAR[mesaj]
         else:
             if dmsj.startswith("MEDYA_"):
@@ -222,7 +222,7 @@ try:
                 PLUGIN_MESAJLAR[mesaj] = medya
             else:
                 PLUGIN_MESAJLAR[mesaj] = dmsj
-    if not PLUGIN_CHANNEL_ID == None:
+    if not PLUGIN_CHANNEL_ID is None:
         LOGS.info("🔄 Pluginler Yükleniyor..")
         try:
             KanalId = bot.get_entity(PLUGIN_CHANNEL_ID)

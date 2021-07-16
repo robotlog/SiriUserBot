@@ -92,13 +92,13 @@ async def kickme(leave):
         await leave.edit(f"{PLUGIN_MESAJLAR['kickme']}\n **Reason:** `{sebep}`".format(
             id=chat.id,
             title=chat.title,
-            member_count="Bilinmiyor" if chat.participants_count == None else (chat.participants_count - 1)
+            member_count="Bilinmiyor" if chat.participants_count is None else (chat.participants_count - 1)
         ))
     else:
         await leave.edit(f"{PLUGIN_MESAJLAR['kickme']}".format(
             id=chat.id,
             title=chat.title,
-            member_count="Bilinmiyor" if chat.participants_count == None else (chat.participants_count - 1)
+            member_count="Bilinmiyor" if chat.participants_count is None else (chat.participants_count - 1)
         ))
     await leave.client.kick_participant(leave.chat_id, 'me')
 

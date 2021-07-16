@@ -118,7 +118,7 @@ async def pport(event):
             pass
 @register(pattern="^.plist")
 async def plist(event):
-    if PLUGIN_CHANNEL_ID != None:
+    if PLUGIN_CHANNEL_ID is not None:
         await event.edit(LANG["PLIST_CHECKING"])
         yuklenen = f"{LANG['PLIST']}\n\n"
         async for plugin in event.client.iter_messages(PLUGIN_CHANNEL_ID, filter=InputMessagesFilterDocument):

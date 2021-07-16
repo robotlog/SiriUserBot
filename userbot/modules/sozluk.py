@@ -77,7 +77,7 @@ async def tdk(event):
         anlamlarStr = ""
         for anlam in response[0]["anlamlarListe"]:
             anlamlarStr += f"\n**{anlam['anlam_sira']}.**"
-            if ('ozelliklerListe' in anlam) and ((not anlam["ozelliklerListe"][0]["tam_adi"] == None) or (not anlam["ozelliklerListe"][0]["tam_adi"] == '')):
+            if ('ozelliklerListe' in anlam) and ((not anlam["ozelliklerListe"][0]["tam_adi"] is None) or (not anlam["ozelliklerListe"][0]["tam_adi"] == '')):
                 anlamlarStr += f"__({anlam['ozelliklerListe'][0]['tam_adi']})__"
             anlamlarStr += f' ```{anlam["anlam"]}```'
 

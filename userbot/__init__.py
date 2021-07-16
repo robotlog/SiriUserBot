@@ -357,7 +357,7 @@ async def check_botlog_chatid():
             "Grup ID'sini doğru yazıp yazmadığınızı kontrol edin.")
         sys.exit(1)
         
-if not BOT_TOKEN == None:
+if not BOT_TOKEN is None:
     tgbot = TelegramClient(
         "TG_BOT_TOKEN",
         api_id=API_KEY,

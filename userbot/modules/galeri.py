@@ -41,7 +41,7 @@ async def galeri(event):
     if secen[0] == "ekle":
         if len(secen) > 1:
             URL = re.search(URL_REGEX, secen[1])
-            if URL != None:
+            if URL is not None:
                 sql.ekle_foto(secen[1])
                 sql.getir_foto()
                 await event.edit(LANG['ADDED_LIST'])
@@ -59,7 +59,7 @@ async def galeri(event):
     elif secen[0] == "sil":
         if secen[1].isdigit():
             silme = sql.sil_foto(secen[1])
-            if silme == True:
+            if silme is True:
                 await event.edit(LANG['REMOVED'])
             else:
                 await event.edit(f"{LANG['REMOVED_ERROR']}: {silme}")

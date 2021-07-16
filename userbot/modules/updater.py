@@ -294,7 +294,7 @@ async def asistan_update(ups):
                 execle(sys.executable, *args, environ)
                 return
         else:
-            if conf != 'all' or AUTO_UPDATE == False:
+            if conf != 'all' or AUTO_UPDATE is False:
                 return
             "Asistan tüm botları güncelliyor gibi"
             usp = await ups.reply(LANG['DETECTING'])

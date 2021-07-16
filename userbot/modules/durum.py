@@ -20,10 +20,10 @@ LANG = get_value("durum")
 # ████████████████████████████████ #
 
 def durum(s):
-    if s == None:
+    if s is None:
         return "❌"
     else:
-        if s == False:
+        if s is False:
             return "❌"
         else:
             return "✅"

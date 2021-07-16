@@ -146,7 +146,7 @@ async def gbanspider(gspdr):
 
     # Başarı olursa bilgi ver
     await gspdr.edit(LANG['BANNING'])
-    if gban(user.id) == False:
+    if gban(user.id) is False:
         await gspdr.edit(
             LANG['ALREADY_GBANNED'])
     else:
@@ -945,7 +945,7 @@ async def gspider(gspdr):
 
     # Başarı olursa bilgi ver
     await gspdr.edit(LANG['GMUTING'])
-    if gmute(user.id) == False:
+    if gmute(user.id) is False:
         await gspdr.edit(
             LANG['ALREADY_GMUTED'])
     else:
@@ -1301,7 +1301,7 @@ async def unwarn(event):
     # Başarı olursa bilgi ver
     await event.edit(LANG['UNWARNING'])
     silme = warn.sil_warn(user.id)
-    if silme == False:
+    if silme is False:
         await event.edit(LANG['UNWARNED'])
         return
 
@@ -1376,11 +1376,11 @@ async def Warn_Gmute(event, warn, user, reason = None):
         
     yeni2 = await yeni.reply("`Susturuluyor...`")
         
-    if gmute(user.id) == False:
+    if gmute(user.id) is False:
         await yeni2.edit(
             '`Hata! Kullanıcı zaten küresel olarak susturuldu.`')
     else:
-        if reason != None:
+        if reason is not None:
             await yeni2.edit(f"`Kullanıcı küresel olarak susturuldu!`Nedeni: {reason}")
         else:
             await yeni2.edit("`Kullanıcı küresel olarak susturuldu!`")
@@ -1404,11 +1404,11 @@ async def Warn_Gban(event, warn, user, reason = None):
         
     yeni2 = await yeni.reply("`Yasaklanıyor...`")
         
-    if gban(user.id) == False:
+    if gban(user.id) is False:
         await yeni2.edit(
             '`Hata! Kullanıcı zaten küresel olarak yasaklandı.`')
     else:
-        if reason != None:
+        if reason is not None:
             await yeni2.edit(f"`Kullanıcı küresel olarak yasaklandı!`Nedeni: {reason}")
         else:
             await yeni2.edit("`Kullanıcı küresel olarak yasaklandı!`")
