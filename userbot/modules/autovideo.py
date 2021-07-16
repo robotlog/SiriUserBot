@@ -65,8 +65,8 @@ async def autovideo(event):
 
     await event.edit(LANG['STARTED_VIDEO'])
     while "autovideo" in ASYNC_POOL:
-        saat = time.strftime("%H\.%M")
-        tarih = time.strftime("%d\/%m\/%Y")
+        saat = time.strftime(r"%H\.%M")
+        tarih = time.strftime(r"%d\/%m\/%Y")
 
         if yazi:
             yazi = yazi.replace("$saat", saat).replace("$tarih", tarih)

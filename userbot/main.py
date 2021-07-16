@@ -131,7 +131,7 @@ def extractCommands(file):
             Command = Command[1]
             if Command == '' or len(Command) <= 1:
                 continue
-            Komut = re.findall("(^.*[a-zA-Z0-9şğüöçı]\w)", Command)
+            Komut = re.findall(r"(^.*[a-zA-Z0-9şğüöçı]\w)", Command)
             if (len(Komut) >= 1) and (not Komut[0] == ''):
                 Komut = Komut[0]
                 if Komut[0] == '^':

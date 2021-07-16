@@ -988,7 +988,7 @@ CmdHelp('memes').add_command(
 ).add_command(
     'cry', None, 'Ağlamak mı istiyorsun?'
 ).add_command(
-    'shg', None, '¯\_(ツ)_/¯'
+    'shg', None, r'¯\_(ツ)_/¯'
 ).add_command(
     'run', None, 'Koş!'
 ).add_command(

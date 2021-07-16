@@ -194,7 +194,7 @@ async def asistanalive(ups):
     if ups.sender_id == 1758581185:
         hitap = "💝 ʕっ•ᴥ•ʔっ Asistan"
     else:
-        hitap = "💪🏻(･–･) \(･◡･)/ Yöneticim"
+        hitap = r"💪🏻(･–･) \(･◡･)/ Yöneticim"
     SiriVer = str(SIRI_VERSION.replace("v","")) 
     await ups.reply(f"__{hitap} seni seviyorum! Siri çalışıyor!__")
 

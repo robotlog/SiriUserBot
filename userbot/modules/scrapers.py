@@ -334,7 +334,7 @@ async def ceviri(e):
     await e.edit(f"**Çeviri: Türkçe -> KökTürkçe**\n\n**Verilen Metin:** `{pcode}`\n**Çıktı:** `{Turk}`")
 
 
-@register(pattern="^.img((\d*)| ) ?(.*)")
+@register(pattern=r"^.img((\d*)| ) ?(.*)")
 async def img_sampler(event):
     """ .img komutu Google'da resim araması yapar. """
     await event.edit("`İşleniyor...`")

@@ -205,7 +205,7 @@ async def add_new_filter(new_handler):
         else:
             await new_handler.edit(success.format(keyword, LANG['GENEL_FILTER'], LANG['UPDATED']))
 
-@register(outgoing=True, pattern="^.genelstop (\w*)")
+@register(outgoing=True, pattern=r"^.genelstop (\w*)")
 async def remove_a_genel(r_handler):
     """ .stop komutu bir filtreyi durdurmanızı sağlar. """
     try:
@@ -225,7 +225,7 @@ async def remove_a_genel(r_handler):
         await r_handler.edit(
             "**{}** `{}`".format(filt, LANG['DELETED']))
 
-@register(outgoing=True, pattern="^.stop (\w*)")
+@register(outgoing=True, pattern=r"^.stop (\w*)")
 async def remove_a_filter(r_handler):
     """ .stop komutu bir filtreyi durdurmanızı sağlar. """
     try:

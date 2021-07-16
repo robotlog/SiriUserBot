@@ -23,7 +23,7 @@ LANG = get_value("ezanvakti")
 # ████████████████████████████████ #
 
 
-@register(outgoing=True, pattern="^.ezanvakti ?(\w*)")
+@register(outgoing=True, pattern=r"^.ezanvakti ?(\w*)")
 async def ezanvakti(event):
     konum = event.pattern_match.group(1).lower()
     if not event.text.partition(konum)[2] == '':

@@ -483,7 +483,7 @@ Hesabınızı bot'a çevirebilirsiniz ve bunları kullanabilirsiniz. Unutmayın,
                 )
             await event.answer([result] if result else None)
 
-        @tgbot.on(callbackquery.CallbackQuery(data=compile(b"sayfa\((.+?)\)")))
+        @tgbot.on(callbackquery.CallbackQuery(data=compile(rb"sayfa\((.+?)\)")))
         async def sayfa(event):
             if not event.query.user_id == uid: 
                 return await event.answer("❌ Hey! Benim mesajlarımı düzenlemeye kalkma! Kendine bir @SiriOT kur.", cache_time=0, alert=True)
@@ -495,7 +495,7 @@ Hesabınızı bot'a çevirebilirsiniz ve bunları kullanabilirsiniz. Unutmayın,
                 link_preview=False
             )
         
-        @tgbot.on(callbackquery.CallbackQuery(data=compile(b"bilgi\[(\d*)\]\((.*)\)")))
+        @tgbot.on(callbackquery.CallbackQuery(data=compile(rb"bilgi\[(\d*)\]\((.*)\)")))
         async def bilgi(event):
             if not event.query.user_id == uid: 
                 return await event.answer("❌  Hey! Benim mesajlarımı düzenlemeye kalkma! Kendine bir @SiriOT kur.", cache_time=0, alert=True)
@@ -515,7 +515,7 @@ Hesabınızı bot'a çevirebilirsiniz ve bunları kullanabilirsiniz. Unutmayın,
                 link_preview=False
             )
         
-        @tgbot.on(callbackquery.CallbackQuery(data=compile(b"komut\[(.*)\[(\d*)\]\]\((.*)\)")))
+        @tgbot.on(callbackquery.CallbackQuery(data=compile(rb"komut\[(.*)\[(\d*)\]\]\((.*)\)")))
         async def komut(event):
             if not event.query.user_id == uid: 
                 return await event.answer("❌ Hey! Benim mesajlarımı düzenlemeye kalkma! Kendine bir @SiriOT kur.", cache_time=0, alert=True)

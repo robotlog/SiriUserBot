@@ -127,7 +127,7 @@ async def sangmata(event):
           await bot.send_read_acknowledge(chat, max_id=(response.id+3))
           await conv.cancel_all()
 
-@register(pattern="^.meme ?((\d*)(.*))")
+@register(pattern=r"^.meme ?((\d*)(.*))")
 async def memeyap(event):
     """ Meme modulu """
     font = event.pattern_match.group(2)
