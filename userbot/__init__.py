@@ -51,7 +51,7 @@ LOGS = getLogger(__name__)
 if version_info[0] < 3 or version_info[1] < 6:
     LOGS.info("En az python 3.6 sürümüne sahip olmanız gerekir."
               "Birden fazla özellik buna bağlıdır. Bot kapatılıyor.")
-    exit(1)
+    sys.exit(1)
 
 # Yapılandırmanın önceden kullanılan değişkeni kullanarak düzenlenip düzenlenmediğini kontrol edin.
 # Temel olarak, yapılandırma dosyası için kontrol.
@@ -62,7 +62,7 @@ if CONFIG_CHECK:
     LOGS.info(
         "Lütfen ilk hashtag'de belirtilen satırı config.env dosyasından kaldırın"
     )
-    exit(1)
+    sys.exit(1)
 
 # Bot'un dili
 LANGUAGE = os.environ.get("LANGUAGE", "DEFAULT").upper()
@@ -170,7 +170,7 @@ else:
         PLUGIN_CHANNEL_ID = int(PLUGINID)
     except:
         print('Invalid Plugin Channel - Hatalı Plugin Kanalı')
-        exit(1)
+        sys.exit(1)
 
 # OpenWeatherMap API Key
 OPEN_WEATHER_MAP_APPID = os.environ.get("OPEN_WEATHER_MAP_APPID", None)
@@ -340,12 +340,12 @@ async def check_botlog_chatid():
     if not BOTLOG_CHATID and LOGSPAMMER:
         LOGS.info(
             "Özel hata günlüğünün çalışması için yapılandırmadan BOTLOG_CHATID değişkenini ayarlamanız gerekir.")
-        exit(1)
+        sys.exit(1)
 
     elif not BOTLOG_CHATID and BOTLOG:
         LOGS.info(
             "Günlüğe kaydetme özelliğinin çalışması için yapılandırmadan BOTLOG_CHATID değişkenini ayarlamanız gerekir.")
-        exit(1)
+        sys.exit(1)
 
     elif not BOTLOG or not LOGSPAMMER:
         return
@@ -355,7 +355,7 @@ async def check_botlog_chatid():
         LOGS.info(
             "Hesabınızın BOTLOG_CHATID grubuna mesaj gönderme yetkisi yoktur. "
             "Grup ID'sini doğru yazıp yazmadığınızı kontrol edin.")
-        exit(1)
+        sys.exit(1)
         
 if not BOT_TOKEN == None:
     tgbot = TelegramClient(
@@ -569,7 +569,7 @@ Hesabınızı bot'a çevirebilirsiniz ve bunları kullanabilirsiniz. Unutmayın,
             "BOTLOG_CHATID ortam değişkeni geçerli bir varlık değildir. "
             "Ortam değişkenlerinizi / config.env dosyanızı kontrol edin."
         )
-        exit(1)
+        sys.exit(1)
 
 
 if STRING_SESSION:
