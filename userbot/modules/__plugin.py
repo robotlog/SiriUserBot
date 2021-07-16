@@ -15,7 +15,6 @@ import time
 import traceback
 
 from userbot import CMD_HELP, bot, tgbot, PLUGIN_CHANNEL_ID, PATTERNS, BOTLOG, BOTLOG_CHATID, ASISTAN, MYID
-from telethon.tl.types import InputMessagesFilterDocument
 from userbot.events import register
 from userbot.main import extractCommands
 import userbot.cmdhelp
