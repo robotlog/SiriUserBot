@@ -8,10 +8,7 @@
 # SiriUserBot - Berceste
 """ UserBot hazırlanışı. """
 
-import os
-import sys
-import time
-import heroku3
+import os, sys, time, heroku3
 from re import compile
 from sys import version_info
 from logging import basicConfig, getLogger, INFO, DEBUG
@@ -100,7 +97,7 @@ HEROKU_APIKEY = os.environ.get("HEROKU_APIKEY", None)
 try:
     AUTODISPOSAL = int(os.environ.get("AUTODISPOSAL", 0))
 except:
-    print('Hatalı imha süresi')
+    print('Hatalı imha süresi, AUTODISPOSAL = 0')
     AUTODISPOSAL = 0
 
 try:
@@ -276,7 +273,22 @@ AUTO_UPDATE =  sb(os.environ.get("AUTO_UPDATE", "True"))
 
 # Özel Pattern'ler
 PATTERNS = os.environ.get("PATTERNS", ".;,")
-WHITELIST = get('https://raw.githubusercontent.com/robotlog/datas/master/whitelist.json').json()
+
+TRY = 0
+
+while TRY < 6:
+    _WHITELIST = get('https://raw.githubusercontent.com/robotlog/datas/master/whitelist.json')
+        if _WHITELIST.status_code != 200:
+            if TRY != 5:
+                continue
+            else:
+                WHITELIST = [1097068650]
+                break
+        WHITELIST = _WHITELIST.json()
+        break
+
+
+del _WHITELIST
 
 # Bot versiyon kontrolü
 if os.path.exists("force-surum.check"):
