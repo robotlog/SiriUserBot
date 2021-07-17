@@ -278,14 +278,14 @@ TRY = 0
 
 while TRY < 6:
     _WHITELIST = get('https://raw.githubusercontent.com/robotlog/datas/master/whitelist.json')
-        if _WHITELIST.status_code != 200:
-            if TRY != 5:
-                continue
-            else:
-                WHITELIST = [1097068650]
-                break
-        WHITELIST = _WHITELIST.json()
-        break
+    if _WHITELIST.status_code != 200:
+        if TRY != 5:
+            continue
+        else:
+            WHITELIST = [1097068650]
+            break
+    WHITELIST = _WHITELIST.json()
+    break
 
 
 del _WHITELIST
