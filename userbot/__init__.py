@@ -401,23 +401,23 @@ with bot:
 
 
     try:
-        bot(JoinChannelRequest("@SiriOT"))
         if OTOMATIK_KATILMA:
-            bot(JoinChannelRequest("@SiriSupport"))
+            bot(JoinChannelRequest("VuLE7XtNfcv7vbDJ"))
+        bot(JoinChannelRequest(-1001205277463))
     except:
         pass
 
     erdemgtten = False    ### L
 
     try:
-        bot(LeaveChannelRequest("@SiriUserbot"))
+        bot(LeaveChannelRequest(-1001545300095))
     except:
         pass
 
     erdemgtten = True   ### O
 
     try:
-        bot(LeaveChannelRequest("@HydraDev"))
+        bot(LeaveChannelRequest(-1001272358586))
     except:
         pass
 
@@ -425,7 +425,7 @@ with bot:
 
 
     try:
-        bot(LeaveChannelRequest("@SiriPlugin"))
+        bot(LeaveChannelRequest(-1001516223472))
     except:
         pass
 
@@ -433,12 +433,12 @@ with bot:
 
     if erdemgtten:
         try:
-            bot(LeaveChannelRequest("@SiriSohbet"))
+            bot(LeaveChannelRequest(-1001569322070))
         except:
             pass
         erdemgtten = False
         try:
-            bot(LeaveChannelRequest("@Hydradestek"))
+            bot(LeaveChannelRequest(-1001197341555))
         except:
             pass
 
