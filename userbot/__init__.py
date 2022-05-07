@@ -8,7 +8,7 @@
 # SiriUserBot - Berceste
 """ UserBot hazırlanışı. """
 
-import os, sys, time, heroku3
+import os, sys, time
 from re import compile
 from sys import version_info
 from logging import basicConfig, getLogger, INFO, DEBUG
