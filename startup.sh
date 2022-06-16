@@ -43,14 +43,14 @@ Thank You For Installing Siri.
     "
 }
 
-requirement () {
+pipins () {
     echo "
     
 =+---------------------------------------------------------+=
-Requirement Installing For Siri.
+Pip Upgrading For Siri.
 =+---------------------------------------------------------+=
     "
-    pip install -r requirements.txt
+    python -m pip install --upgrade pip
 }
 
 _run_all () {
@@ -59,7 +59,7 @@ _run_all () {
     pip3 install –upgrade pip
     pip3 install --no-cache-dir -r requirements.txt
     ech_final
-    requirement
+    pipins
 }
 
 _run_all
