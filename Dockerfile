@@ -7,4 +7,4 @@ COPY requirements.txt .
 COPY startup.sh .
 RUN bash startup.sh
 COPY . .
-CMD ["python3", "main.py"]
+CMD ["python3", "-m", "userbot"]
