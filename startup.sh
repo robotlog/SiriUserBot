@@ -43,12 +43,23 @@ Thank You For Installing Siri.
     "
 }
 
+requirement () {
+    echo "
+    
+=+---------------------------------------------------------+=
+Requirement Installing For Siri.
+=+---------------------------------------------------------+=
+    "
+    pip install -r requirements.txt
+}
+
 _run_all () {
     update_and_install_packages
     install_helper_packages
     pip3 install –upgrade pip
     pip3 install --no-cache-dir -r requirements.txt
     ech_final
+    requirement
 }
 
 _run_all
