@@ -27,7 +27,7 @@ httplib2
 humanize
 imagedown
 lottie
-lxml==4.6.5
+lxml==4.9.0
 lyricsgenius
 numpy
 oauth2client
