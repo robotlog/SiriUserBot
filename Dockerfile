@@ -1,16 +1,9 @@
-# thx friday | please give credit | do not delete this line#
+# Faster & Secure & Special Container #
+# Thanks to mkaraniya & zakaryan2004
+# Ve yusufusta'ya teşekkürler
 
-FROM python:3.9
-WORKDIR .
-ENV PYTHONUNBUFFERED=1
-
-# Çalışma dizinine gereksinimleri kopyala ve yükle
-COPY requirements.txt .
+FROM fusuf/asenauserbot:latest
+RUN git clone https://github.com/quiec/AsenaUserBot /root/AsenaUserBot
+WORKDIR /root/AsenaUserBot/
 RUN pip3 install -r requirements.txt
-
-# Çalışma dizinine yükleyiciyi kopyala ve çalıştır
-COPY startup.sh .
-RUN bash startup.sh
-COPY . .
-# Ve başlat
-CMD ["python3", "-m", "userbot"]
+CMD ["python3", "main.py"]  
