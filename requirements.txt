@@ -15,6 +15,7 @@ git+https://github.com/bisoncorps/search-engine-parser
 git+https://github.com/Joeclinton1/google-images-download.git
 git+https://github.com/johnwmillr/LyricsGenius.git
 gitpython
+geopy
 google-api-python-client
 google-auth-oauthlib
 googletrans==4.0.0rc1
