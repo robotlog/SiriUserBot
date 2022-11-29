@@ -19,7 +19,7 @@ gTTS-token>=1.1.3
 hachoir
 httplib2
 humanize
-heroku3==5.1.4
+heroku3==5.1.5
 lxml==4.9.0
 git+https://github.com/johnwmillr/LyricsGenius.git
 lyricsgenius
